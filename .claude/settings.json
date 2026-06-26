@@ -1,0 +1,22 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(//usr/bin/**)",
+      "Bash(flatpak list *)",
+      "Bash(snap list *)",
+      "Bash(npm --version)",
+      "Bash(python3 -c \"import playwright; print\\('py-playwright OK'\\)\")",
+      "Bash(python3 -c \"import selenium; print\\('selenium OK'\\)\")",
+      "Bash(npm ls *)",
+      "Bash(echo \"=== OS ===\" && cat /etc/os-release 2>/dev/null | head -5; echo \"=== Brave running? ===\"; pgrep -a -f brave 2>/dev/null | head -20; echo \"=== Any debug port? ===\"; ss -tlnp 2>/dev/null | grep -E \"9222|9223|9229\" || echo \"no common debug ports open\")",
+      "Read(//usr/lib/**)",
+      "WebSearch",
+      "WebFetch(domain:x.com)",
+      "Bash(git init *)",
+      "Bash(git config *)",
+      "Bash(git symbolic-ref *)",
+      "Bash(git branch *)",
+      "Bash(git rev-parse *)"
+    ]
+  }
+}
