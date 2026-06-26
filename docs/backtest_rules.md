@@ -57,3 +57,10 @@
 - $500/trade plan is DROPPED entirely.
 - Rationale: smaller per-trade notional keeps the account from blowing up when many
   of her positions are open at once; the $200 just inherits the looser $500 risk rules.
+
+## UPDATE (user, 2026-06-27): spot-buy calls require SPOT listing
+- Many coins are on Binance FUTURES but NOT on Binance SPOT.
+- A kind:"spot" call (she says "buy spot"/"buy some at spot") is only actionable if the
+  coin is on Binance SPOT. If it's futures-only -> IGNORE that spot call (can't buy spot).
+- Leveraged setups (kind:"setup") trade on futures, so futures-only is fine for them.
+- At grading: for kind=="spot", check coin against binance_symbols.json["spot"]; drop if absent.

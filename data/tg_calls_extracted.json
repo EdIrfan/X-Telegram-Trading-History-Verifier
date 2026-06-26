@@ -6218,6 +6218,377 @@
    "chart_ex": "coinbase",
    "swing": true,
    "note": "ETH long (largecap), +29.8% / -4.8%"
+  },
+  {
+   "id": 48142,
+   "coin": "ETH",
+   "binance_sym": "ETHUSDT",
+   "binance": true,
+   "dir": "long",
+   "entry": 3854.14,
+   "targets": [
+    5004.37
+   ],
+   "sl": 3668.47,
+   "kind": "setup",
+   "chart_ex": "coinbase",
+   "swing": true,
+   "note": "duplicate of 48140 ETH long"
+  },
+  {
+   "id": 48148,
+   "coin": "ETH",
+   "binance_sym": "ETHUSDT",
+   "binance": true,
+   "dir": "long",
+   "entry": 3854.14,
+   "targets": [
+    5004.37
+   ],
+   "sl": 3668.47,
+   "kind": "setup",
+   "chart_ex": "coinbase",
+   "swing": true,
+   "note": "duplicate of 48140 ETH long"
+  },
+  {
+   "id": 48149,
+   "coin": "ETH",
+   "binance_sym": "ETHUSDT",
+   "binance": true,
+   "dir": "long",
+   "entry": 3854.14,
+   "targets": [
+    5004.37
+   ],
+   "sl": 3668.47,
+   "kind": "setup",
+   "chart_ex": "coinbase",
+   "swing": true,
+   "note": "duplicate of 48140 ETH long"
+  },
+  {
+   "id": 48151,
+   "coin": "ZEC",
+   "binance_sym": "ZECUSDT",
+   "binance": true,
+   "dir": "long",
+   "entry": 271.03,
+   "targets": [
+    401.25,
+    801.75
+   ],
+   "sl": 187.95,
+   "kind": "setup",
+   "chart_ex": "coinbase",
+   "swing": true,
+   "note": "ZEC long (alt, already ran from 36), 2 targets, SL -30.7%"
+  },
+  {
+   "id": 48158,
+   "coin": "ETH",
+   "binance_sym": "ETHUSDT",
+   "binance": true,
+   "dir": "long",
+   "entry": 3823.91,
+   "targets": [
+    4800
+   ],
+   "sl": 3619.83,
+   "kind": "setup",
+   "chart_ex": "binance",
+   "swing": true,
+   "note": "ETH long (largecap), target off-screen ~4800, SL -5.3%"
+  },
+  {
+   "id": 48159,
+   "coin": "BTC",
+   "binance_sym": "BTCUSDT",
+   "binance": true,
+   "dir": "long",
+   "entry": 107832,
+   "targets": [
+    160000
+   ],
+   "sl": 97191.6,
+   "kind": "setup",
+   "chart_ex": "binance",
+   "swing": true,
+   "note": "BTC long, target off-screen ~160k, SL -9.9%"
+  },
+  {
+   "id": 48160,
+   "coin": "BTC",
+   "binance_sym": "BTCUSDT",
+   "binance": true,
+   "dir": "long",
+   "entry": 107832,
+   "targets": [
+    160000
+   ],
+   "sl": 97191.6,
+   "kind": "setup",
+   "chart_ex": "binance",
+   "swing": true,
+   "note": "duplicate of 48159 BTC long"
+  },
+  {
+   "id": 48161,
+   "coin": "ETH",
+   "binance_sym": "ETHUSDT",
+   "binance": true,
+   "dir": "long",
+   "entry": 3823.91,
+   "targets": [
+    4800
+   ],
+   "sl": 3619.83,
+   "kind": "setup",
+   "chart_ex": "binance",
+   "swing": true,
+   "note": "duplicate of 48158 ETH long"
+  },
+  {
+   "id": 48304,
+   "coin": "BTC",
+   "binance_sym": "BTCUSDT",
+   "binance": true,
+   "dir": "long",
+   "entry": 110366,
+   "targets": [
+    146000
+   ],
+   "sl": 103487.0,
+   "kind": "setup",
+   "chart_ex": "binance",
+   "swing": true,
+   "note": "'Open Long BTC+ETH' (BTC side), target off-screen ~146k, SL -6.2%"
+  },
+  {
+   "id": 48306,
+   "coin": "ETH",
+   "binance_sym": "ETHUSDT",
+   "binance": true,
+   "dir": "long",
+   "entry": 3911.27,
+   "targets": [
+    5600
+   ],
+   "sl": 3640.48,
+   "kind": "setup",
+   "chart_ex": "binance",
+   "swing": true,
+   "note": "'Open Long BTC+ETH' (ETH side), target off-screen ~5600, SL -6.9%"
+  },
+  {
+   "id": 48308,
+   "coin": "BTC",
+   "binance_sym": "BTCUSDT",
+   "binance": true,
+   "dir": "long",
+   "entry": 110164,
+   "targets": [
+    222222.0
+   ],
+   "sl": 101337.4,
+   "kind": "setup",
+   "chart_ex": "binance",
+   "swing": true,
+   "note": "BTC long 'below 111111', +102% / -8%"
+  },
+  {
+   "id": 48312,
+   "coin": "BTC",
+   "binance_sym": "BTCUSDT",
+   "binance": true,
+   "dir": "long",
+   "entry": 110164,
+   "targets": [
+    222222.0
+   ],
+   "sl": 101337.4,
+   "kind": "setup",
+   "chart_ex": "binance",
+   "swing": true,
+   "note": "duplicate of 48308 BTC long below 111111"
+  },
+  {
+   "id": 48348,
+   "coin": "ZKC",
+   "binance_sym": "ZKCUSDT",
+   "binance": true,
+   "dir": "long",
+   "entry": 0.2851,
+   "targets": [
+    1.3
+   ],
+   "sl": 0.1791,
+   "kind": "setup",
+   "chart_ex": "binance",
+   "swing": true,
+   "note": "ZKC 'back to entry' (alt), target off-screen ~1.3, SL -37.2%"
+  },
+  {
+   "id": 48349,
+   "coin": "ZKC",
+   "binance_sym": "ZKCUSDT",
+   "binance": true,
+   "dir": "long",
+   "entry": 0.2851,
+   "targets": [
+    1.3
+   ],
+   "sl": 0.1791,
+   "kind": "setup",
+   "chart_ex": "binance",
+   "swing": true,
+   "note": "duplicate of 48348 ZKC"
+  },
+  {
+   "id": 48528,
+   "coin": "TRUMP",
+   "binance_sym": "TRUMPUSDT",
+   "binance": true,
+   "dir": "long",
+   "entry": 7.0,
+   "targets": [],
+   "sl": null,
+   "kind": "zone",
+   "chart_ex": "binance",
+   "note": "'Buy president TRUMP below $7' limit-buy level (alt), no hard target/SL"
+  },
+  {
+   "id": 48530,
+   "coin": "TRUMP",
+   "binance_sym": "TRUMPUSDT",
+   "binance": true,
+   "dir": "long",
+   "entry": 7.0,
+   "targets": [],
+   "sl": null,
+   "kind": "zone",
+   "chart_ex": "binance",
+   "note": "duplicate of 48528 buy TRUMP below 7"
+  },
+  {
+   "id": 48606,
+   "coin": "BTC",
+   "binance_sym": "BTCUSDT",
+   "binance": true,
+   "dir": "long",
+   "entry": 112840,
+   "targets": [
+    127810
+   ],
+   "sl": 106790,
+   "kind": "setup",
+   "chart_ex": "cme",
+   "swing": true,
+   "note": "'Rebuy BTC+ETH' (BTC side), +13.3% / -5.4%"
+  },
+  {
+   "id": 48608,
+   "coin": "ETH",
+   "binance_sym": "ETHUSDT",
+   "binance": true,
+   "dir": "long",
+   "entry": 3985.5,
+   "targets": [
+    5006.0
+   ],
+   "sl": 3782.5,
+   "kind": "setup",
+   "chart_ex": "cme",
+   "swing": true,
+   "note": "'Rebuy BTC+ETH' (ETH side), +25.6% / -5.1%"
+  },
+  {
+   "id": 48620,
+   "coin": "HYPE",
+   "binance_sym": "HYPEUSDT",
+   "binance": true,
+   "dir": "long",
+   "entry": 47.557,
+   "targets": [],
+   "sl": null,
+   "kind": "commentary",
+   "chart_ex": "binance",
+   "note": "duplicate of 48621 HYPE thesis"
+  },
+  {
+   "id": 48621,
+   "coin": "HYPE",
+   "binance_sym": "HYPEUSDT",
+   "binance": true,
+   "dir": "long",
+   "entry": 47.557,
+   "targets": [],
+   "sl": null,
+   "kind": "commentary",
+   "chart_ex": "binance",
+   "note": "HYPE 'will be like AXS 2021' long-term moonshot thesis (HYPE confirmed on Binance), no levels"
+  },
+  {
+   "id": 48698,
+   "coin": "BTC",
+   "binance_sym": "BTCUSDT",
+   "binance": true,
+   "dir": "long",
+   "entry": 110660,
+   "targets": [
+    159000
+   ],
+   "sl": 103305.4,
+   "kind": "setup",
+   "chart_ex": "binance",
+   "swing": true,
+   "note": "BTC long, target off-screen ~159k, SL -6.6%"
+  },
+  {
+   "id": 48704,
+   "coin": "BTC",
+   "binance_sym": "BTCUSDT",
+   "binance": true,
+   "dir": "long",
+   "entry": 110660,
+   "targets": [
+    159000
+   ],
+   "sl": 103305.4,
+   "kind": "setup",
+   "chart_ex": "binance",
+   "swing": true,
+   "note": "duplicate of 48698 BTC long"
+  },
+  {
+   "id": 48770,
+   "coin": "ETH",
+   "binance_sym": "ETHUSDT",
+   "binance": true,
+   "dir": "short",
+   "entry": 3828.43,
+   "targets": [
+    3448.86
+   ],
+   "sl": 3951.18,
+   "kind": "setup",
+   "chart_ex": "binance",
+   "note": "ETH SHORT, target -9.9% / SL +3.2%"
+  },
+  {
+   "id": 48772,
+   "coin": "ETH",
+   "binance_sym": "ETHUSDT",
+   "binance": true,
+   "dir": "short",
+   "entry": 3828.43,
+   "targets": [
+    3448.86
+   ],
+   "sl": 3951.18,
+   "kind": "setup",
+   "chart_ex": "binance",
+   "note": "duplicate of 48770 ETH short"
   }
  ]
 }
