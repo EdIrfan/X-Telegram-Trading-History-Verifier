@@ -69,7 +69,7 @@ def run(start_cap, margin, weekly_stop, enforce_min):
 
 print("Min order sizes at sample prices: BTC@70k -> ${:.0f}, BTC@110k -> ${:.0f}\n"
       .format(0.001*70000, 0.001*110000))
-configs=[(1000,10,-30),(1000,50,-50)]
+configs=[(1000,25,-30),(1000,50,-50)]
 print(f"{'Acct':>6}{'/trade':>8}{'notional':>10} | {'REALISTIC (min-order)':^34} | {'IDEAL (frac fills)':^22}")
 print(f"{'':>24} | {'end':>9}{'ret':>7}{'open?':>7}{'coarse':>7} | {'end':>9}{'ret':>7}")
 print("-"*92)
