@@ -46,3 +46,14 @@
   (top ~caps; refine at phase 6). Everything else = altcoin -> 1x always.
 - The "swing" flag in tg_calls_extracted.json marks her swing/hold intent; the 2x
   eligibility is swing AND largecap (applied at backtest time, not in the flag).
+
+## UPDATE (user, 2026-06-27): DROP $500 plan; run $100 + "$200-with-500-config"
+- She trades A LOT (constant re-entries, scenario hedges, many CONCURRENT positions).
+  Deploying $500/trade would massively over-leverage the $10k acct across simultaneous trades.
+- So the two plans are now:
+    PLAN A "$100"  : $100 margin/trade, CONSERVATIVE config (3%/wk stop, per-trade SL cap $100 normal / $200 swing)
+    PLAN B "$200c5": $200 margin/trade, but use the AGGRESSIVE $500 CONFIG
+                     (5%/wk stop, per-trade SL cap $200 normal / $400 swing)
+- $500/trade plan is DROPPED entirely.
+- Rationale: smaller per-trade notional keeps the account from blowing up when many
+  of her positions are open at once; the $200 just inherits the looser $500 risk rules.
