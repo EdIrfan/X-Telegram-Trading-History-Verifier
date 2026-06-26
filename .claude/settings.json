@@ -46,7 +46,9 @@
       "Bash(git commit -q -m 'Laddered TP + trailing-stop strategy backtest \\(hourly path\\) + STRATEGY_REPORT.md *)",
       "Bash(git commit -q -m 'Add weekly P&L table \\($100 vs $500\\) + WEEKLY_PNL.md *)",
       "Bash(git commit -q -m 'Small-account re-analysis \\($1000, $10/$50\\) with exchange order minimums *)",
-      "Bash(git commit -q -m 'Tune small account to $25/$50 per trade \\(clears BTC order minimum\\) *)"
+      "Bash(git commit -q -m 'Tune small account to $25/$50 per trade \\(clears BTC order minimum\\) *)",
+      "Bash(git commit -q -m 'Add two-step Telegram login helper \\(tg_auth.py\\) *)",
+      "Bash(git commit -q -m 'Update local permission allow-list *)"
     ]
   }
 }
