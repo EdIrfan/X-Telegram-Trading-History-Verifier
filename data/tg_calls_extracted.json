@@ -4192,6 +4192,383 @@
    "chart_ex": "binance",
    "swing": true,
    "note": "BTC swing long, +17% / -5.7%"
+  },
+  {
+   "id": 44116,
+   "coin": "BTC",
+   "binance_sym": "BTCUSDT",
+   "binance": true,
+   "dir": "short",
+   "entry": 113559,
+   "targets": [
+    98979.8
+   ],
+   "sl": 116573,
+   "kind": "setup",
+   "chart_ex": "binance",
+   "note": "SHORT (2-panel w/ ETH), target -12.8% / SL +2.7%"
+  },
+  {
+   "id": 44128,
+   "coin": "ETH",
+   "binance_sym": "ETHUSDT",
+   "binance": true,
+   "dir": "short",
+   "entry": 3497.59,
+   "targets": [
+    2808.85,
+    2270.89
+   ],
+   "sl": 3886.98,
+   "kind": "setup",
+   "chart_ex": "mobile",
+   "note": "SHORT, 2 targets, SL +11.1%"
+  },
+  {
+   "id": 44131,
+   "coin": "BTC",
+   "binance_sym": "BTCUSDT",
+   "binance": true,
+   "dir": "short",
+   "entry": 113309,
+   "targets": [
+    98245.2,
+    85845.1
+   ],
+   "sl": 119789.2,
+   "kind": "setup",
+   "chart_ex": "binance",
+   "note": "SHORT, 2 targets -13/-24%, SL +5.7%"
+  },
+  {
+   "id": 44147,
+   "coin": "HYPE",
+   "binance_sym": "HYPEUSDT",
+   "binance": true,
+   "dir": "long",
+   "entry": 38.273,
+   "targets": [
+    100.135
+   ],
+   "sl": 30.478,
+   "kind": "setup",
+   "chart_ex": "bybit",
+   "swing": true,
+   "note": "VERIFY HYPE Binance listing; +162.97% / -19.96%"
+  },
+  {
+   "id": 44164,
+   "coin": "ETH",
+   "binance_sym": "ETHUSDT",
+   "binance": true,
+   "dir": "long",
+   "entry": 3544,
+   "targets": [
+    4000
+   ],
+   "sl": 3428.05,
+   "kind": "setup",
+   "chart_ex": "coinbase",
+   "swing": true,
+   "note": "ETH 'legendary entry' (largecap), target off-screen ~4000, SL -3.3%"
+  },
+  {
+   "id": 44169,
+   "coin": "HEI",
+   "binance_sym": "HEIUSDT",
+   "binance": true,
+   "dir": "long",
+   "entry": 0.4028,
+   "targets": [
+    1.05
+   ],
+   "sl": 0.3255,
+   "kind": "setup",
+   "chart_ex": "binance",
+   "swing": true,
+   "note": "HEI re-entry (alt), target off-screen ~1.05, SL -19.2%"
+  },
+  {
+   "id": 44170,
+   "coin": "MYX",
+   "binance_sym": "MYXUSDT",
+   "binance": true,
+   "dir": "long",
+   "entry": 0.07791,
+   "targets": [],
+   "sl": 0.04594,
+   "kind": "update",
+   "chart_ex": "binance",
+   "note": "PERF: MYX +173% (~3x) from first entry @0.07791 = confirmed BIG WIN (updates 43447)"
+  },
+  {
+   "id": 44183,
+   "coin": "ETH",
+   "binance_sym": "ETHUSDT",
+   "binance": true,
+   "dir": "long",
+   "entry": 3544,
+   "targets": [
+    4000
+   ],
+   "sl": 3428.05,
+   "kind": "setup",
+   "chart_ex": "coinbase",
+   "swing": true,
+   "note": "duplicate of 44164 ETH 'legendary entry'"
+  },
+  {
+   "id": 44199,
+   "coin": "LTC",
+   "binance_sym": "LTCUSDT",
+   "binance": true,
+   "dir": "long",
+   "entry": 127.37,
+   "targets": [
+    408.14
+   ],
+   "sl": 98.55,
+   "kind": "setup",
+   "chart_ex": "bybit",
+   "swing": true,
+   "note": "LTC long (largecap), +220% / -22.6%"
+  },
+  {
+   "id": 44291,
+   "coin": "ADA",
+   "binance_sym": "ADAUSDT",
+   "binance": true,
+   "dir": "long",
+   "entry": 0.7965,
+   "targets": [
+    2.9,
+    5.8,
+    9.0
+   ],
+   "sl": null,
+   "kind": "setup",
+   "chart_ex": "binance",
+   "swing": true,
+   "note": "ADA long-term inverse H&S (largecap), 3 targets 2.9/5.8/9.0, no hard SL"
+  },
+  {
+   "id": 44542,
+   "coin": "BTC",
+   "binance_sym": "BTCUSDT",
+   "binance": true,
+   "dir": "short",
+   "entry": 112622,
+   "targets": [
+    98576.72
+   ],
+   "sl": 117145.36,
+   "kind": "setup",
+   "chart_ex": "coinbase",
+   "note": "BTC 'baby short', target -13.46% / SL +4.03%"
+  },
+  {
+   "id": 44545,
+   "coin": "BTC",
+   "binance_sym": "BTCUSDT",
+   "binance": true,
+   "dir": "short",
+   "entry": 112622,
+   "targets": [
+    98576.72
+   ],
+   "sl": 117145.36,
+   "kind": "setup",
+   "chart_ex": "coinbase",
+   "note": "duplicate of 44542 baby short"
+  },
+  {
+   "id": 44590,
+   "coin": "BTC",
+   "binance_sym": "BTCUSDT",
+   "binance": true,
+   "dir": "short",
+   "entry": 112145,
+   "targets": [
+    98185.29
+   ],
+   "sl": 115019,
+   "kind": "setup",
+   "chart_ex": "coinbase",
+   "note": "SHORT, target -12.47% / SL +2.56%"
+  },
+  {
+   "id": 44594,
+   "coin": "BTC",
+   "binance_sym": "BTCUSDT",
+   "binance": true,
+   "dir": "short",
+   "entry": 112145,
+   "targets": [
+    98185.29
+   ],
+   "sl": 115019,
+   "kind": "setup",
+   "chart_ex": "coinbase",
+   "note": "duplicate of 44590 short"
+  },
+  {
+   "id": 44702,
+   "coin": "SAGA",
+   "binance_sym": "SAGAUSDT",
+   "binance": true,
+   "dir": "long",
+   "entry": 0.2512,
+   "targets": [
+    0.2788,
+    0.3062
+   ],
+   "sl": 0.2327,
+   "kind": "setup",
+   "chart_ex": "binance",
+   "note": "'buying more SAGA' (alt), 2 targets +11/+22%, SL -7.29%"
+  },
+  {
+   "id": 44749,
+   "coin": "BTC",
+   "binance_sym": "BTCUSDT",
+   "binance": true,
+   "dir": "long",
+   "entry": 112060,
+   "targets": [
+    160336.3
+   ],
+   "sl": 97738.5,
+   "kind": "setup",
+   "chart_ex": "binance",
+   "swing": true,
+   "note": "BTC 'swing setup rest of year', +43.1% / -12.8%"
+  },
+  {
+   "id": 44750,
+   "coin": "BTC",
+   "binance_sym": "BTCUSDT",
+   "binance": true,
+   "dir": "long",
+   "entry": 112060,
+   "targets": [
+    160336.3
+   ],
+   "sl": 97738.5,
+   "kind": "setup",
+   "chart_ex": "binance",
+   "swing": true,
+   "note": "duplicate of 44749 swing setup"
+  },
+  {
+   "id": 44768,
+   "coin": "ACH",
+   "binance_sym": "ACHUSDT",
+   "binance": true,
+   "dir": "long",
+   "entry": 0.02051,
+   "targets": [
+    0.02202,
+    0.02275,
+    0.02352
+   ],
+   "sl": null,
+   "kind": "setup",
+   "chart_ex": "binance",
+   "note": "ACH trend-break (alt), 3 small targets, no SL drawn"
+  },
+  {
+   "id": 44883,
+   "coin": "ETH",
+   "binance_sym": "ETHUSDT",
+   "binance": true,
+   "dir": "long",
+   "entry": 4397.16,
+   "targets": [
+    5116.16
+   ],
+   "sl": 4240.4,
+   "kind": "setup",
+   "chart_ex": "coinbase",
+   "swing": true,
+   "note": "ETH long (largecap), +16.4% / -3.6%"
+  },
+  {
+   "id": 44885,
+   "coin": "ETH",
+   "binance_sym": "ETHUSDT",
+   "binance": true,
+   "dir": "long",
+   "entry": 4397.16,
+   "targets": [
+    5116.16
+   ],
+   "sl": 4240.4,
+   "kind": "setup",
+   "chart_ex": "coinbase",
+   "swing": true,
+   "note": "duplicate of 44883 ETH long"
+  },
+  {
+   "id": 44934,
+   "coin": "BTC",
+   "binance_sym": "BTCUSDT",
+   "binance": true,
+   "dir": "long",
+   "entry": 110949,
+   "targets": [
+    150165.0
+   ],
+   "sl": 106623.2,
+   "kind": "setup",
+   "chart_ex": "binance",
+   "swing": true,
+   "note": "BTC 'long below 111111', +35.3% / -3.9%"
+  },
+  {
+   "id": 44935,
+   "coin": "BTC",
+   "binance_sym": "BTCUSDT",
+   "binance": true,
+   "dir": "long",
+   "entry": 110949,
+   "targets": [
+    150165.0
+   ],
+   "sl": 106623.2,
+   "kind": "setup",
+   "chart_ex": "binance",
+   "swing": true,
+   "note": "duplicate of 44934 long below 111111"
+  },
+  {
+   "id": 44944,
+   "coin": "ETH",
+   "binance_sym": "ETHUSDT",
+   "binance": true,
+   "dir": "short",
+   "entry": 4297.02,
+   "targets": [
+    3807.78
+   ],
+   "sl": 4509.23,
+   "kind": "setup",
+   "chart_ex": "coinbase",
+   "note": "ETH SHORT, target -11.53% / SL +4.76%"
+  },
+  {
+   "id": 44946,
+   "coin": "ETH",
+   "binance_sym": "ETHUSDT",
+   "binance": true,
+   "dir": "short",
+   "entry": 4297.02,
+   "targets": [
+    3807.78
+   ],
+   "sl": 4509.23,
+   "kind": "setup",
+   "chart_ex": "coinbase",
+   "note": "duplicate of 44944 ETH short"
   }
  ]
 }
