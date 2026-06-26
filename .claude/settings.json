@@ -43,7 +43,8 @@
       "Bash(python3 -c \"import json;d=json.load\\(open\\('data/posts.json'\\)\\);print\\('posts',d['count'],'latest',max\\(t['datetime'] for t in d['posts'] if t.get\\('datetime'\\)\\)\\)\")",
       "Bash(python3 -c \"import json;d=json.load\\(open\\('data/posts.json'\\)\\);p=d['posts'];print\\('FINAL posts:',d['count'],'| range:',min\\(t['datetime'][:10] for t in p if t.get\\('datetime'\\)\\),'->',max\\(t['datetime'][:10] for t in p if t.get\\('datetime'\\)\\)\\)\")",
       "Bash(git commit -q -m 'FINAL: full-year scrape complete \\(3105 posts\\) + all 73 calls graded + report *)",
-      "Bash(git commit -q -m 'Laddered TP + trailing-stop strategy backtest \\(hourly path\\) + STRATEGY_REPORT.md *)"
+      "Bash(git commit -q -m 'Laddered TP + trailing-stop strategy backtest \\(hourly path\\) + STRATEGY_REPORT.md *)",
+      "Bash(git commit -q -m 'Add weekly P&L table \\($100 vs $500\\) + WEEKLY_PNL.md *)"
     ]
   }
 }
