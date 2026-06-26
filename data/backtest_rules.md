@@ -37,3 +37,12 @@
 - 2x-3x MAX. 1x for moonshot alts (wide 20-40% SL -> low lev avoids liquidation).
 - (X-account backtest used 5x; Rose uses much lower because her SL distances are huge.)
 - Risk-parity sizing already caps the $ loss; leverage only affects capital/liquidation.
+
+## UPDATE (user, 2026-06-27): 2x only for BTC + large-caps
+- The 2x swing risk/SL is RESTRICTED to BTC and large-caps. NO 2x for altcoins,
+  even on buy&hold/swing. Altcoins always stay 1x risk (and 1x leverage).
+- So: 2x_eligible = (swing == true) AND (coin in LARGECAPS).
+- LARGECAPS := BTC, ETH, BNB, SOL, XRP, ADA, DOGE, LTC, TRX, LINK, AVAX, DOT, BCH
+  (top ~caps; refine at phase 6). Everything else = altcoin -> 1x always.
+- The "swing" flag in tg_calls_extracted.json marks her swing/hold intent; the 2x
+  eligibility is swing AND largecap (applied at backtest time, not in the flag).

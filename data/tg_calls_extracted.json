@@ -1948,6 +1948,1122 @@
    "kind": "setup",
    "chart_ex": "binance",
    "note": "LONG, 3 targets, SL -4.6%"
+  },
+  {
+   "id": 40813,
+   "coin": "BTC",
+   "binance_sym": "BTCUSDT",
+   "binance": true,
+   "dir": "short",
+   "entry": 82044,
+   "targets": [
+    69164.5
+   ],
+   "sl": 87042.5,
+   "kind": "setup",
+   "chart_ex": "bybit",
+   "note": "SHORT, target -15.7% / SL +6.1%"
+  },
+  {
+   "id": 40815,
+   "coin": "ETH",
+   "binance_sym": "ETHUSDT",
+   "binance": true,
+   "dir": "short",
+   "entry": 2022,
+   "targets": [
+    1565.56
+   ],
+   "sl": 2223.71,
+   "kind": "setup",
+   "chart_ex": "coinbase",
+   "note": "SHORT, target -22.6% / SL +10%"
+  },
+  {
+   "id": 40826,
+   "coin": "BTC",
+   "binance_sym": "BTCUSDT",
+   "binance": true,
+   "dir": "long",
+   "entry": null,
+   "targets": [],
+   "sl": null,
+   "kind": "close",
+   "chart_ex": "bybit",
+   "note": "CLOSE long scalp at ~81949 (closing 40785, ~-5% near SL)",
+   "exit_price": 81949
+  },
+  {
+   "id": 40832,
+   "coin": "BTC",
+   "binance_sym": "BTCUSDT",
+   "binance": true,
+   "dir": "long",
+   "entry": 83272,
+   "targets": [
+    86229,
+    88752.4,
+    91091.3
+   ],
+   "sl": 78250.5,
+   "kind": "setup",
+   "chart_ex": "binance",
+   "note": "RE-LONG, 3 targets, SL -6%"
+  },
+  {
+   "id": 40835,
+   "coin": "ETH",
+   "binance_sym": "ETHUSDT",
+   "binance": true,
+   "dir": "long",
+   "entry": 2101,
+   "targets": [
+    2280.44,
+    2515.78,
+    2653.84
+   ],
+   "sl": 1980.8,
+   "kind": "setup",
+   "chart_ex": "coinbase",
+   "note": "LONG, double-bottom, 3 targets, SL -5.7%"
+  },
+  {
+   "id": 40839,
+   "coin": "REZ",
+   "binance_sym": "REZUSDT",
+   "binance": true,
+   "dir": "long",
+   "entry": 0.02653,
+   "targets": [
+    0.065,
+    0.08106
+   ],
+   "sl": 0.01602,
+   "kind": "setup",
+   "chart_ex": "binance",
+   "note": "REZ re-entry, SL -39.6%"
+  },
+  {
+   "id": 40856,
+   "coin": "ETH",
+   "binance_sym": "ETHUSDT",
+   "binance": true,
+   "dir": "short",
+   "entry": 2006,
+   "targets": [
+    1587.69
+   ],
+   "sl": 2161.63,
+   "kind": "setup",
+   "chart_ex": "coinbase",
+   "note": "SHORT (flipped from 40835 long ~6h earlier), target -20.9% / SL +7.8%"
+  },
+  {
+   "id": 40857,
+   "coin": "BTC",
+   "binance_sym": "BTCUSDT",
+   "binance": true,
+   "dir": "short",
+   "entry": 79648,
+   "targets": [
+    73881.6,
+    69509.2,
+    66666.0
+   ],
+   "sl": 86376.7,
+   "kind": "setup",
+   "chart_ex": "bybit",
+   "note": "SHORT, 3 targets, SL +8.4%"
+  },
+  {
+   "id": 40877,
+   "coin": "REZ",
+   "binance_sym": "REZUSDT",
+   "binance": true,
+   "dir": "long",
+   "entry": 0.02832,
+   "targets": [
+    0.065,
+    0.08106
+   ],
+   "sl": 0.01602,
+   "kind": "setup",
+   "chart_ex": "binance",
+   "note": "REZ 3rd re-entry, SL -43.4%"
+  },
+  {
+   "id": 40880,
+   "coin": "XRP",
+   "binance_sym": "XRPUSDT",
+   "binance": true,
+   "dir": "long",
+   "entry": 2.206,
+   "targets": [
+    7.2343
+   ],
+   "sl": 1.7352,
+   "kind": "setup",
+   "chart_ex": "binance",
+   "note": "+228% / -21.3%"
+  },
+  {
+   "id": 40881,
+   "coin": "HBAR",
+   "binance_sym": "HBARUSDT",
+   "binance": true,
+   "dir": "long",
+   "entry": 0.19895,
+   "targets": [
+    0.47096
+   ],
+   "sl": 0.15394,
+   "kind": "setup",
+   "chart_ex": "bybit",
+   "note": "+137% / -22.6%"
+  },
+  {
+   "id": 40891,
+   "coin": "BTC",
+   "binance_sym": "BTCUSDT",
+   "binance": true,
+   "dir": "long",
+   "entry": 82111,
+   "targets": [
+    90442.3
+   ],
+   "sl": 78726.5,
+   "kind": "setup",
+   "chart_ex": "bybit",
+   "note": "LONG, +10.1% / -4.1%"
+  },
+  {
+   "id": 40898,
+   "coin": "ETH",
+   "binance_sym": "ETHUSDT",
+   "binance": true,
+   "dir": "short",
+   "entry": 1891,
+   "targets": [
+    1436.9
+   ],
+   "sl": 2176.6,
+   "kind": "setup",
+   "chart_ex": "bitstamp",
+   "note": "SHORT, target -24% / SL +15.1%"
+  },
+  {
+   "id": 40900,
+   "coin": "XRP",
+   "binance_sym": "XRPUSDT",
+   "binance": true,
+   "dir": "short",
+   "entry": 2.1828,
+   "targets": [
+    1.9,
+    1.4,
+    1.13
+   ],
+   "sl": 2.6601,
+   "kind": "setup",
+   "chart_ex": "binance",
+   "note": "SHORT, 3 targets, SL +21.9%"
+  },
+  {
+   "id": 40901,
+   "coin": "ETH",
+   "binance_sym": "ETHUSDT",
+   "binance": true,
+   "dir": "short",
+   "entry": 1899.5,
+   "targets": [
+    1540,
+    1440,
+    1226.1
+   ],
+   "sl": 2176.6,
+   "kind": "setup",
+   "chart_ex": "bitstamp",
+   "note": "SHORT 3D, 3 targets, SL +14.6%"
+  },
+  {
+   "id": 40909,
+   "coin": "BTC",
+   "binance_sym": "BTCUSDT",
+   "binance": true,
+   "dir": "short",
+   "entry": 83808,
+   "targets": [
+    74403.6
+   ],
+   "sl": 87097.1,
+   "kind": "setup",
+   "chart_ex": "bybit",
+   "note": "SHORT, target -11.2% / SL +3.9%"
+  },
+  {
+   "id": 40935,
+   "coin": "LAYER",
+   "binance_sym": "LAYERUSDT",
+   "binance": true,
+   "dir": "long",
+   "entry": 1.0611,
+   "targets": [
+    2.2795
+   ],
+   "sl": 0.7214,
+   "kind": "setup",
+   "chart_ex": "binance",
+   "note": "LAYER re-entry, +115% / -32%"
+  },
+  {
+   "id": 40946,
+   "coin": "EPIC",
+   "binance_sym": "EPICUSDT",
+   "binance": true,
+   "dir": "long",
+   "entry": 1.635,
+   "targets": [
+    6.0432
+   ],
+   "sl": 1.2794,
+   "kind": "setup",
+   "chart_ex": "binance",
+   "note": "+270% / -21.7%"
+  },
+  {
+   "id": 40952,
+   "coin": "BTC",
+   "binance_sym": "BTCUSDT",
+   "binance": true,
+   "dir": "short",
+   "entry": 83047,
+   "targets": [
+    74022.6
+   ],
+   "sl": 87056.7,
+   "kind": "setup",
+   "chart_ex": "bybit",
+   "note": "SHORT MORE (add), target -10.9% / SL +4.8%"
+  },
+  {
+   "id": 40980,
+   "coin": "XRP",
+   "binance_sym": "XRPUSDT",
+   "binance": true,
+   "dir": "long",
+   "entry": 2.2851,
+   "targets": [
+    7.0056
+   ],
+   "sl": 1.8881,
+   "kind": "setup",
+   "chart_ex": "binance",
+   "note": "LONG (flipped from 40900 short ~2d earlier), +207% / -17.4%"
+  },
+  {
+   "id": 41003,
+   "coin": "BTC",
+   "binance_sym": "BTCUSDT",
+   "binance": true,
+   "dir": "short",
+   "entry": 82864,
+   "targets": [
+    74045.7
+   ],
+   "sl": 86740.5,
+   "kind": "setup",
+   "chart_ex": "bybit",
+   "note": "SHORT MORE (add), target -10.6% / SL +4.7%"
+  },
+  {
+   "id": 41004,
+   "coin": "BTC",
+   "binance_sym": "BTCUSDT",
+   "binance": true,
+   "dir": "short",
+   "entry": 82864,
+   "targets": [
+    74045.7
+   ],
+   "sl": 86740.5,
+   "kind": "setup",
+   "chart_ex": "bybit",
+   "note": "duplicate of 41003 (Russia BTC news caption)"
+  },
+  {
+   "id": 41009,
+   "coin": "BTC",
+   "binance_sym": "BTCUSDT",
+   "binance": true,
+   "dir": "long",
+   "entry": 84263,
+   "targets": [
+    108285.9
+   ],
+   "sl": 76223.9,
+   "kind": "setup",
+   "chart_ex": "binance",
+   "note": "LONG (scenario hedge ~30min after 41003 short); +28.5% / -9.5%"
+  },
+  {
+   "id": 41011,
+   "coin": "TRUMP",
+   "binance_sym": "TRUMPUSDT",
+   "binance": true,
+   "dir": "long",
+   "entry": 12.099,
+   "targets": [
+    79.043
+   ],
+   "sl": 9.424,
+   "kind": "setup",
+   "chart_ex": "binance",
+   "note": "TRUMP re-entry much lower, log moonshot +553%, SL -22.1%"
+  },
+  {
+   "id": 41017,
+   "coin": "BTC",
+   "binance_sym": "BTCUSDT",
+   "binance": true,
+   "dir": "short",
+   "entry": 84606,
+   "targets": [
+    74032.5
+   ],
+   "sl": 87254.2,
+   "kind": "setup",
+   "chart_ex": "bybit",
+   "note": "SHORT, target -12.52% / SL +3.18%"
+  },
+  {
+   "id": 41028,
+   "coin": "TRUMP",
+   "binance_sym": "TRUMPUSDT",
+   "binance": true,
+   "dir": "long",
+   "entry": 12.099,
+   "targets": [
+    79.043
+   ],
+   "sl": 9.424,
+   "kind": "setup",
+   "chart_ex": "binance",
+   "swing": true,
+   "note": "duplicate of 41011 TRUMP long"
+  },
+  {
+   "id": 41031,
+   "coin": "LAYER",
+   "binance_sym": "LAYERUSDT",
+   "binance": true,
+   "dir": "long",
+   "entry": 1.2512,
+   "targets": [
+    3.0488
+   ],
+   "sl": 0.8518,
+   "kind": "setup",
+   "chart_ex": "binance",
+   "swing": true,
+   "note": "LAYER re-entry, +144% / -32%"
+  },
+  {
+   "id": 41036,
+   "coin": "BTC",
+   "binance_sym": "BTCUSDT",
+   "binance": true,
+   "dir": "short",
+   "entry": 84050,
+   "targets": [
+    74032.5
+   ],
+   "sl": 86951.0,
+   "kind": "setup",
+   "chart_ex": "bybit",
+   "note": "RE-SHORT, target -11.93% / SL +3.44%"
+  },
+  {
+   "id": 41039,
+   "coin": "ETH",
+   "binance_sym": "ETHUSDT",
+   "binance": true,
+   "dir": "short",
+   "entry": 1926,
+   "targets": [
+    1330
+   ],
+   "sl": 2160.96,
+   "kind": "update",
+   "chart_ex": "kraken",
+   "note": "'ETH still in short' status (reaffirms 40898/40901 short)"
+  },
+  {
+   "id": 41046,
+   "coin": "BTC",
+   "binance_sym": "BTCUSDT",
+   "binance": true,
+   "dir": "long",
+   "entry": 84090,
+   "targets": [
+    108195.9
+   ],
+   "sl": 75998.8,
+   "kind": "setup",
+   "chart_ex": "binance",
+   "swing": true,
+   "note": "SWING LONG 84k (she labeled it swing), +28.7% / -9.6%"
+  },
+  {
+   "id": 41068,
+   "coin": "ETH",
+   "binance_sym": "ETHUSDT",
+   "binance": true,
+   "dir": "short",
+   "entry": 1926,
+   "targets": [
+    1330
+   ],
+   "sl": 2160.96,
+   "kind": "update",
+   "chart_ex": "kraken",
+   "note": "'ETH still in short' status (repeat of 41039)"
+  },
+  {
+   "id": 41071,
+   "coin": "BTC",
+   "binance_sym": "BTCUSDT",
+   "binance": true,
+   "dir": "short",
+   "entry": 83850,
+   "targets": [
+    74032.5
+   ],
+   "sl": 86951.0,
+   "kind": "setup",
+   "chart_ex": "bybit",
+   "note": "RE-SHORT, target -11.93% / SL +3.44%"
+  },
+  {
+   "id": 41079,
+   "coin": "XRP",
+   "binance_sym": "XRPUSDT",
+   "binance": true,
+   "dir": "long",
+   "entry": 2.4004,
+   "targets": [
+    7.0301
+   ],
+   "sl": 1.8879,
+   "kind": "setup",
+   "chart_ex": "binance",
+   "swing": true,
+   "note": "'Final setup for XRP Long', +193% / -21.3%"
+  },
+  {
+   "id": 41082,
+   "coin": "XRP",
+   "binance_sym": "XRPUSDT",
+   "binance": true,
+   "dir": "long",
+   "entry": 2.4004,
+   "targets": [
+    7.0301
+   ],
+   "sl": 1.8879,
+   "kind": "setup",
+   "chart_ex": "binance",
+   "swing": true,
+   "note": "duplicate of 41079 'Final XRP Long'"
+  },
+  {
+   "id": 41105,
+   "coin": "XRP",
+   "binance_sym": "XRPUSDT",
+   "binance": true,
+   "dir": "long",
+   "entry": 2.4004,
+   "targets": [
+    7.0301
+   ],
+   "sl": 1.8879,
+   "kind": "setup",
+   "chart_ex": "binance",
+   "swing": true,
+   "note": "duplicate of 41079 'Final XRP Long'"
+  },
+  {
+   "id": 41106,
+   "coin": "BNB",
+   "binance_sym": "BNBUSDT",
+   "binance": true,
+   "dir": "long",
+   "entry": 618.92,
+   "targets": [
+    2012.87
+   ],
+   "sl": 501.2,
+   "kind": "setup",
+   "chart_ex": "binance",
+   "swing": true,
+   "note": "BNB Buy&Hold, +225% / -19%"
+  },
+  {
+   "id": 41107,
+   "coin": "BTC",
+   "binance_sym": "BTCUSDT",
+   "binance": true,
+   "dir": "long",
+   "entry": 84285,
+   "targets": [
+    108936.7
+   ],
+   "sl": 75895.7,
+   "kind": "setup",
+   "chart_ex": "bybit",
+   "swing": true,
+   "note": "BTC swing long, +29.2% / -9.9%"
+  },
+  {
+   "id": 41109,
+   "coin": "BANANA",
+   "binance_sym": "BANANAUSDT",
+   "binance": true,
+   "dir": "long",
+   "entry": 18.383,
+   "targets": [
+    42.038
+   ],
+   "sl": 13.478,
+   "kind": "setup",
+   "chart_ex": "binance",
+   "swing": true,
+   "note": "ALT (no 2x), +129% / -26.7%"
+  },
+  {
+   "id": 41113,
+   "coin": "BTC",
+   "binance_sym": "BTCUSDT",
+   "binance": true,
+   "dir": "long",
+   "entry": 74168,
+   "targets": [
+    105006.3
+   ],
+   "sl": 66552.7,
+   "kind": "setup",
+   "chart_ex": "bybit",
+   "swing": true,
+   "note": "BTC bid@74k zone, +41.58% / -10.27%"
+  },
+  {
+   "id": 41114,
+   "coin": "ETH",
+   "binance_sym": "ETHUSDT",
+   "binance": true,
+   "dir": "short",
+   "entry": 1920.93,
+   "targets": [
+    1609.82
+   ],
+   "sl": 2035.95,
+   "kind": "setup",
+   "chart_ex": "mobile",
+   "note": "SHORT, target -16.20% / SL +5.98%"
+  },
+  {
+   "id": 41129,
+   "coin": "BNB",
+   "binance_sym": "BNBUSDT",
+   "binance": true,
+   "dir": "long",
+   "entry": 625.23,
+   "targets": [
+    2012.87
+   ],
+   "sl": 501.2,
+   "kind": "setup",
+   "chart_ex": "binance",
+   "swing": true,
+   "note": "BNB rebuy (largecap, 2x-eligible), +222% / -19.8%"
+  },
+  {
+   "id": 41132,
+   "coin": "CAKE",
+   "binance_sym": "CAKEUSDT",
+   "binance": true,
+   "dir": "long",
+   "entry": 2.132,
+   "targets": [
+    17.475
+   ],
+   "sl": 1.401,
+   "kind": "setup",
+   "chart_ex": "binance",
+   "swing": true,
+   "note": "ALT (no 2x), log moonshot +720% / SL -34.3%"
+  },
+  {
+   "id": 41152,
+   "coin": "TST",
+   "binance_sym": "TSTUSDT",
+   "binance": true,
+   "dir": "long",
+   "entry": 0.0771,
+   "targets": [
+    0.3745
+   ],
+   "sl": 0.0485,
+   "kind": "setup",
+   "chart_ex": "binance",
+   "swing": true,
+   "note": "TST re-entry (alt), +386% / -37.1%"
+  },
+  {
+   "id": 41186,
+   "coin": "MUBARAK",
+   "binance_sym": "MUBARAKUSDT",
+   "binance": true,
+   "dir": "long",
+   "entry": 0.14973,
+   "targets": [
+    1.02582
+   ],
+   "sl": 0.08756,
+   "kind": "setup",
+   "chart_ex": "mobile",
+   "swing": true,
+   "note": "ALT (no 2x), log moonshot +585% / SL -41.5%"
+  },
+  {
+   "id": 41193,
+   "coin": "BMT",
+   "binance_sym": "BMTUSDT",
+   "binance": true,
+   "dir": "long",
+   "entry": 0.1612,
+   "targets": [
+    0.3
+   ],
+   "sl": 0.1105,
+   "kind": "setup",
+   "chart_ex": "binance",
+   "swing": true,
+   "note": "ALT, target off-screen ~0.30, SL -31.5%"
+  },
+  {
+   "id": 41225,
+   "coin": "ETH",
+   "binance_sym": "ETHUSDT",
+   "binance": true,
+   "dir": null,
+   "entry": null,
+   "targets": [],
+   "sl": null,
+   "kind": "commentary",
+   "chart_ex": "coinbase",
+   "note": "'ETH box range 1820-1960' observation, not a trade"
+  },
+  {
+   "id": 41231,
+   "coin": "BMT",
+   "binance_sym": "BMTUSDT",
+   "binance": true,
+   "dir": "long",
+   "entry": 0.2607,
+   "targets": [
+    0.65
+   ],
+   "sl": 0.1755,
+   "kind": "setup",
+   "chart_ex": "binance",
+   "swing": true,
+   "note": "BMT re-entry (alt), target off-screen ~0.65, SL -32.7%"
+  },
+  {
+   "id": 41233,
+   "coin": "BTC",
+   "binance_sym": "BTCUSDT",
+   "binance": true,
+   "dir": "long",
+   "entry": 82649,
+   "targets": [
+    108176.64
+   ],
+   "sl": 76644.27,
+   "kind": "setup",
+   "chart_ex": "binance",
+   "swing": true,
+   "note": "BTC swing long, +30.9% / -7.3%"
+  },
+  {
+   "id": 41241,
+   "coin": "BTC",
+   "binance_sym": "BTCUSDT",
+   "binance": true,
+   "dir": "short",
+   "entry": 83388,
+   "targets": [
+    71837.5
+   ],
+   "sl": 87576.1,
+   "kind": "setup",
+   "chart_ex": "binance",
+   "note": "SHORT, target -13.80% / SL +5.0%"
+  },
+  {
+   "id": 41252,
+   "coin": "XRP",
+   "binance_sym": "XRPUSDT",
+   "binance": true,
+   "dir": "long",
+   "entry": 2.5338,
+   "targets": [
+    7.0
+   ],
+   "sl": 2.183,
+   "kind": "setup",
+   "chart_ex": "binance",
+   "swing": true,
+   "note": "XRP rebuy (largecap), target off-screen ~7, SL -13.8%"
+  },
+  {
+   "id": 41259,
+   "coin": "BTC",
+   "binance_sym": "BTCUSDT",
+   "binance": true,
+   "dir": "short",
+   "entry": 84510,
+   "targets": [
+    73426.6
+   ],
+   "sl": 88724.8,
+   "kind": "setup",
+   "chart_ex": "binance",
+   "note": "RE-SHORT, target -13.11% / SL +5.0%"
+  },
+  {
+   "id": 41265,
+   "coin": "BNB",
+   "binance_sym": "BNBUSDT",
+   "binance": true,
+   "dir": "long",
+   "entry": 619.63,
+   "targets": [
+    2012.87
+   ],
+   "sl": 501.2,
+   "kind": "setup",
+   "chart_ex": "binance",
+   "swing": true,
+   "note": "BNB (largecap, 2x-eligible), target ~2012, SL -19.1%"
+  },
+  {
+   "id": 41268,
+   "coin": "CAKE",
+   "binance_sym": "CAKEUSDT",
+   "binance": true,
+   "dir": "long",
+   "entry": 2.4055,
+   "targets": [
+    6.0
+   ],
+   "sl": 1.7386,
+   "kind": "setup",
+   "chart_ex": "binance",
+   "swing": true,
+   "note": "CAKE (alt), target off-screen ~6, SL -27.7%"
+  },
+  {
+   "id": 41269,
+   "coin": "BTC",
+   "binance_sym": "BTCUSDT",
+   "binance": true,
+   "dir": "long",
+   "entry": 85584,
+   "targets": [
+    108147.34
+   ],
+   "sl": 80739.2,
+   "kind": "setup",
+   "chart_ex": "coinbase",
+   "swing": true,
+   "note": "BTC swing long, +26.4% / -5.7%"
+  },
+  {
+   "id": 41272,
+   "coin": "BTC",
+   "binance_sym": "BTCUSDT",
+   "binance": true,
+   "dir": "short",
+   "entry": 85187,
+   "targets": [
+    73947.3
+   ],
+   "sl": 87500.0,
+   "kind": "setup",
+   "chart_ex": "bybit",
+   "note": "RE-OPEN SHORT, target -13.26% / SL +2.64%"
+  },
+  {
+   "id": 41286,
+   "coin": "TUT",
+   "binance_sym": "TUTUSDT",
+   "binance": true,
+   "dir": "long",
+   "entry": 0.04697,
+   "targets": [
+    0.115
+   ],
+   "sl": 0.02982,
+   "kind": "setup",
+   "chart_ex": "bybit",
+   "note": "ALT, target off-screen ~0.115, SL -36.5%"
+  },
+  {
+   "id": 41288,
+   "coin": "CAKE",
+   "binance_sym": "CAKEUSDT",
+   "binance": true,
+   "dir": "long",
+   "entry": 2.5023,
+   "targets": [
+    5.8
+   ],
+   "sl": 1.7386,
+   "kind": "setup",
+   "chart_ex": "binance",
+   "swing": true,
+   "note": "CAKE re-entry (alt), target off-screen ~5.8, SL -30.5%"
+  },
+  {
+   "id": 41306,
+   "coin": "VIDT",
+   "binance_sym": "VIDTUSDT",
+   "binance": true,
+   "dir": "long",
+   "entry": 0.01565,
+   "targets": [
+    0.06343
+   ],
+   "sl": 0.0086,
+   "kind": "setup",
+   "chart_ex": "binance",
+   "swing": true,
+   "note": "header=BINANCE (listed at call time); +305% / -45%"
+  },
+  {
+   "id": 41310,
+   "coin": "ETH",
+   "binance_sym": "ETHUSDT",
+   "binance": true,
+   "dir": "short",
+   "entry": 1969.93,
+   "targets": [
+    1601.42
+   ],
+   "sl": 2081.38,
+   "kind": "setup",
+   "chart_ex": "mobile",
+   "note": "SHORT, target -18.73% / SL +5.63%"
+  },
+  {
+   "id": 41317,
+   "coin": "ETH",
+   "binance_sym": "ETHUSDT",
+   "binance": true,
+   "dir": "long",
+   "entry": 1975.4,
+   "targets": [
+    2634.45
+   ],
+   "sl": 1742.39,
+   "kind": "setup",
+   "chart_ex": "coinbase",
+   "note": "LONG (flipped from 41310 short ~4h earlier), +33.46% / -11.73%"
+  },
+  {
+   "id": 41326,
+   "coin": "PEPE",
+   "binance_sym": "PEPEUSDT",
+   "binance": true,
+   "dir": "long",
+   "entry": 0.007582,
+   "targets": [],
+   "sl": null,
+   "kind": "spot",
+   "chart_ex": "binance",
+   "note": "'buy some' 1000PEPE@0.007582 (=PEPE 0.000007582), accumulation, no SL"
+  },
+  {
+   "id": 41352,
+   "coin": "BROCCOLI",
+   "binance_sym": "BROCCOLI714USDT",
+   "binance": true,
+   "dir": "long",
+   "entry": 0.0446,
+   "targets": [
+    0.19677
+   ],
+   "sl": 0.0288,
+   "kind": "setup",
+   "chart_ex": "bybit",
+   "swing": true,
+   "note": "VERIFY Binance symbol (BROCCOLI714 vs F3B); +340.40% / -35.54%"
+  },
+  {
+   "id": 41355,
+   "coin": "MUBARAK",
+   "binance_sym": "MUBARAKUSDT",
+   "binance": true,
+   "dir": "long",
+   "entry": 0.12241,
+   "targets": [
+    0.5043
+   ],
+   "sl": 0.08083,
+   "kind": "setup",
+   "chart_ex": "bybit",
+   "swing": true,
+   "note": "MUBARAK re-entry (alt), +312% / -34%"
+  },
+  {
+   "id": 41360,
+   "coin": "BR",
+   "binance_sym": "BRUSDT",
+   "binance": true,
+   "dir": "long",
+   "entry": 0.1774,
+   "targets": [
+    0.5388
+   ],
+   "sl": 0.1403,
+   "kind": "setup",
+   "chart_ex": "binance",
+   "swing": true,
+   "note": "ALT, +204% / -20.9%"
+  },
+  {
+   "id": 41375,
+   "coin": "ACH",
+   "binance_sym": "ACHUSDT",
+   "binance": true,
+   "dir": "long",
+   "entry": 0.027764,
+   "targets": [
+    0.045,
+    0.187015
+   ],
+   "sl": 0.019268,
+   "kind": "setup",
+   "chart_ex": "binance",
+   "swing": true,
+   "note": "ALT, 2 targets +62/+574%, SL -30.6%"
+  },
+  {
+   "id": 41387,
+   "coin": "ORCA",
+   "binance_sym": "ORCAUSDT",
+   "binance": true,
+   "dir": "long",
+   "entry": 3.278,
+   "targets": [
+    6.348
+   ],
+   "sl": 2.451,
+   "kind": "setup",
+   "chart_ex": "binance",
+   "note": "ALT, +94% / -25.2%"
+  },
+  {
+   "id": 41397,
+   "coin": "VANA",
+   "binance_sym": "VANAUSDT",
+   "binance": true,
+   "dir": "long",
+   "entry": 8.124,
+   "targets": [
+    23.889
+   ],
+   "sl": null,
+   "kind": "spot",
+   "chart_ex": "binance",
+   "note": "'buying some' VANA, measured-move +301%, no SL drawn"
+  },
+  {
+   "id": 41409,
+   "coin": "BTC",
+   "binance_sym": "BTCUSDT",
+   "binance": true,
+   "dir": "short",
+   "entry": 84217,
+   "targets": [
+    68182.3
+   ],
+   "sl": 87667.1,
+   "kind": "setup",
+   "chart_ex": "binance",
+   "note": "SHORT, target -19.09% / SL +4.04%"
+  },
+  {
+   "id": 41412,
+   "coin": "ETH",
+   "binance_sym": "ETHUSDT",
+   "binance": true,
+   "dir": "long",
+   "entry": 2008,
+   "targets": [
+    2634.45
+   ],
+   "sl": 1742.39,
+   "kind": "setup",
+   "chart_ex": "coinbase",
+   "note": "LONG, +31.2% / -13.2%"
+  },
+  {
+   "id": 41417,
+   "coin": "PNUT",
+   "binance_sym": "PNUTUSDT",
+   "binance": true,
+   "dir": "long",
+   "entry": 0.20136,
+   "targets": [
+    0.65
+   ],
+   "sl": null,
+   "kind": "setup",
+   "chart_ex": "binance",
+   "note": "ALT buy zone, target resistance ~0.65, no hard SL drawn"
+  },
+  {
+   "id": 41418,
+   "coin": "VANA",
+   "binance_sym": "VANAUSDT",
+   "binance": true,
+   "dir": "long",
+   "entry": 8.124,
+   "targets": [
+    23.889
+   ],
+   "sl": null,
+   "kind": "update",
+   "chart_ex": "binance",
+   "note": "VANA follow-up to 41397"
+  },
+  {
+   "id": 41422,
+   "coin": "BTC",
+   "binance_sym": "BTCUSDT",
+   "binance": true,
+   "dir": "long",
+   "entry": 85264,
+   "targets": [
+    108621.0
+   ],
+   "sl": 76482.7,
+   "kind": "setup",
+   "chart_ex": "binance",
+   "swing": true,
+   "note": "BTC swing long, +27.4% / -10.3%"
   }
  ]
 }
