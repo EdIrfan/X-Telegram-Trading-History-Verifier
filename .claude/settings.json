@@ -16,7 +16,15 @@
       "Bash(git config *)",
       "Bash(git symbolic-ref *)",
       "Bash(git branch *)",
-      "Bash(git rev-parse *)"
+      "Bash(git rev-parse *)",
+      "Bash(./launch_brave_debug.sh)",
+      "Read(//tmp/**)",
+      "Bash(curl -s http://127.0.0.1:9222/json/version)",
+      "Bash(cat /tmp/xtest.log 2>/dev/null; echo \"=== alive? ===\"; ps -p 152955 >/dev/null 2>&1 && echo \"still running\" || echo \"finished\")",
+      "Bash(python3 -c \"import json;d=json.load\\(open\\('/home/irfanxlin/GitHub/X verifier/data/posts.json'\\)\\);print\\('count:',d['count']\\);\")",
+      "Bash(python3 -c ' *)",
+      "Bash(git add *)",
+      "Bash(git commit -q -m 'Fix scraper: paced small-window search + rate-limit backoff + resume *)"
     ]
   }
 }

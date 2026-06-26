@@ -56,33 +56,42 @@ def extract_visible(page):
     )
 
 
-def scrape(user: str, since: str, until: str, port: int, max_idle: int = 8):
-    pw, browser, page = connect(port)
-    q = f"from:{user} since:{since} until:{until}"
-    url = f"https://x.com/search?q={q.replace(' ', '%20')}&f=live"
-    print(f">> Navigating to: {url}")
-    page.goto(url, wait_until="domcontentloaded")
-    time.sleep(5)
+def _windows(since: str, until: str, days: int):
+    """Yield (start, end) ISO-date strings in `days`-long windows."""
+    from datetime import timedelta
+    cur = datetime.strptime(since, "%Y-%m-%d")
+    end = datetime.strptime(until, "%Y-%m-%d")
+    while cur < end:
+        nxt = min(cur + timedelta(days=days), end)
+        yield cur.strftime("%Y-%m-%d"), nxt.strftime("%Y-%m-%d")
+        cur = nxt
 
-    seen = {}
-    idle = 0
-    while idle < max_idle:
-        for t in extract_visible(page):
-            key = t.get("permalink") or t.get("datetime")
-            if key and key not in seen:
-                seen[key] = t
-        before = len(seen)
-        page.mouse.wheel(0, 4000)
-        time.sleep(2.5)
-        # re-collect after scroll
-        for t in extract_visible(page):
-            key = t.get("permalink") or t.get("datetime")
-            if key and key not in seen:
-                seen[key] = t
-        gained = len(seen) - before
-        idle = idle + 1 if gained == 0 else 0
-        print(f"   collected={len(seen)}  (+{gained})  idle={idle}")
 
+def _errstate(page):
+    try:
+        body = page.inner_text("body")[:600].lower()
+    except Exception:
+        return None
+    for k in ("something went wrong", "try again", "rate limit",
+              "over capacity"):
+        if k in body:
+            return k
+    return None
+
+
+def _load_existing():
+    out = os.path.join(OUT_DIR, "posts.json")
+    if os.path.exists(out):
+        try:
+            data = json.load(open(out))
+            return {(p.get("permalink") or p.get("datetime")): p
+                    for p in data.get("posts", [])}
+        except Exception:
+            pass
+    return {}
+
+
+def _save(seen, user, since, until):
     os.makedirs(OUT_DIR, exist_ok=True)
     out = os.path.join(OUT_DIR, "posts.json")
     posts = sorted(seen.values(), key=lambda x: x.get("datetime") or "")
@@ -90,7 +99,54 @@ def scrape(user: str, since: str, until: str, port: int, max_idle: int = 8):
         json.dump({"user": user, "since": since, "until": until,
                    "scraped_at": datetime.utcnow().isoformat(),
                    "count": len(posts), "posts": posts}, f, indent=2)
-    print(f">> Saved {len(posts)} posts -> {out}")
+    return out, len(posts)
+
+
+def _scrape_window(page, user, w_since, w_until, seen, max_idle, max_iters):
+    """Scroll one window; returns count gained. Retries once on rate-limit."""
+    q = f"from:{user} since:{w_since} until:{w_until}"
+    url = f"https://x.com/search?q={q.replace(' ', '%20')}&f=live"
+    start = len(seen)
+    for attempt in (1, 2):
+        try:
+            page.goto(url, wait_until="domcontentloaded", timeout=40000)
+        except Exception as e:
+            print("   goto error:", e, flush=True)
+        time.sleep(5)
+        err = _errstate(page)
+        if err and attempt == 1:
+            print(f"   rate-limit/err '{err}', backing off 60s...", flush=True)
+            time.sleep(60)
+            continue
+        idle = it = 0
+        while idle < max_idle and it < max_iters:
+            it += 1
+            before = len(seen)
+            for t in extract_visible(page):
+                key = t.get("permalink") or t.get("datetime")
+                if key and key not in seen:
+                    seen[key] = t
+            page.mouse.wheel(0, 4200)
+            time.sleep(2.3)
+            idle = idle + 1 if len(seen) == before else 0
+        break
+    return len(seen) - start
+
+
+def scrape(user: str, since: str, until: str, port: int, days: int = 5,
+           max_idle: int = 4, max_iters: int = 40, pause: float = 9.0):
+    pw, browser, page = connect(port)
+    seen = _load_existing()
+    print(f">> Resuming with {len(seen)} existing posts", flush=True)
+    out = os.path.join(OUT_DIR, "posts.json")
+    for w_since, w_until in _windows(since, until, days):
+        gained = _scrape_window(page, user, w_since, w_until, seen,
+                                max_idle, max_iters)
+        out, n = _save(seen, user, since, until)  # checkpoint each window
+        print(f">> [{w_since}..{w_until}] +{gained} (total={len(seen)})",
+              flush=True)
+        time.sleep(pause)  # pace requests to avoid rate-limiting
+    print(f">> DONE. Saved {len(seen)} posts -> {out}", flush=True)
     pw.stop()
 
 
@@ -100,5 +156,6 @@ if __name__ == "__main__":
     ap.add_argument("--since", default="2025-06-01")
     ap.add_argument("--until", default="2026-06-26")
     ap.add_argument("--port", type=int, default=9222)
+    ap.add_argument("--days", type=int, default=5, help="window size in days")
     a = ap.parse_args()
-    scrape(a.user, a.since, a.until, a.port)
+    scrape(a.user, a.since, a.until, a.port, days=a.days)
