@@ -48,11 +48,38 @@ before it can be banked.
 3. **Two-thirds of her "calls" are retroactive** PnL brags / victory laps / promo —
    not forward, falsifiable calls.
 
+## UPDATE — crash period Nov 2025 → Mar 2026 (corrects the thesis)
+Extended the scrape into the crash (BTC ~$108k → ~$68k). Graded **all 18 forward
+calls** in this window. Key correction to the earlier read:
+- She **flipped SHORT** (14 of 18 calls) and her shorts **caught the downtrend**:
+  8/14 close-based (57%), ~86% on excursion (nearly every short went green
+  intra-window). She is **NOT** a pure permabull.
+- Her early-Nov **longs all failed** (4/4) — she was late letting go of the bounce.
+- **Corrected thesis: trend-follower, right *inside* trends (up and down), late at
+  the *turns*.** The only real blind spot is the transition (Oct top, early-Nov
+  bounce) — once committed to a direction she rides it well.
+
+## Full backtest — $10k mirror, Jun 2025 → Mar 2026 (63 calls)
+Rules: $100 margin, 5x **isolated**, **−50% hard stop** (no liquidations), **$300/week**
+breaker, 0.5% friction. Price data integrity-checked (0 errors; Oct-7 DOGE/XRP
+mega-wicks confirmed real).
+```
+START $10,000 -> END $10,319  (+3.2%)   over 10 months incl. a ~-35% BTC crash
+trades=63  wins=34  stops=9   max drawdown 5.0%   peak $10,773
+```
+Blindly mirroring her through the entire crash finishes **+3.2% with 5% max DD** —
+you don't get rich, but the risk rules make it structurally impossible to get hurt.
+(`backtest.py` copy-all alone, Jun–Oct, was +4.1% / 3.4% DD.)
+
 ## Implication for a follow / alert bot
-Her edge is a **regime trade**, not a flat hit-rate: real in confirmed uptrends
-(leverage-safe asymmetry), catastrophic once trend breaks. A bot must **mute her
-longs when trend structure breaks / market is in a downtrend**, or it inherits the
-Oct-crash blowups. Alert-only with a market-regime veto = right design.
+Her edge is a **trend-follow signal**, not a flat hit-rate — strong inside trends
+(both directions), weak at turns. Two designs both work:
+1. **Risk-rule only (no filter):** the −50% stop + isolated + $300/week makes even
+   blind copying survivable (+3.2%, 5% DD over 10 months). Simplest.
+2. **Add a regime/turn filter** to skip her wrong-way trades at transitions for
+   better returns. (Note: a *crude* 10-day-trend filter over-filtered and hurt —
+   needs to target the turns specifically, not blanket-mute one direction.)
+Alert-only (she scouts, you veto) remains the safest starting point.
 
 ## Method & caveats
 - n=45 forward calls; 7-day window (matches her 2–3 day swing style).
