@@ -34,7 +34,9 @@
       "Bash(pkill -9 -f 'scrape_posts.py')",
       "Skill(claude-api)",
       "Skill(claude-api:*)",
-      "Bash(git commit -q -m 'Grade 37 forward calls by hand \\(Jun-Oct 2025\\); leverage-adjusted scoring + report *)"
+      "Bash(git commit -q -m 'Grade 37 forward calls by hand \\(Jun-Oct 2025\\); leverage-adjusted scoring + report *)",
+      "Bash(python3 -c \"import json;d=json.load\\(open\\('data/posts.json'\\)\\);p=d['posts'];print\\('count',d['count'],'latest',max\\(t['datetime'] for t in p if t.get\\('datetime'\\)\\)\\)\")",
+      "Bash(git commit -q -m 'Classify ALL 142 candidates + grade all 45 forward calls \\(no cherry-picking\\) *)"
     ]
   }
 }
