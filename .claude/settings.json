@@ -36,7 +36,8 @@
       "Skill(claude-api:*)",
       "Bash(git commit -q -m 'Grade 37 forward calls by hand \\(Jun-Oct 2025\\); leverage-adjusted scoring + report *)",
       "Bash(python3 -c \"import json;d=json.load\\(open\\('data/posts.json'\\)\\);p=d['posts'];print\\('count',d['count'],'latest',max\\(t['datetime'] for t in p if t.get\\('datetime'\\)\\)\\)\")",
-      "Bash(git commit -q -m 'Classify ALL 142 candidates + grade all 45 forward calls \\(no cherry-picking\\) *)"
+      "Bash(git commit -q -m 'Classify ALL 142 candidates + grade all 45 forward calls \\(no cherry-picking\\) *)",
+      "Bash(git commit -q -m 'Backtest: $10k mirror of her calls, 5x isolated, -50% stop, $300/wk, 0.5% friction *)"
     ]
   }
 }
