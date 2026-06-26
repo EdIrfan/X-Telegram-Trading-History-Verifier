@@ -40,7 +40,9 @@
       "Bash(git commit -q -m 'Backtest: $10k mirror of her calls, 5x isolated, -50% stop, $300/wk, 0.5% friction *)",
       "Bash(git commit -q -m 'Extend grading into crash \\(Nov2025-Mar2026\\): she flipped short; thesis corrected *)",
       "Bash(ps -p 30056)",
-      "Bash(python3 -c \"import json;d=json.load\\(open\\('data/posts.json'\\)\\);print\\('posts',d['count'],'latest',max\\(t['datetime'] for t in d['posts'] if t.get\\('datetime'\\)\\)\\)\")"
+      "Bash(python3 -c \"import json;d=json.load\\(open\\('data/posts.json'\\)\\);print\\('posts',d['count'],'latest',max\\(t['datetime'] for t in d['posts'] if t.get\\('datetime'\\)\\)\\)\")",
+      "Bash(python3 -c \"import json;d=json.load\\(open\\('data/posts.json'\\)\\);p=d['posts'];print\\('FINAL posts:',d['count'],'| range:',min\\(t['datetime'][:10] for t in p if t.get\\('datetime'\\)\\),'->',max\\(t['datetime'][:10] for t in p if t.get\\('datetime'\\)\\)\\)\")",
+      "Bash(git commit -q -m 'FINAL: full-year scrape complete \\(3105 posts\\) + all 73 calls graded + report *)"
     ]
   }
 }

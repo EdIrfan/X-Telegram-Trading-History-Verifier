@@ -32,6 +32,17 @@ NEW = [
  ("2026-03-22T21:23","BTC","short",[],            "short again Monday"),
  ("2026-03-23T13:35","BTC","short",[],            "second short this week"),
  ("2026-03-27T20:38","BTC","short",[62500],       "entry 67.5-68.3k exit 62.5k"),
+ # Apr-Jun 2026 (bounce 70-78k, then final leg down toward 55-58k)
+ ("2026-04-02T13:40","BTC","short",[],            "take shorts from 63.5k chop"),
+ ("2026-04-08T00:26","BTC","long", [74000],       "setup 71.3k to 74k"),
+ ("2026-04-13T22:22","BTC","long", [76700],       "long 72.5-73.5 to 76.7k"),
+ ("2026-04-17T13:21","BTC","long", [78800],       "next leg 73.5k to 78.8k"),
+ ("2026-04-27T15:20","BTC","short",[],            "small short, top range"),
+ ("2026-05-18T12:55","BTC","short",[75000],       "78k to 75-76.3k"),
+ ("2026-05-25T11:16","BTC","short",[76000],       "short 77.5 to 76k"),
+ ("2026-05-28T11:23","BTC","short",[70000],       "74-74.5k to 70k drop"),
+ ("2026-05-29T13:20","BTC","short",[70000],       "sticking short, level2 70k"),
+ ("2026-06-05T15:57","BTC","short",[58000],       "dip below 60k to 57-58k bottom"),
 ]
 
 def grade(coin, dt, d, tg):
@@ -57,7 +68,7 @@ def grade(coin, dt, d, tg):
 new_rows = [grade(c, dt, d, tg) for dt, c, d, tg, _ in NEW]
 new_rows = [r for r in new_rows if r]
 
-print("=== NEW forward calls Nov2025-Mar2026 (the crash) ===")
+print("=== NEW forward calls Nov2025-Jun2026 (crash + bounce + final leg) ===")
 print(f"{'DT':17}{'COIN':5}{'DIR':6}{'CLOSE':9}{'EXC':9} fav/adv")
 for r in new_rows:
     print(f"{r['dt']:17}{r['coin']:5}{r['dir']:6}{r['close']:9}{r['exc']:9} +{r['fav']}/-{r['adv']}")
@@ -89,7 +100,7 @@ for r in allc:
     elif pnl>0: wins+=1
     equity+=pnl; wk[k]=wk.get(k,0)+pnl
     peak=max(peak,equity); maxdd=max(maxdd,(peak-equity)/peak*100)
-print("\n=== FULL BACKTEST  Jun 2025 -> Mar 2026 (63 calls) ===")
+print("\n=== FULL BACKTEST  Jun 2025 -> Jun 2026 (FULL, 73 calls) ===")
 print(f"START $10,000 -> END ${equity:,.0f}  ({(equity/10000-1)*100:+.1f}%)")
 print(f"trades={taken} wins={wins} stops={stops} wk-skips={skip}  maxDD {maxdd:.1f}%  peak ${peak:,.0f}")
 json.dump({"new_calls":new_rows,"full_backtest":{"end":round(equity),
