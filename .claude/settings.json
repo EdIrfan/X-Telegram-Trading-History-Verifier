@@ -24,7 +24,17 @@
       "Bash(python3 -c \"import json;d=json.load\\(open\\('/home/irfanxlin/GitHub/X verifier/data/posts.json'\\)\\);print\\('count:',d['count']\\);\")",
       "Bash(python3 -c ' *)",
       "Bash(git add *)",
-      "Bash(git commit -q -m 'Fix scraper: paced small-window search + rate-limit backoff + resume *)"
+      "Bash(git commit -q -m 'Fix scraper: paced small-window search + rate-limit backoff + resume *)",
+      "Bash(python3 -c \"import json;print\\(json.load\\(open\\('/home/irfanxlin/GitHub/X verifier/data/posts.json'\\)\\)['count']\\)\")",
+      "Bash(tail -3 /tmp/scrape2.log 2>/dev/null | grep -o '\\\\[2[0-9-]*\\\\.\\\\.[0-9-]*\\\\]' | tail -1)",
+      "Bash(python3 -c \"import json;d=json.load\\(open\\('/home/irfanxlin/GitHub/X verifier/data/posts.json'\\)\\);p=d['posts'];print\\('count:',d['count']\\);print\\('latest:',max\\(\\(t['datetime'] for t in p if t.get\\('datetime'\\)\\),default=None\\)\\)\")",
+      "Bash(kill 14971)",
+      "Bash(pkill -f 'scrape_posts.py')",
+      "Bash(pkill -f 'bzh7qy49p')",
+      "Bash(pkill -9 -f 'scrape_posts.py')",
+      "Skill(claude-api)",
+      "Skill(claude-api:*)",
+      "Bash(git commit -q -m 'Grade 37 forward calls by hand \\(Jun-Oct 2025\\); leverage-adjusted scoring + report *)"
     ]
   }
 }

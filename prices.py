@@ -11,9 +11,36 @@ most "BINANCE:BTCUSDT" TradingView charts), so prices line up with the charts.
     range_high_low("SOL", "2025-06-01", "2025-07-01")
 """
 import datetime as dt
+import json
+import os
 import requests
 
 BINANCE = "https://api.binance.com/api/v3/klines"
+_CACHE_DIR = os.path.join(os.path.dirname(__file__), "data", "price_cache")
+_MEM = {}
+
+
+def _cache_get(key):
+    if key in _MEM:
+        return _MEM[key]
+    fp = os.path.join(_CACHE_DIR, key + ".json")
+    if os.path.exists(fp):
+        try:
+            v = json.load(open(fp))
+            _MEM[key] = v
+            return v
+        except Exception:
+            return None
+    return None
+
+
+def _cache_put(key, val):
+    _MEM[key] = val
+    os.makedirs(_CACHE_DIR, exist_ok=True)
+    try:
+        json.dump(val, open(os.path.join(_CACHE_DIR, key + ".json"), "w"))
+    except Exception:
+        pass
 
 
 def _to_ms(when) -> int:
@@ -34,7 +61,12 @@ def ohlcv(symbol: str, start, end, interval: str = "1d"):
     pair = symbol.upper()
     if not pair.endswith("USDT"):
         pair = pair + "USDT"
-    out, cur, end_ms = [], _to_ms(start), _to_ms(end)
+    s_ms, e_ms = _to_ms(start), _to_ms(end)
+    ckey = f"{pair}_{interval}_{s_ms}_{e_ms}"
+    cached = _cache_get(ckey)
+    if cached is not None:
+        return cached
+    out, cur, end_ms = [], s_ms, e_ms
     while cur < end_ms:
         r = requests.get(BINANCE, params={
             "symbol": pair, "interval": interval,
@@ -48,6 +80,9 @@ def ohlcv(symbol: str, start, end, interval: str = "1d"):
         cur = batch[-1][0] + 1
         if len(batch) < 1000:
             break
+    # only cache fully-elapsed windows (don't cache the still-forming present)
+    if e_ms < (_to_ms(dt.datetime.now(dt.timezone.utc)) - 2 * 86400_000):
+        _cache_put(ckey, out)
     return out
 
 

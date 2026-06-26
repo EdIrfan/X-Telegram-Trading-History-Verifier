@@ -28,7 +28,7 @@ from datetime import datetime, timedelta, timezone
 from prices import price_at, range_high_low
 
 DATA = os.path.join(os.path.dirname(__file__), "data")
-HORIZON_DAYS = 14
+HORIZON_DAYS = 7      # her setups resolve fast; 7d window matches swing style
 MOVE_THRESHOLD = 3.0  # % move needed to count a directional call right
 
 COINS = {
@@ -93,40 +93,56 @@ def extract(text: str):
 
 
 def verify(coin, post_dt, direction, levels, horizon=HORIZON_DAYS):
-    """Return (verdict, detail). verdict in CORRECT/INCORRECT/UNVERIFIABLE."""
+    """Return (verdict, detail, remark). verdict CORRECT/INCORRECT/UNVERIFIABLE."""
     start = datetime.fromisoformat(post_dt.replace("Z", "+00:00"))
     end = min(start + timedelta(days=horizon), datetime.now(timezone.utc))
     if end <= start + timedelta(hours=12):
-        return "UNVERIFIABLE", "too recent to verify"
+        return "UNVERIFIABLE", {}, "too recent to verify within window"
     try:
         p0 = price_at(coin, start)
         lo, hi = range_high_low(coin, start, end)
         pend = price_at(coin, end)
     except Exception as e:
-        return "UNVERIFIABLE", f"price fetch failed: {e}"
+        return "UNVERIFIABLE", {}, f"price fetch failed: {e}"
     if p0 is None or pend is None:
-        return "UNVERIFIABLE", "no price data"
-    detail = {"entry": p0, "window_low": lo, "window_high": hi, "exit": pend}
-    # target-hit check
+        return "UNVERIFIABLE", {}, "no Binance price data for coin"
+    move = (pend - p0) / p0 * 100
+    detail = {"entry": round(p0, 4), "window_low": round(lo, 4),
+              "window_high": round(hi, 4), "exit": round(pend, 4),
+              "move_pct": round(move, 2)}
+    # target-hit check (if she named a reachable level)
     nearby = [l for l in levels if 0.3 * p0 <= l <= 3 * p0]
     if nearby and direction in ("long", "short"):
         tgt = max(nearby) if direction == "long" else min(nearby)
+        detail["target"] = tgt
         hit = (direction == "long" and hi >= tgt) or \
               (direction == "short" and lo <= tgt)
-        detail["target"] = tgt
         if hit:
-            return "CORRECT", detail
+            return "CORRECT", detail, (
+                f"{direction} {coin}: target {tgt:g} HIT within {horizon}d "
+                f"(range {lo:g}-{hi:g})")
     # directional check
-    move = (pend - p0) / p0 * 100
-    detail["move_pct"] = round(move, 2)
     if direction == "long":
-        return ("CORRECT" if move >= MOVE_THRESHOLD else "INCORRECT"), detail
+        v = "CORRECT" if move >= MOVE_THRESHOLD else "INCORRECT"
+        return v, detail, (f"long {coin}: price {move:+.1f}% in {horizon}d "
+                           f"({p0:g}->{pend:g}) [{v}]")
     if direction == "short":
-        return ("CORRECT" if move <= -MOVE_THRESHOLD else "INCORRECT"), detail
-    return "UNVERIFIABLE", detail
+        v = "CORRECT" if move <= -MOVE_THRESHOLD else "INCORRECT"
+        return v, detail, (f"short {coin}: price {move:+.1f}% in {horizon}d "
+                           f"({p0:g}->{pend:g}) [{v}]")
+    return "UNVERIFIABLE", detail, "no clear directional bias to score"
 
 
 def main():
+    global HORIZON_DAYS, MOVE_THRESHOLD
+    import argparse
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--horizon", type=int, default=HORIZON_DAYS,
+                    help="verification window in days")
+    ap.add_argument("--threshold", type=float, default=MOVE_THRESHOLD,
+                    help="%% move to count a directional call correct")
+    a = ap.parse_args()
+    HORIZON_DAYS, MOVE_THRESHOLD = a.horizon, a.threshold
     posts = json.load(open(os.path.join(DATA, "posts.json")))["posts"]
     rows, counts = [], {"PROMO": 0, "OTHER": 0, "CALL_CANDIDATE": 0}
     for p in posts:
@@ -136,12 +152,13 @@ def main():
             continue
         info = extract(p["text"])
         for coin in info["coins"]:
-            verdict, detail = verify(coin, p["datetime"], info["direction"],
-                                     info["levels"])
+            verdict, detail, remark = verify(coin, p["datetime"],
+                                             info["direction"], info["levels"])
             rows.append({"datetime": p["datetime"], "permalink": p.get("permalink"),
                          "coin": coin, "direction": info["direction"],
                          "levels": info["levels"], "verdict": verdict,
-                         "detail": detail, "text": p["text"][:200],
+                         "remark": remark, "detail": detail,
+                         "text": p["text"][:200],
                          "has_images": bool(p.get("images"))})
     correct = sum(r["verdict"] == "CORRECT" for r in rows)
     incorrect = sum(r["verdict"] == "INCORRECT" for r in rows)
