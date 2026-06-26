@@ -5666,6 +5666,183 @@
    "kind": "setup",
    "chart_ex": "mobile",
    "note": "ASTER SHORT (alt), target -67.9% / SL +21.9%"
+  },
+  {
+   "id": 46576,
+   "coin": "ASTER",
+   "binance_sym": "ASTERUSDT",
+   "binance": true,
+   "dir": "short",
+   "entry": 1.8027,
+   "targets": [
+    0.5784
+   ],
+   "sl": 2.1974,
+   "kind": "setup",
+   "chart_ex": "mobile",
+   "note": "duplicate of 46572 ASTER short"
+  },
+  {
+   "id": 46585,
+   "coin": "ASTER",
+   "binance_sym": "ASTERUSDT",
+   "binance": true,
+   "dir": "short",
+   "entry": 1.8027,
+   "targets": [
+    0.5784
+   ],
+   "sl": 2.1974,
+   "kind": "setup",
+   "chart_ex": "mobile",
+   "note": "duplicate of 46572 ASTER short"
+  },
+  {
+   "id": 46586,
+   "coin": "ASTER",
+   "binance_sym": "ASTERUSDT",
+   "binance": true,
+   "dir": "short",
+   "entry": 1.8027,
+   "targets": [
+    0.5784
+   ],
+   "sl": 2.1974,
+   "kind": "setup",
+   "chart_ex": "mobile",
+   "note": "duplicate of 46572 ASTER short"
+  },
+  {
+   "id": 46637,
+   "coin": "ZEC",
+   "binance_sym": "ZECUSDT",
+   "binance": true,
+   "dir": "long",
+   "entry": 36.18,
+   "targets": [],
+   "sl": 20.97,
+   "kind": "update",
+   "chart_ex": "bybit",
+   "note": "PERF: ZEC +2.5x from first entry @36.18 = WIN (alt)"
+  },
+  {
+   "id": 46642,
+   "coin": "ZEC",
+   "binance_sym": "ZECUSDT",
+   "binance": true,
+   "dir": "long",
+   "entry": 36.18,
+   "targets": [],
+   "sl": 20.97,
+   "kind": "update",
+   "chart_ex": "bybit",
+   "note": "duplicate of 46637 ZEC x2.5"
+  },
+  {
+   "id": 46738,
+   "coin": "ZEC",
+   "binance_sym": "ZECUSDT",
+   "binance": true,
+   "dir": "long",
+   "entry": 36.18,
+   "targets": [],
+   "sl": 20.97,
+   "kind": "update",
+   "chart_ex": "bybit",
+   "note": "PERF: ZEC >4x from first entry @36.18 = BIG WIN (later update of 46637)"
+  },
+  {
+   "id": 46774,
+   "coin": "BTC",
+   "binance_sym": "BTCUSDT",
+   "binance": true,
+   "dir": "long",
+   "entry": 120570,
+   "targets": [
+    222222.0
+   ],
+   "sl": 108200.36,
+   "kind": "setup",
+   "chart_ex": "binance",
+   "swing": true,
+   "note": "'Rose Strategy added more BTC', +84% / -10.3%"
+  },
+  {
+   "id": 46887,
+   "coin": "MOODENG",
+   "binance_sym": "MOODENGUSDT",
+   "binance": true,
+   "dir": "long",
+   "entry": 0.16754,
+   "targets": [
+    1.3
+   ],
+   "sl": 0.1182,
+   "kind": "setup",
+   "chart_ex": "binance",
+   "swing": true,
+   "note": "MOODENG 'still at buy zone' (alt), target off-screen ~1.3, SL -29.4%"
+  },
+  {
+   "id": 46891,
+   "coin": "MOODENG",
+   "binance_sym": "MOODENGUSDT",
+   "binance": true,
+   "dir": "long",
+   "entry": 0.16754,
+   "targets": [
+    1.3
+   ],
+   "sl": 0.1182,
+   "kind": "setup",
+   "chart_ex": "binance",
+   "swing": true,
+   "note": "duplicate of 46887 MOODENG buy zone"
+  },
+  {
+   "id": 47103,
+   "coin": "ETH",
+   "binance_sym": "ETHUSDT",
+   "binance": true,
+   "dir": "short",
+   "entry": 4601.19,
+   "targets": [
+    3586.65
+   ],
+   "sl": 4971.23,
+   "kind": "setup",
+   "chart_ex": "coinbase",
+   "note": "duplicate of 47109 ETH short"
+  },
+  {
+   "id": 47109,
+   "coin": "ETH",
+   "binance_sym": "ETHUSDT",
+   "binance": true,
+   "dir": "short",
+   "entry": 4601.19,
+   "targets": [
+    3586.65
+   ],
+   "sl": 4971.23,
+   "kind": "setup",
+   "chart_ex": "coinbase",
+   "note": "ETH SHORT, target -22.1% / SL +8%"
+  },
+  {
+   "id": 47117,
+   "coin": "BTC",
+   "binance_sym": "BTCUSDT",
+   "binance": true,
+   "dir": "short",
+   "entry": 121278,
+   "targets": [
+    102307.3
+   ],
+   "sl": 126633.8,
+   "kind": "setup",
+   "chart_ex": "binance",
+   "note": "BTC SHORT near ATH (pre Oct-2025 crash), target -15.6% / SL +4.4%"
   }
  ]
 }

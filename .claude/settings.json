@@ -48,7 +48,17 @@
       "Bash(git commit -q -m 'Small-account re-analysis \\($1000, $10/$50\\) with exchange order minimums *)",
       "Bash(git commit -q -m 'Tune small account to $25/$50 per trade \\(clears BTC order minimum\\) *)",
       "Bash(git commit -q -m 'Add two-step Telegram login helper \\(tg_auth.py\\) *)",
-      "Bash(git commit -q -m 'Update local permission allow-list *)"
+      "Bash(git commit -q -m 'Update local permission allow-list *)",
+      "Bash(timeout 180 python3 scrape_telegram_update.py)",
+      "Bash(timeout 240 .venv/bin/python scrape_telegram_update.py)",
+      "Bash(.venv/bin/python download_tg_images.py)",
+      "Bash(.venv/bin/python extract_helper.py stat)",
+      "Bash(.venv/bin/python extract_helper.py next 10)",
+      "Bash(.venv/bin/python -c ' *)",
+      "Bash(.venv/bin/python extract_helper.py next 12)",
+      "Bash(.venv/bin/python merge_batch.py __TRACKED_VAR__/batch3.json)",
+      "Bash(.venv/bin/python merge_batch.py __TRACKED_VAR__/batch4.json)",
+      "Bash(.venv/bin/python merge_batch.py __TRACKED_VAR__/batch13.json)"
     ]
   }
 }

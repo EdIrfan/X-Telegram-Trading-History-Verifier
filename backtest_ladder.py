@@ -126,7 +126,8 @@ at the post-time hourly candle. Prices integrity-checked earlier (0 data errors)
 - The signal is a thin, regime-dependent trend-follow edge; exit-rule tuning shifts the
   numbers a little but does not manufacture an edge that isn't there.
 """
-open(os.path.join(os.path.dirname(__file__), "STRATEGY_REPORT.md"), "w").write(rep)
+_docs=os.path.join(os.path.dirname(__file__),"docs"); os.makedirs(_docs,exist_ok=True)
+open(os.path.join(_docs, "STRATEGY_REPORT.md"), "w").write(rep)
 json.dump({"A_100":A, "B_500":B}, open(os.path.join(os.path.dirname(__file__),
           "data","strategy_backtest.json"), "w"), indent=2)
-print("report written -> STRATEGY_REPORT.md")
+print("report written -> docs/STRATEGY_REPORT.md")

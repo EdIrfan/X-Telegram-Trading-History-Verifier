@@ -76,5 +76,6 @@ md=["# Weekly P&L — $100 vs $500 accounts (laddered strategy)\n",
 for r in rows:
     md.append(f"| {r['week']} | {r['trades']} | {r['p100']:+} | {r['eq100']:,} | {r['p500']:+} | {r['eq500']:,} |")
 md.append(f"| **TOTAL** |  | **{round(eqA-10000):+}** | **{round(eqA):,}** | **{round(eqB-10000):+}** | **{round(eqB):,}** |")
-open(os.path.join(os.path.dirname(__file__),"WEEKLY_PNL.md"),"w").write("\n".join(md)+"\n")
-print("\n-> WEEKLY_PNL.md written")
+_docs=os.path.join(os.path.dirname(__file__),"docs"); os.makedirs(_docs,exist_ok=True)
+open(os.path.join(_docs,"WEEKLY_PNL.md"),"w").write("\n".join(md)+"\n")
+print("\n-> docs/WEEKLY_PNL.md written")
