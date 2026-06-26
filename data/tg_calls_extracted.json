@@ -4569,6 +4569,560 @@
    "kind": "setup",
    "chart_ex": "coinbase",
    "note": "duplicate of 44944 ETH short"
+  },
+  {
+   "id": 44949,
+   "coin": "BTC",
+   "binance_sym": "BTCUSDT",
+   "binance": true,
+   "dir": "short",
+   "entry": 110650,
+   "targets": [
+    98353.02
+   ],
+   "sl": 113825.91,
+   "kind": "setup",
+   "chart_ex": "coinbase",
+   "note": "BTC SHORT, target -11.11% / SL +2.88%"
+  },
+  {
+   "id": 44950,
+   "coin": "BTC",
+   "binance_sym": "BTCUSDT",
+   "binance": true,
+   "dir": "short",
+   "entry": 110650,
+   "targets": [
+    98353.02
+   ],
+   "sl": 113825.91,
+   "kind": "setup",
+   "chart_ex": "coinbase",
+   "note": "duplicate of 44949 BTC short"
+  },
+  {
+   "id": 44951,
+   "coin": "BTC",
+   "binance_sym": "BTCUSDT",
+   "binance": true,
+   "dir": "long",
+   "entry": 110909,
+   "targets": [
+    117099.05
+   ],
+   "sl": 107088.41,
+   "kind": "setup",
+   "chart_ex": "coinbase",
+   "swing": true,
+   "note": "BTC LONG (scenario hedge vs 44949), blue zone extends ~127k+, SL -3.4%"
+  },
+  {
+   "id": 44953,
+   "coin": "ETH",
+   "binance_sym": "ETHUSDT",
+   "binance": true,
+   "dir": "long",
+   "entry": 4323,
+   "targets": [
+    5200.33
+   ],
+   "sl": 4055.71,
+   "kind": "setup",
+   "chart_ex": "coinbase",
+   "swing": true,
+   "note": "ETH LONG (largecap), +20.3% / -6.2%"
+  },
+  {
+   "id": 44954,
+   "coin": "ETH",
+   "binance_sym": "ETHUSDT",
+   "binance": true,
+   "dir": "long",
+   "entry": 4323,
+   "targets": [
+    5200.33
+   ],
+   "sl": 4055.71,
+   "kind": "setup",
+   "chart_ex": "coinbase",
+   "swing": true,
+   "note": "duplicate of 44953 ETH long"
+  },
+  {
+   "id": 44956,
+   "coin": "BTC",
+   "binance_sym": "BTCUSDT",
+   "binance": true,
+   "dir": "long",
+   "entry": 110909,
+   "targets": [
+    117099.05
+   ],
+   "sl": 107088.41,
+   "kind": "setup",
+   "chart_ex": "coinbase",
+   "swing": true,
+   "note": "duplicate of 44951 BTC long"
+  },
+  {
+   "id": 44960,
+   "coin": "ETH",
+   "binance_sym": "ETHUSDT",
+   "binance": true,
+   "dir": "short",
+   "entry": 4297.02,
+   "targets": [
+    3807.78
+   ],
+   "sl": 4509.23,
+   "kind": "setup",
+   "chart_ex": "coinbase",
+   "note": "ETH SHORT (=44944), target -11.53% / SL +4.76%"
+  },
+  {
+   "id": 44962,
+   "coin": "BTC",
+   "binance_sym": "BTCUSDT",
+   "binance": true,
+   "dir": "short",
+   "entry": 110650,
+   "targets": [
+    98353.02
+   ],
+   "sl": 113825.91,
+   "kind": "setup",
+   "chart_ex": "coinbase",
+   "note": "duplicate of 44949 BTC short"
+  },
+  {
+   "id": 44963,
+   "coin": "BTC",
+   "binance_sym": "BTCUSDT",
+   "binance": true,
+   "dir": "short",
+   "entry": 110650,
+   "targets": [
+    98353.02
+   ],
+   "sl": 113825.91,
+   "kind": "setup",
+   "chart_ex": "coinbase",
+   "note": "duplicate of 44949 BTC short"
+  },
+  {
+   "id": 44965,
+   "coin": "ETH",
+   "binance_sym": "ETHUSDT",
+   "binance": true,
+   "dir": "short",
+   "entry": 4297.02,
+   "targets": [
+    3807.78
+   ],
+   "sl": 4509.23,
+   "kind": "setup",
+   "chart_ex": "coinbase",
+   "note": "duplicate of 44960 ETH short"
+  },
+  {
+   "id": 44966,
+   "coin": "BTC",
+   "binance_sym": "BTCUSDT",
+   "binance": true,
+   "dir": "long",
+   "entry": 110909,
+   "targets": [
+    117099.05
+   ],
+   "sl": 107088.41,
+   "kind": "setup",
+   "chart_ex": "coinbase",
+   "swing": true,
+   "note": "duplicate of 44951 BTC long"
+  },
+  {
+   "id": 44969,
+   "coin": "ETH",
+   "binance_sym": "ETHUSDT",
+   "binance": true,
+   "dir": "long",
+   "entry": 4323,
+   "targets": [
+    5200.33
+   ],
+   "sl": 4055.71,
+   "kind": "setup",
+   "chart_ex": "coinbase",
+   "swing": true,
+   "note": "duplicate of 44953 ETH long"
+  },
+  {
+   "id": 44970,
+   "coin": "BTC",
+   "binance_sym": "BTCUSDT",
+   "binance": true,
+   "dir": "long",
+   "entry": 110909,
+   "targets": [
+    117099.05
+   ],
+   "sl": 107088.41,
+   "kind": "setup",
+   "chart_ex": "coinbase",
+   "swing": true,
+   "note": "duplicate of 44951 BTC long"
+  },
+  {
+   "id": 44971,
+   "coin": "ETH",
+   "binance_sym": "ETHUSDT",
+   "binance": true,
+   "dir": "long",
+   "entry": 4323,
+   "targets": [
+    5200.33
+   ],
+   "sl": 4055.71,
+   "kind": "setup",
+   "chart_ex": "coinbase",
+   "swing": true,
+   "note": "duplicate of 44953 ETH long"
+  },
+  {
+   "id": 44977,
+   "coin": "ETH",
+   "binance_sym": "ETHUSDT",
+   "binance": true,
+   "dir": "short",
+   "entry": 4279.68,
+   "targets": [
+    3736.79
+   ],
+   "sl": 4501.7,
+   "kind": "setup",
+   "chart_ex": "coinbase",
+   "note": "REOPEN SHORT ETH, target -12.71% / SL +5.16%"
+  },
+  {
+   "id": 44982,
+   "coin": "ETH",
+   "binance_sym": "ETHUSDT",
+   "binance": true,
+   "dir": "short",
+   "entry": 4279.68,
+   "targets": [
+    3736.79
+   ],
+   "sl": 4501.7,
+   "kind": "setup",
+   "chart_ex": "coinbase",
+   "note": "duplicate of 44977 reopen short"
+  },
+  {
+   "id": 44986,
+   "coin": "ETH",
+   "binance_sym": "ETHUSDT",
+   "binance": true,
+   "dir": "long",
+   "entry": 4323,
+   "targets": [
+    5200.33
+   ],
+   "sl": 4055.71,
+   "kind": "setup",
+   "chart_ex": "coinbase",
+   "swing": true,
+   "note": "duplicate of 44953 ETH long"
+  },
+  {
+   "id": 44988,
+   "coin": "BTC",
+   "binance_sym": "BTCUSDT",
+   "binance": true,
+   "dir": "long",
+   "entry": 110909,
+   "targets": [
+    117099.05
+   ],
+   "sl": 107088.41,
+   "kind": "setup",
+   "chart_ex": "coinbase",
+   "swing": true,
+   "note": "duplicate of 44951 BTC long"
+  },
+  {
+   "id": 44991,
+   "coin": "ETH",
+   "binance_sym": "ETHUSDT",
+   "binance": true,
+   "dir": "long",
+   "entry": 4323,
+   "targets": [
+    5200.33
+   ],
+   "sl": 4055.71,
+   "kind": "setup",
+   "chart_ex": "coinbase",
+   "swing": true,
+   "note": "duplicate of 44953 ETH long"
+  },
+  {
+   "id": 44993,
+   "coin": "BTC",
+   "binance_sym": "BTCUSDT",
+   "binance": true,
+   "dir": "long",
+   "entry": 110909,
+   "targets": [
+    117099.05
+   ],
+   "sl": 107088.41,
+   "kind": "setup",
+   "chart_ex": "coinbase",
+   "swing": true,
+   "note": "duplicate of 44951 BTC long"
+  },
+  {
+   "id": 45012,
+   "coin": "IDOL",
+   "binance_sym": "IDOLUSDT",
+   "binance": true,
+   "dir": "long",
+   "entry": 0.0145,
+   "targets": [],
+   "sl": null,
+   "kind": "update",
+   "chart_ex": "binance",
+   "note": "PERF: IDOL +86.77% from first entry @0.01450 = WIN (alt)"
+  },
+  {
+   "id": 45013,
+   "coin": "IDOL",
+   "binance_sym": "IDOLUSDT",
+   "binance": true,
+   "dir": "long",
+   "entry": 0.0145,
+   "targets": [],
+   "sl": null,
+   "kind": "update",
+   "chart_ex": "binance",
+   "note": "duplicate of 45012 IDOL +85%"
+  },
+  {
+   "id": 45031,
+   "coin": "ESPORTS",
+   "binance_sym": "ESPORTSUSDT",
+   "binance": true,
+   "dir": "long",
+   "entry": 0.11167,
+   "targets": [],
+   "sl": null,
+   "kind": "update",
+   "chart_ex": "binance",
+   "note": "PERF: ESPORTS +20.54% in 20min from @0.11167 = quick WIN (alt)"
+  },
+  {
+   "id": 45033,
+   "coin": "ESPORTS",
+   "binance_sym": "ESPORTSUSDT",
+   "binance": true,
+   "dir": "long",
+   "entry": 0.11167,
+   "targets": [],
+   "sl": null,
+   "kind": "update",
+   "chart_ex": "binance",
+   "note": "duplicate of 45031 Esports +20%"
+  },
+  {
+   "id": 45088,
+   "coin": "ETH",
+   "binance_sym": "ETHUSDT",
+   "binance": true,
+   "dir": "long",
+   "entry": 4290.34,
+   "targets": [
+    5215.75
+   ],
+   "sl": 4034.05,
+   "kind": "setup",
+   "chart_ex": "binance",
+   "swing": true,
+   "note": "duplicate of 45089"
+  },
+  {
+   "id": 45089,
+   "coin": "ETH",
+   "binance_sym": "ETHUSDT",
+   "binance": true,
+   "dir": "long",
+   "entry": 4290.34,
+   "targets": [
+    5215.75
+   ],
+   "sl": 4034.05,
+   "kind": "setup",
+   "chart_ex": "binance",
+   "swing": true,
+   "note": "ETH long (largecap), +21.6% / -6%"
+  },
+  {
+   "id": 45096,
+   "coin": "ETH",
+   "binance_sym": "ETHUSDT",
+   "binance": true,
+   "dir": "long",
+   "entry": 4290.34,
+   "targets": [
+    5215.75
+   ],
+   "sl": 4034.05,
+   "kind": "setup",
+   "chart_ex": "binance",
+   "swing": true,
+   "note": "duplicate of 45089"
+  },
+  {
+   "id": 45099,
+   "coin": "ETH",
+   "binance_sym": "ETHUSDT",
+   "binance": true,
+   "dir": "long",
+   "entry": 4290.34,
+   "targets": [
+    5215.75
+   ],
+   "sl": 4034.05,
+   "kind": "setup",
+   "chart_ex": "binance",
+   "swing": true,
+   "note": "duplicate of 45089"
+  },
+  {
+   "id": 45106,
+   "coin": "ETH",
+   "binance_sym": "ETHUSDT",
+   "binance": true,
+   "dir": "long",
+   "entry": 4290.34,
+   "targets": [
+    5215.75
+   ],
+   "sl": 4034.05,
+   "kind": "setup",
+   "chart_ex": "binance",
+   "swing": true,
+   "note": "duplicate of 45089"
+  },
+  {
+   "id": 45115,
+   "coin": "ETH",
+   "binance_sym": "ETHUSDT",
+   "binance": true,
+   "dir": "long",
+   "entry": 4290.34,
+   "targets": [
+    5215.75
+   ],
+   "sl": 4034.05,
+   "kind": "setup",
+   "chart_ex": "binance",
+   "swing": true,
+   "note": "duplicate of 45089"
+  },
+  {
+   "id": 45121,
+   "coin": "ETH",
+   "binance_sym": "ETHUSDT",
+   "binance": true,
+   "dir": "long",
+   "entry": 4290.34,
+   "targets": [
+    5215.75
+   ],
+   "sl": 4034.05,
+   "kind": "setup",
+   "chart_ex": "binance",
+   "swing": true,
+   "note": "duplicate of 45089"
+  },
+  {
+   "id": 45122,
+   "coin": "ETH",
+   "binance_sym": "ETHUSDT",
+   "binance": true,
+   "dir": "long",
+   "entry": 4290.34,
+   "targets": [
+    5215.75
+   ],
+   "sl": 4034.05,
+   "kind": "setup",
+   "chart_ex": "binance",
+   "swing": true,
+   "note": "duplicate of 45089"
+  },
+  {
+   "id": 45173,
+   "coin": "MYX",
+   "binance_sym": "MYXUSDT",
+   "binance": true,
+   "dir": "short",
+   "entry": 6.4039,
+   "targets": [
+    1.0061
+   ],
+   "sl": 8.4681,
+   "kind": "setup",
+   "chart_ex": "binance",
+   "note": "duplicate of 45174 MYX short"
+  },
+  {
+   "id": 45174,
+   "coin": "MYX",
+   "binance_sym": "MYXUSDT",
+   "binance": true,
+   "dir": "short",
+   "entry": 6.4039,
+   "targets": [
+    1.0061
+   ],
+   "sl": 8.4681,
+   "kind": "setup",
+   "chart_ex": "binance",
+   "note": "SHORT MYX (top-call after her own 0.07->6.4 winner), target -84.35% / SL +31.73%"
+  },
+  {
+   "id": 45179,
+   "coin": "ETH",
+   "binance_sym": "ETHUSDT",
+   "binance": true,
+   "dir": "long",
+   "entry": 4338.5,
+   "targets": [
+    5226.2
+   ],
+   "sl": 4117.0,
+   "kind": "setup",
+   "chart_ex": "bitstamp",
+   "swing": true,
+   "note": "ETH long (largecap), +20.5% / -5.1%"
+  },
+  {
+   "id": 45182,
+   "coin": "ETH",
+   "binance_sym": "ETHUSDT",
+   "binance": true,
+   "dir": "long",
+   "entry": 4338.5,
+   "targets": [
+    5226.2
+   ],
+   "sl": 4117.0,
+   "kind": "setup",
+   "chart_ex": "bitstamp",
+   "swing": true,
+   "note": "duplicate of 45179"
   }
  ]
 }
