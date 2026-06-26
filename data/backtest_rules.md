@@ -1,0 +1,39 @@
+# Rose Margin — backtest design rules (decided with user, fill in during phase 6)
+
+## Position sizing = RISK-PARITY (match her wide SL by shrinking size)
+- Risk budget per trade is a FIXED $ amount; position size = risk_budget / her_SL_distance%.
+- Wider her SL (smallcap 30-40%) -> smaller position. Tighter SL (BTC 5%) -> bigger position.
+- This bounds the $ loss per trade regardless of her crazy SL distances.
+
+## $10,000 plan, two variants
+- "$100 plan": base risk $100/trade (1% of 10k).
+- "$500 plan": base risk $500/trade (5% of 10k).
+
+## 2x risk for INSANE long-range SWING setups (user rule, 2026-06-26)
+- Her big-range moonshot LONGS (target +100% to +500%, wide SL) = SWING buys, NOT normal buys.
+- For these swing setups, DOUBLE the risk budget:
+    $100 plan -> $200 risk on swing setups
+    $500 plan -> $1000 risk on swing setups
+- Tight tactical trades (BTC/ETH/SOL scalp longs & shorts, small target/SL) stay at 1x risk.
+- Need a "swing" flag per setup (big target multiple + wide SL) vs "tactical".
+
+## Hold model
+- VARIABLE hold: enter at her entry, exit on FIRST of {her target, her SL, her close msg}.
+- Horizon up to weeks (her trades run minutes -> weeks). Use hourly price path.
+- Use her force-close messages (matched by coin + time) as exit signals.
+
+## Grade two ways
+1. follow-her-exactly (her close / SL / target, whichever first)
+2. mechanical (target vs SL first-touch only)
+
+## UPDATE (user, 2026-06-26): SL cap also 2x on swing setups
+- The hard per-trade $ stop-loss CAP doubles too on swing setups (not just the risk budget).
+- "$500 plan had $200 SL -> now $400 SL" on swing trades.
+- So: $500 plan normal cap = $200 / swing cap = $400 ; $100 plan normal = $100 / swing = $200.
+- RECONCILE at phase 6: confirm exact mapping of "risk budget" vs "$ SL cap"
+  (user also said risk "$500 -> $1000"; clarify whether risk==SL-cap or separate).
+
+## Leverage (user, 2026-06-26)
+- 2x-3x MAX. 1x for moonshot alts (wide 20-40% SL -> low lev avoids liquidation).
+- (X-account backtest used 5x; Rose uses much lower because her SL distances are huge.)
+- Risk-parity sizing already caps the $ loss; leverage only affects capital/liquidation.

@@ -2,6 +2,7 @@
 __pycache__/
 *.pyc
 data/raw/
+data/tg_images/
 data/*.json
 .env
 *.session
