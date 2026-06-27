@@ -1,121 +1,134 @@
-# Rose Margin — Grading methodology spec (v1)
+# Rose Margin — grading methodology (as built)
 
-Goal: turn the 628 extracted calls + 383 close-signals into per-trade outcomes, graded
-**two ways**, look-ahead-safe, so we can measure her real edge BEFORE building the $10k
-backtest. Grading produces raw **price-move returns**; position sizing / leverage / weekly
-stops are applied later by the backtest layer (clean separation, like the @blockchainedbb work).
+How the 628 extracted calls + 383 close-signals become per-trade outcomes, graded
+**three ways**, look-ahead-safe. Grading produces raw **price-move returns** (1x, after
+friction); position sizing / leverage / weekly stops are applied separately by the
+backtest layer (`backtest_rose.py`) — clean separation, same as the @blockchainedbb work.
+
+Implemented in `grade_rose.py` → `data/graded_rose.json`. **413 of 418 filled trades
+graded** (5 never touched their entry = untriggered). Results: `docs/findings_grading.md`.
 
 Inputs:
 - `data/tg_calls_extracted.json` (628 records; setup/zone/spot/update/commentary/plan/close)
 - `data/tg_close_signals.json` (383 exit events: stop/close/tp)
-- `data/telegram_rose.json` (post `id -> date`, to timestamp each call)
-- Price oracle: Binance 1h klines via `prices.py` (+ futures fallback, see §E)
+- `data/telegram_rose.json` (post `id → date`, to timestamp each call)
+- Price oracle: Binance 1h klines via `prices.py` (spot + futures fallback, see §E)
 
 ---
 
 ## A. Trade universe — what gets graded
-Grade a record iff ALL:
+A record is graded iff ALL hold:
 - `binance == true`
-- `kind in {"setup","zone","spot"}`  (the actionable kinds)
+- `kind in {"setup","zone","spot"}` (the actionable kinds)
 - `dir in {"long","short"}`
 - `entry` is not null
-- it is NOT a collapsed duplicate (see §B)
-- for `kind=="spot"`: coin must be on Binance **SPOT** (`binance_symbols.json["spot"]`), else drop.
+- it is not a collapsed duplicate (§B)
+- for `kind=="spot"`: the coin must be on Binance **spot** (`binance_symbols.json["spot"]`),
+  else dropped — you can't buy spot a futures-only listing.
 
-Excluded (kept in dataset, used only as cross-checks / context):
-- `update` (29) — performance brags (MYX 3x, BEAT +448%…). Used to **validate** the grader
-  (her claimed result should roughly match what we compute for that coin/window).
+Excluded (kept in the dataset as cross-checks / context, never graded as trades):
+- `update` (29) — performance brags (MYX 3x, BEAT +448%…). Used to **sanity-check** the
+  grader (her claimed result should roughly match what we compute for that coin/window).
 - `commentary` (16), `plan` (1) — theses/scenarios, no executable entry.
 - `close` (3) — these are exits; folded into the close-signals, not setups.
 
-## B. Deduplication (critical — avoids inflating trade count)
+## B. Deduplication
 - Records whose `note` starts with `"duplicate of <id>"` are **reposts of the same trade**
-  (she spams the same chart minutes apart). Collapse: keep only the primary; drop the dups.
-- Records noted as re-posts with a **changed level** (e.g. "Baby short re-post (entry moved
-  to 687)") are kept as **separate** trades (new entry = new decision).
-- Result: ~565 raw setups/zones → estimated ~330–360 unique tradeable entries after collapse
-  (exact count printed at run).
+  (she spams the same chart minutes apart). Collapsed: keep the primary, drop the dups.
+- Reposts with a **changed level** ("Baby short re-post, entry moved to 687") are kept as
+  **separate** trades — a new entry is a new decision.
+- After collapse: **418 unique entries reached the fill model; 413 filled and were graded.**
 
-## C. Multi-leg panels (dual/triple BTC+ETH+SOL)
-- These were stored as ONE record on the primary coin, with the other legs described in the
-  `note` ("ETH leg: short 1619 -> 1082.47, SL 1725.34"). v1 grades the **primary coin only**.
-- The embedded secondary legs are NOT graded in v1 (would need note-parsing). This undercounts
-  ETH/SOL slightly; documented limitation, can be added in v2.
+## C. Multi-leg panels (dual / triple BTC+ETH+SOL)
+- Stored as ONE record on the primary coin, the other legs in the `note`
+  ("ETH leg: short 1619 → 1082.47, SL 1725.34"). We grade the **primary coin only**.
+- The embedded secondary legs are NOT graded (would need note-parsing) — this slightly
+  undercounts ETH/SOL. Documented limitation (§K).
 
 ## D. Entry model — limit fill at her drawn entry (look-ahead-safe)
-She draws a specific entry on every chart. Model it as a **limit order at `entry`**:
+She draws a specific entry on every chart. We model it as a **limit order at `entry`**:
 - From the call's post timestamp, walk 1h candles forward (up to max-hold, §H).
-- Fill at `entry` on the **first candle whose [low,high] straddles `entry`**
-  (fill price = `entry`). At-market calls (entry ≈ price at post) fill on the first candle;
-  true limits ("buy below 69420") fill when price reaches the level.
-- If `entry` is never touched within the window → **no fill**, trade skipped (counted as
-  "untriggered", reported separately — she watches and doesn't always get filled).
-- Rationale: keeps her targets/SL **percentages exactly as she drew them** (all relative to
-  her entry), models how she actually trades (drawn entries), and only ever looks *forward*
-  for the touch → no look-ahead bias. The 0.5% friction (§I) covers slippage/optimism.
+- Fill at `entry` on the **first candle whose [low, high] straddles `entry`** (fill price
+  = `entry`). At-market calls (entry ≈ price at post) fill on the first candle; true limits
+  ("buy below 69420") fill when price reaches the level.
+- If `entry` is never touched in the window → **no fill**, trade skipped and reported as
+  "untriggered" (5 of 418 — she watches and doesn't always get filled).
+- Why: keeps her targets/SL **exactly as she drew them** (all relative to her entry),
+  models how she actually trades, and only ever looks *forward* for the touch → no
+  look-ahead bias. The 0.5% friction (§I) absorbs slippage/optimism.
 
 ## E. Price oracle
-- Binance **1h** klines (wicks catch most intrabar touches; her holds are hours→weeks).
-- `prices.py` currently hits SPOT (`api/v3`). Many of her coins are **perp-only** and
-  `CLUSDT` (oil) is futures-only → extend with a **futures fallback**: try spot; on empty/404
-  fall back to `fapi/v1/klines` (USDT-M perp). Cache both. (CLUSDT confirmed live on fapi.)
-- Spot vs perp price diff is negligible for grading; use whichever the symbol lists on.
+- Binance **1h** klines (wicks catch most intrabar touches; her holds run hours → weeks).
+- `prices.py` provides `ohlcv_auto(symbol, …)`: try **spot** (`api/v3/klines`); on empty/404
+  fall back to **USDT-M futures** (`fapi/v1/klines`). Many of her coins are perp-only, and
+  `CLUSDT` (WTI oil) is futures-only — confirmed live on fapi. Both markets are cached
+  (`data/price_cache/hist_<sym>_1h.json`); spot-vs-perp price diff is negligible for grading.
 
-## F. Exit logic — graded TWO ways
-For each filled trade, compute both:
+## F. Exit logic — graded THREE ways
+For each filled trade we compute all three exits over the same 1h walk:
 
-**Method A — "follow her exactly"** (her discretion + her risk bound):
+**Method A — "mirror her posts"** (her discretion + her risk bound):
 - Exit at the EARLIEST of:
   1. her first matching **close-signal** after entry — coin matches (or a coin-agnostic
-     close whose `dir` matches), exit price = market at that signal's bar;
-  2. price touching her **chart SL** (she does get stopped — 39 stop-signals confirm it);
-  3. **max-hold** cap (§H) → exit at last candle's close.
-- Exit reason recorded: `her_close` / `her_stop` / `chart_sl` / `max_hold`.
+     close whose `dir` matches); exit price = that bar's close;
+  2. **max-hold** cap (§H) → exit at the last candle's close.
+- She holds **through chart-SL wicks** unless she actually posts a stop, so Method A does
+  **not** auto-exit on the chart SL (an earlier version did; removed — it mis-scored her).
+  When she posts a stop it lands as a close-signal (`her_stop`) via case 1.
+- Exit reasons observed: `her_close` 299, `her_stop` 72, `max_hold` 42.
 
 **Method B — "mechanical first-touch"** (rules-only, ignores her messages):
-- Walk candles from fill; exit at FIRST touch of `targets[0]` (TP1) → win at TP1,
-  or `sl` → loss at SL, whichever first; else **max-hold** close.
-- Exit reason: `tp` / `sl` / `max_hold`.
-- (v1 = first target only / full exit. Laddered multi-TP is a v2 toggle.)
+- Walk from fill; exit at the FIRST touch of `targets[0]` (TP1) → win, or `sl` → loss,
+  whichever comes first (**SL wins ties**); else **max-hold** close.
+- Exit reasons: `sl` 292, `max_hold` 77, `tp` 44. (v1 = first target / full exit; a
+  laddered multi-TP exit is a possible v2 toggle.)
+
+**Method C — "let it run"** (tests whether her *entries* have edge if the exit isn't choked):
+- Initial stop = her chart SL. Once price moves **+20% in favor (ACT)**, switch to a **25%
+  trailing stop off the running peak**; else max-hold. Illustrative, **NOT** parameter-tuned.
+- Reasons: `init_sl` / `trail` / `max_hold`.
 
 ## G. Target / SL edge cases
 - `targets == []` (off-screen / moonshot / "buy & hold"): Method B has no TP → exits only on
-  SL or max-hold. Method A still uses her signal. Flagged `no_target`.
+  SL or max-hold; Methods A and C still work. Flagged `no_target`.
 - `sl == null` (zones, some moonshots): Method B has no SL → exits only on TP or max-hold;
-  if also no target → mechanically ungradeable → B = max-hold only. Flagged `no_sl`.
-- These lean on close-signals (Method A) for a meaningful exit.
+  if also no target → mechanically ungradeable (B = max-hold only). Flagged `no_sl`.
+  These lean on Method A (her close-signals) for a meaningful exit.
 
 ## H. Max-hold caps
-- Tactical (`swing` not set): **30 days**. Swing/moonshot (`swing == true`): **90 days**.
+- Tactical (`swing` not set): **30 days**. Swing / moonshot (`swing == true`): **90 days**.
 - Always clipped to "now" (2026-06-27) for still-open recent trades (exit = last close,
-  marked `open`/`unrealized`).
+  marked `open` / `unrealized`).
 
 ## I. PnL definition (per trade, raw)
-- `ret = (exit/entry - 1) * (+1 long / -1 short) - 0.5% friction`.
-- This is the **price-move return** (1x). Leverage, margin sizing, risk-parity, the 2× swing
-  rule (BTC+largecap only), lev caps, weekly circuit-breakers → all applied by the **backtest
-  layer**, not here. Grading just establishes per-trade truth.
-- Also record: `tp_hit` (bool), `sl_hit` (bool), `hold_hours`, `mfe`/`mae` (max favorable/
-  adverse excursion %, for the "her ups/downs" stats in step 5).
+- `ret = (exit/entry − 1) × (+1 long / −1 short) − 0.5% friction`.
+- This is the **price-move return at 1x**. Leverage, margin sizing, risk-parity, the 2×
+  swing rule (BTC + large-cap only), lev caps and weekly circuit-breakers are all applied by
+  the **backtest layer**, never here. Grading just establishes per-trade truth.
+- Also recorded per trade: `tp_hit`, `sl_hit`, `hold_h`, and `mfe`/`mae` (max favorable /
+  adverse excursion %). For shorts, mfe uses the lowest low and mae the highest high.
 
 ## J. Outputs
-- `data/graded_rose.json`: list of per-trade dicts
-  `{id, coin, dir, kind, swing, post_date, entry, fill_date, A_exit, A_ret, A_reason,
-    B_exit, B_ret, B_reason, tp_hit, sl_hit, hold_hours, mfe, mae, flags[]}`
-  plus a `summary` block (counts, fill rate, win rate A/B, avg win/loss, SL-hit %, by coin).
-- Untriggered (no-fill) and ungradeable records listed separately with reasons.
+- `data/graded_rose.json`: `summary` block + `trades[]` of per-trade dicts
+  `{id, coin, dir, kind, swing, post_date, entry, fill_date,
+    A_ret/A_reason/A_hold_h, B_ret/B_reason, C_ret/C_reason/C_hold_h,
+    tp_hit, sl_hit, mfe, mae, flags[]}`, plus `skipped` (untriggered + ungradeable).
+- `summary` reports counts, fill rate, win rate and avg win/loss per method, B's TP/SL-hit
+  %, and breakdowns by direction and by segment (short / large-cap long / alt long).
 
 ## K. Known limitations (documented, not hidden)
-1. Secondary legs of multi-coin panels ungraded (§C).
+1. Secondary legs of multi-coin panels are ungraded (§C) — slightly undercounts ETH/SOL.
 2. Limit-fill assumes she gets her drawn entry (mildly optimistic; friction offsets).
 3. 1h granularity can miss sub-hour wick touches (rare; minor).
-4. Case-sensitive ticker match in close-signals misses a few lowercase mentions (§ close pass).
-5. "her real entry timing" is the message timestamp; if she entered before posting, real
+4. Close-signal ticker match is case-sensitive (avoids op/re/arb false hits), so a few
+   lowercase mentions miss coin attribution → those fall back to mechanical exits.
+5. "Her real entry timing" is the message timestamp; if she entered before posting, real
    fills could differ slightly.
 
-## L. Decisions needing a nod (defaults chosen, override any)
-1. **Entry** = her drawn limit level, filled on first touch (vs. blind market-at-post). _default: limit-fill_
-2. **Dedup** = collapse "duplicate of"; keep changed-level reposts separate. _default: yes_
-3. **Multi-leg panels** = grade primary coin only in v1. _default: yes_
-4. **Max-hold** = 30d tactical / 90d swing. _default: those_
-5. **Method A honors chart SL** as a hard loss bound (exit at min{her-signal, SL, max-hold}). _default: yes_
+## L. Settled decisions (these were defaults; all confirmed and kept)
+1. **Entry** = her drawn limit level, filled on first touch (not blind market-at-post).
+2. **Dedup** = collapse "duplicate of"; keep changed-level reposts separate.
+3. **Multi-leg panels** = grade the primary coin only.
+4. **Max-hold** = 30d tactical / 90d swing.
+5. **Method A does NOT honor the chart SL** — she rides wicks; only her posted stop exits.
+   (This reverses the original draft, which auto-exited Method A at the chart SL.)

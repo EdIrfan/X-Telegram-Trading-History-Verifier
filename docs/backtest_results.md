@@ -49,7 +49,7 @@ negative on its own.
    The fact that her SHORTS net breakeven mechanically hints real timing skill that a
    mechanical mirror dilutes.
 3. **Her exits leave money on the table** (MYX stopped −7% then +200x); a let-it-run
-   overlay helps but our 1h/▶max-hold window still misses multi-month pumps.
+   overlay helps but our 1h / max-hold window still misses multi-month pumps.
 
 ## Bottom line
 As a **blind mechanical strategy on the charts we captured**, Rose Margin does **not**

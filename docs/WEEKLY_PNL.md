@@ -1,3 +1,6 @@
+> **⚠️ SHELVED (2026-06-27).** @blockchainedbb (X) sub-report — see `docs/REPORT.md` and the
+> root `README.md` (active project: Rose Margin).
+
 # Weekly P&L — $100 vs $500 accounts (laddered strategy)
 
 | Week (Mon) | Trades | $100 P&L | $100 Equity | $500 P&L | $500 Equity |

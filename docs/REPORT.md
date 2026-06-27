@@ -1,3 +1,8 @@
+> **⚠️ SHELVED (2026-06-27).** This @blockchainedbb (X/Twitter) analysis is complete but
+> **deprioritized** — a full-year blind-copy backtest finished **+4.4%** (survivable but no
+> real edge). The active project is **Rose Margin** (see the root `README.md`). These files
+> are kept for reference; don't extend them unless asked.
+
 # @blockchainedbb crypto-call accuracy — FINAL report (full year)
 
 **Scope:** complete timeline **June 2025 → June 27 2026** (3,105 posts scraped via the

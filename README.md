@@ -75,9 +75,9 @@ read each image → write `batchN.json` → `merge_batch.py batchN.json`.
 ## Docs index
 | File | What |
 |---|---|
-| `docs/grading_spec.md` | Grading methodology (entry/exit/edge cases) |
+| `docs/grading_spec.md` | Grading methodology, as built (entry/exit/3 methods/edge cases) |
 | `docs/findings_grading.md` | Her real ups/downs + the phase-b de-bias (the verdict) |
-| `docs/backtest_rules.md` | All accumulated $10k backtest rules (decided with user) |
+| `docs/backtest_rules.md` | Final $10k backtest rules (sizing, the two plans, scope, exits) |
 | `docs/backtest_results.md` | $10k results, both plans, caveats |
 | `docs/REPORT.md`, `STRATEGY_REPORT.md`, `WEEKLY_PNL.md` | @blockchainedbb (shelved) |
 

@@ -1,92 +1,84 @@
-# Rose Margin — backtest design rules (decided with user, fill in during phase 6)
+# Rose Margin — $10,000 backtest rules (final)
 
-## Position sizing = RISK-PARITY (match her wide SL by shrinking size)
-- Risk budget per trade is a FIXED $ amount; position size = risk_budget / her_SL_distance%.
-- Wider her SL (smallcap 30-40%) -> smaller position. Tighter SL (BTC 5%) -> bigger position.
-- This bounds the $ loss per trade regardless of her crazy SL distances.
+The settled rule set used by `backtest_rose.py`. These were decided with the user over
+2026-06-26/27; this doc states the final form. Results: `docs/backtest_results.md`.
+Grading (the per-trade returns these rules size) is specified in `docs/grading_spec.md`.
 
-## $10,000 plan, two variants
-- "$100 plan": base risk $100/trade (1% of 10k).
-- "$500 plan": base risk $500/trade (5% of 10k).
+## Position sizing = RISK-PARITY
+- Risk budget per trade is a fixed $ amount; **position notional = risk_budget ÷
+  her_SL_distance%**.
+- Wider SL (small-cap 30–40%) → smaller position; tighter SL (BTC ~5%) → bigger position.
+- This **bounds the $ loss per trade** regardless of how far away her SL sits — which is
+  exactly her stated premise for using wide stops.
 
-## 2x risk for INSANE long-range SWING setups (user rule, 2026-06-26)
-- Her big-range moonshot LONGS (target +100% to +500%, wide SL) = SWING buys, NOT normal buys.
-- For these swing setups, DOUBLE the risk budget:
-    $100 plan -> $200 risk on swing setups
-    $500 plan -> $1000 risk on swing setups
-- Tight tactical trades (BTC/ETH/SOL scalp longs & shorts, small target/SL) stay at 1x risk.
-- Need a "swing" flag per setup (big target multiple + wide SL) vs "tactical".
+## The two plans (start $10,000 each)
+The $500-risk plan was **dropped**: she trades constantly with many concurrent positions,
+so $500/trade massively over-deploys a $10k account. Even $200 runs hot (see results).
+
+| Plan | Margin/trade | Weekly stop | Per-trade SL cap (normal / swing) |
+|---|---|---|---|
+| **A "$100"** (conservative) | $100 | −3% (−$300) | $100 / $200 |
+| **B "$200c5"** (aggressive) | $200 | −5% (−$500) | $200 / $400 |
+| ~~$500~~ | — | — | **dropped** (over-leverages the account) |
+
+Plan B keeps the smaller $200 notional but inherits the looser risk config that the
+abandoned $500 plan would have used.
+
+## 2× swing rule — BTC + large-caps only
+- Her big-range moonshot **longs** (target +100% to +500%, wide SL) are **swing buys**, not
+  tactical scalps. For these, **double both the risk budget and the per-trade $ SL cap**
+  (Plan A: $100→$200; Plan B: $200→$400).
+- **Restricted to BTC and large-caps. Altcoins are always 1× risk and 1× leverage**, even on
+  buy-&-hold/swing intent — their wide stops make 2× too dangerous.
+- Eligibility computed at backtest time: `2x = (swing == true) AND (coin in LARGECAPS)`.
+- `LARGECAPS = {BTC, ETH, BNB, SOL, XRP, ADA, DOGE, LTC, TRX, LINK, AVAX, DOT, BCH}`.
+- Tactical trades (BTC/ETH/SOL scalp longs & shorts, small target/SL) always stay 1×.
+
+## Leverage
+- **2×–3× max** on tactical/large-cap trades; **1× for moonshot alts** (wide 20–40% SL → low
+  leverage avoids liquidation). (The @blockchainedbb backtest used 5×; Rose's SL distances
+  are far larger, so leverage is much lower.)
+- Risk-parity already caps the $ loss; leverage only affects margin use and liquidation
+  distance, not the PnL — PnL = notional × graded return.
 
 ## Hold model
-- VARIABLE hold: enter at her entry, exit on FIRST of {her target, her SL, her close msg}.
-- Horizon up to weeks (her trades run minutes -> weeks). Use hourly price path.
-- Use her force-close messages (matched by coin + time) as exit signals.
+- **Variable hold**: enter at her drawn entry, exit on the FIRST of {her target, her SL, her
+  posted close} along the hourly price path (her trades run minutes → weeks).
+- Her force-close messages (matched by coin + direction + time) drive the mirror-her exit.
 
-## Grade two ways
-1. follow-her-exactly (her close / SL / target, whichever first)
-2. mechanical (target vs SL first-touch only)
+## Strategies graded (per plan)
+Each plan is run four ways, mapping the three grading lenses onto segments:
+- **CORE-only** — shorts + large-cap longs, mirror-her exits (the defensible subset).
+- **SEGMENTED** — CORE + alt longs on a let-it-run (Method C) overlay.
+- **all-A** — mirror her on everything.
+- **all-B** — mechanical TP/SL on everything.
 
-## UPDATE (user, 2026-06-26): SL cap also 2x on swing setups
-- The hard per-trade $ stop-loss CAP doubles too on swing setups (not just the risk budget).
-- "$500 plan had $200 SL -> now $400 SL" on swing trades.
-- So: $500 plan normal cap = $200 / swing cap = $400 ; $100 plan normal = $100 / swing = $200.
-- RECONCILE at phase 6: confirm exact mapping of "risk budget" vs "$ SL cap"
-  (user also said risk "$500 -> $1000"; clarify whether risk==SL-cap or separate).
+## Account mechanics (event-driven & fundable)
+- Margin is capped at the live account: if `deployed + new_margin > equity`, the trade is
+  **unfunded** (skipped, counted) — models real concurrent-position limits.
+- **Ruin** at equity ≤ $0 (blown).
+- **Weekly circuit-breaker**: once a calendar week's realized PnL hits the plan's stop
+  (−$300 / −$500), the rest of that week's trades are **skipped** (`wkskip`).
 
-## Leverage (user, 2026-06-26)
-- 2x-3x MAX. 1x for moonshot alts (wide 20-40% SL -> low lev avoids liquidation).
-- (X-account backtest used 5x; Rose uses much lower because her SL distances are huge.)
-- Risk-parity sizing already caps the $ loss; leverage only affects capital/liquidation.
+## Scope — what instruments count
+- Anything on **Binance futures OR Binance spot**, crypto **or** commodity.
+- Commodities are **in scope if listed**: WTI crude trades via the live **`CLUSDT`**
+  perpetual (her #OIL/#CL calls, ids 51904/52134/52139/52140). `BRENT`/`USOIL`/`WTI`
+  tickers are not on Binance and are excluded. (Caveat: id 52134 was charted on Brent, so
+  grading it against CLUSDT/WTI carries the small Brent–WTI spread error; the CL ids are exact.)
+- A `kind=="spot"` ("buy spot") call is only actionable if the coin is on Binance **spot**;
+  futures-only → dropped (leveraged `setup` calls trade on futures, so futures-only is fine).
+- Excluded only when there is **no Binance listing at all** (pure CFD / Hyperliquid-only).
 
-## UPDATE (user, 2026-06-27): 2x only for BTC + large-caps
-- The 2x swing risk/SL is RESTRICTED to BTC and large-caps. NO 2x for altcoins,
-  even on buy&hold/swing. Altcoins always stay 1x risk (and 1x leverage).
-- So: 2x_eligible = (swing == true) AND (coin in LARGECAPS).
-- LARGECAPS := BTC, ETH, BNB, SOL, XRP, ADA, DOGE, LTC, TRX, LINK, AVAX, DOT, BCH
-  (top ~caps; refine at phase 6). Everything else = altcoin -> 1x always.
-- The "swing" flag in tg_calls_extracted.json marks her swing/hold intent; the 2x
-  eligibility is swing AND largecap (applied at backtest time, not in the flag).
-
-## UPDATE (user, 2026-06-27): DROP $500 plan; run $100 + "$200-with-500-config"
-- She trades A LOT (constant re-entries, scenario hedges, many CONCURRENT positions).
-  Deploying $500/trade would massively over-leverage the $10k acct across simultaneous trades.
-- So the two plans are now:
-    PLAN A "$100"  : $100 margin/trade, CONSERVATIVE config (3%/wk stop, per-trade SL cap $100 normal / $200 swing)
-    PLAN B "$200c5": $200 margin/trade, but use the AGGRESSIVE $500 CONFIG
-                     (5%/wk stop, per-trade SL cap $200 normal / $400 swing)
-- $500/trade plan is DROPPED entirely.
-- Rationale: smaller per-trade notional keeps the account from blowing up when many
-  of her positions are open at once; the $200 just inherits the looser $500 risk rules.
-
-## UPDATE (user, 2026-06-27): spot-buy calls require SPOT listing
-- Many coins are on Binance FUTURES but NOT on Binance SPOT.
-- A kind:"spot" call (she says "buy spot"/"buy some at spot") is only actionable if the
-  coin is on Binance SPOT. If it's futures-only -> IGNORE that spot call (can't buy spot).
-- Leveraged setups (kind:"setup") trade on futures, so futures-only is fine for them.
-- At grading: for kind=="spot", check coin against binance_symbols.json["spot"]; drop if absent.
-
-## UPDATE (user, 2026-06-27): commodities ARE in scope IF on Binance futures
-- Earlier I excluded oil/commodity calls as "not crypto coins". User corrected this:
-  if the instrument is actually listed on Binance FUTURES, do NOT ignore it.
-- Verified: **CLUSDT (WTI crude oil) perpetual IS live on Binance futures**
-  (`fapi/v1/klines?symbol=CLUSDT` -> HTTP 200, gradeable). BRENT/USOIL/WTI tickers are NOT.
-- So her oil calls (#OIL / #BRENT / #CL) are NOW INCLUDED, graded via the Binance CLUSDT perp:
-  ids 51904, 52134, 52139, 52140 -> binance:true, binance_sym="CLUSDT".
-- Caveat: 52134 was charted on Brent (Hyperliquid); its entry is Brent-priced, so grading it
-  against CLUSDT (WTI) carries the small Brent-WTI spread error. WTI/CL ids are exact.
-- General rule going forward: scope = anything on Binance futures OR Binance spot, crypto OR
-  commodity. Only exclude instruments with NO Binance listing (e.g. pure CFD/Hyperliquid-only).
-
-## Close/exit signals (text pass) — data/tg_close_signals.json
-- Built by build_close_signals.py from the 14,610 Telegram messages. Her SETUPS are on
-  the chart images; her EXITS are almost always text-only.
-- 383 exit events: action = "stop" (SL hit, 39) | "close" (manual flat, 334) | "tp"
-  (book/take profit, 10). Fields: {id, date, action, dir, coins[], pct, text}.
-- Coins from #hashtags + UPPERCASE plain-text major fallback ("closed BTC at 88k").
+## Exit / close signals (text pass) — `data/tg_close_signals.json`
+- Built by `build_close_signals.py` from the 14,610 Telegram messages: her **setups** are
+  chart images, but her **exits** are almost always text-only.
+- **383 exit events**: `stop` (SL hit, 39) | `close` (manual flat, 334) | `tp`
+  (book/take profit, 10). Fields `{id, date, action, dir, coins[], pct, text}`.
+- Coins from #hashtags + an UPPERCASE plain-text fallback for majors ("closed BTC at 88k").
   33 are coin-agnostic general exits ("Close shorts", "Stopped out", "cut loss").
-- GRADER exit-matching (variable hold): for each setup (coin, dir, post-date), the exit =
-  the FIRST close-signal where coin matches (or a coin-agnostic close whose dir matches),
-  dated AFTER the setup. If none found, fall back to mechanical first-touch (TP/SL) and/or
-  a max-hold cap. "stop" exits ~ SL hit; "tp"/"close" exits ~ realized at that bar's price.
-- Caveat: case-sensitive ticker match (avoids op/re/arb false hits) so a few lowercase
-  mentions ("Zec ... stopped out") miss coin attribution; harmless (fall back to mechanical).
+- Grader matching (variable hold): for each setup (coin, dir, post-date), the exit is the
+  FIRST close-signal where the coin matches (or a direction-matching coin-agnostic close)
+  dated AFTER the setup; else fall back to mechanical first-touch and/or the max-hold cap.
+- Caveat: case-sensitive ticker match (avoids op/re/arb false hits), so a few lowercase
+  mentions miss coin attribution → harmless, they fall back to a mechanical exit.

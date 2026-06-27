@@ -1,3 +1,6 @@
+> **⚠️ SHELVED (2026-06-27).** @blockchainedbb (X) sub-report — see `docs/REPORT.md` for the
+> headline and the root `README.md` for the active project (Rose Margin).
+
 # Strategy backtest — laddered TP + trailing stop (@blockchainedbb, 73 calls)
 
 **Verification:** full **7-day window per trade**, walked on the **hourly price path**

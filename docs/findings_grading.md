@@ -59,9 +59,11 @@ even from her first entry, and the multibagger brags are largely unrealizable wi
 Net: her followable edge is ~flat (shorts + majors); the alt moonshots are −EV.
 
 ## Implications for the $10k backtest
+These fed the backtest design; it has since run (`docs/backtest_results.md`) and **even
+the defensible subset lost** (best config −34%), confirming there's no riskable edge.
 - Don't deploy the full undifferentiated portfolio (it's ~flat-to-negative).
-- The defensible test: **her shorts + major-coin longs, mirror-her exits**, small
-  risk-parity size — expected ~flat, low-drawdown; quantify it.
+- The defensible test was **her shorts + major-coin longs, mirror-her exits**, small
+  risk-parity size — expected ~flat; quantified at best-case −34% (CORE-only, Plan A).
 - Treat alt-moonshot longs as **tiny 1x lottery allocations** (user's instinct was
   right) with a **partial-TP + trailing** exit, NOT her fixed TP/SL — that's the only
   configuration where the entry edge (44% reach +20%) has a chance to pay.
