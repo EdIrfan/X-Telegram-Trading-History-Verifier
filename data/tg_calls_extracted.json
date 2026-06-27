@@ -8415,8 +8415,8 @@
   {
    "id": 51904,
    "coin": "OIL",
-   "binance_sym": "USOIL",
-   "binance": false,
+   "binance_sym": "CLUSDT",
+   "binance": true,
    "dir": "long",
    "entry": 101.17,
    "targets": [
@@ -8425,13 +8425,13 @@
    "sl": 83.63,
    "kind": "setup",
    "chart_ex": "tvc",
-   "note": "LONG OIL/BRENTOIL (WTI crude CFD) 4h, target 200.51 (+98%) / SL -17.3%. COMMODITY (crude oil), outside crypto-coin scope -> EXCLUDED"
+   "note": "LONG OIL/BRENTOIL (WTI crude CFD) 4h, target 200.51 (+98%) / SL -17.3%. COMMODITY (crude oil), outside crypto-coin scope -> NOW INCLUDED [INCLUDED: graded via Binance CLUSDT (WTI crude) perp]"
   },
   {
    "id": 52134,
    "coin": "OIL",
-   "binance_sym": "BRENTOIL",
-   "binance": false,
+   "binance_sym": "CLUSDT",
+   "binance": true,
    "dir": "long",
    "entry": 109.82,
    "targets": [
@@ -8440,13 +8440,13 @@
    "sl": 85.0,
    "kind": "setup",
    "chart_ex": "hyperliquid",
-   "note": "Long OIL #BRENT (BRENTOIL-USDC) 1D on Hyperliquid 20x, target ~200 / SL ~85. COMMODITY, outside crypto-coin scope -> EXCLUDED"
+   "note": "Long OIL #BRENT (BRENTOIL-USDC) 1D on Hyperliquid 20x, target ~200 / SL ~85. COMMODITY, outside crypto-coin scope -> NOW INCLUDED [INCLUDED: graded via Binance CLUSDT (WTI crude) perp; original entry was Brent-priced (~Brent-WTI spread caveat)]"
   },
   {
    "id": 52139,
    "coin": "OIL",
    "binance_sym": "CLUSDT",
-   "binance": false,
+   "binance": true,
    "dir": "long",
    "entry": 115.09,
    "targets": [
@@ -8455,13 +8455,13 @@
    "sl": 106.0,
    "kind": "setup",
    "chart_ex": "binance",
-   "note": "'LONG OIL #CL in Binance' 1h (CL/USDT perp), target 200.22 (+74%) / SL -7.9%. She says tradeable on Binance, but COMMODITY (crude oil) not crypto -> EXCLUDED from crypto backtest"
+   "note": "'LONG OIL #CL in Binance' 1h (CL/USDT perp), target 200.22 (+74%) / SL -7.9%. She says tradeable on Binance, but COMMODITY (crude oil) not crypto -> NOW INCLUDED from crypto backtest [INCLUDED: graded via Binance CLUSDT (WTI crude) perp]"
   },
   {
    "id": 52140,
    "coin": "OIL",
    "binance_sym": "CLUSDT",
-   "binance": false,
+   "binance": true,
    "dir": "long",
    "entry": 115.09,
    "targets": [
@@ -8470,7 +8470,7 @@
    "sl": 106.0,
    "kind": "setup",
    "chart_ex": "binance",
-   "note": "duplicate of 52139 CL oil long"
+   "note": "duplicate of 52139 CL oil long [INCLUDED: graded via Binance CLUSDT (WTI crude) perp]"
   },
   {
    "id": 52155,
@@ -9260,6 +9260,260 @@
    "chart_ex": "binance",
    "swing": true,
    "note": "HYPE LONG 4h (Jun12, long again) H&S, target 100.051 (+69.3%) / SL -11.3%; nearer support 58.356 (largecap-alt)"
+  },
+  {
+   "id": 53832,
+   "coin": "BTC",
+   "binance_sym": "BTCUSDT",
+   "binance": true,
+   "dir": "long",
+   "entry": 63765.0,
+   "targets": [
+    79501.41
+   ],
+   "sl": 58923.72,
+   "kind": "setup",
+   "chart_ex": "crypto",
+   "swing": true,
+   "note": "BTC LONG 4h (Jun12), target +24.7% / SL -7.6%"
+  },
+  {
+   "id": 53840,
+   "coin": "HYPE",
+   "binance_sym": "HYPEUSDT",
+   "binance": true,
+   "dir": "long",
+   "entry": 59.099,
+   "targets": [
+    100.051
+   ],
+   "sl": 52.409,
+   "kind": "setup",
+   "chart_ex": "binance",
+   "swing": true,
+   "note": "duplicate of 53814 HYPE long (target 100.051)"
+  },
+  {
+   "id": 53841,
+   "coin": "BTC",
+   "binance_sym": "BTCUSDT",
+   "binance": true,
+   "dir": "long",
+   "entry": 63765.0,
+   "targets": [
+    79501.41
+   ],
+   "sl": 58923.72,
+   "kind": "setup",
+   "chart_ex": "crypto",
+   "swing": true,
+   "note": "duplicate of 53832 BTC long"
+  },
+  {
+   "id": 53882,
+   "coin": "ETH",
+   "binance_sym": "ETHUSDT",
+   "binance": true,
+   "dir": "short",
+   "entry": 1792.51,
+   "targets": [
+    1010.72
+   ],
+   "sl": 2015.41,
+   "kind": "setup",
+   "chart_ex": "binance",
+   "note": "ETH 'at Resistance' SHORT 1D (Jun16), target 1010.72 (-43.6%) / SL +12.4% (largecap)"
+  },
+  {
+   "id": 53894,
+   "coin": "BTC",
+   "binance_sym": "BTCUSDT",
+   "binance": true,
+   "dir": "short",
+   "entry": 64588.0,
+   "targets": [
+    43051.7
+   ],
+   "sl": 68446.6,
+   "kind": "setup",
+   "chart_ex": "binance",
+   "note": "BTC SHORT 'Hey baby whales' 1D (Jun17), target 43051 (-33.4%) / SL +6%"
+  },
+  {
+   "id": 53931,
+   "coin": "LAB",
+   "binance_sym": "LABUSDT",
+   "binance": true,
+   "dir": "long",
+   "entry": 5.0,
+   "targets": [],
+   "sl": 4.054,
+   "kind": "update",
+   "chart_ex": "binance",
+   "note": "LAB UPDATE 'x5 at last setup': +502.06% (~4-5 -> ~20); long moonshot winning, SL 4.054 (alt)"
+  },
+  {
+   "id": 53960,
+   "coin": "LAB",
+   "binance_sym": "LABUSDT",
+   "binance": true,
+   "dir": "long",
+   "entry": 17.157,
+   "targets": [
+    60.043
+   ],
+   "sl": 12.735,
+   "kind": "setup",
+   "chart_ex": "binance",
+   "swing": true,
+   "note": "LAB LONG 4h (Jun22) symmetrical-triangle breakout, target 60.043 (+250%) / SL -25.8% moonshot (alt)"
+  },
+  {
+   "id": 53970,
+   "coin": "BTC",
+   "binance_sym": "BTCUSDT",
+   "binance": true,
+   "dir": "short",
+   "entry": 64964.0,
+   "targets": [
+    39804.38
+   ],
+   "sl": 72520.47,
+   "kind": "setup",
+   "chart_ex": "crypto",
+   "swing": true,
+   "note": "dual 'Swing Short BTC+ETH' 1D (Jun22); BTC -38.7%/+11.7%. ETH leg: short 1754.27 -> 979.61, SL 1981.81 (-44.2%/+13%)"
+  },
+  {
+   "id": 53973,
+   "coin": "LAB",
+   "binance_sym": "LABUSDT",
+   "binance": true,
+   "dir": "long",
+   "entry": 17.157,
+   "targets": [
+    60.043
+   ],
+   "sl": 12.735,
+   "kind": "setup",
+   "chart_ex": "binance",
+   "swing": true,
+   "note": "duplicate of 53960 LAB long"
+  },
+  {
+   "id": 53974,
+   "coin": "RE",
+   "binance_sym": "REUSDT",
+   "binance": true,
+   "dir": "long",
+   "entry": 0.8832,
+   "targets": [
+    2.2385
+   ],
+   "sl": 0.6613,
+   "kind": "setup",
+   "chart_ex": "binance",
+   "swing": true,
+   "note": "RE LONG 4h (Jun22) off support, target 2.2385 (+153%) / SL -25.1% moonshot (alt)"
+  },
+  {
+   "id": 53980,
+   "coin": "LAB",
+   "binance_sym": "LABUSDT",
+   "binance": true,
+   "dir": "short",
+   "entry": 16.776,
+   "targets": [],
+   "sl": 18.836,
+   "kind": "setup",
+   "chart_ex": "binance",
+   "note": "LAB Short 4h (Jun23, brief flip), target off-screen low (~5.7), SL +12.3% (alt); flips back long 30min later (53981)"
+  },
+  {
+   "id": 53981,
+   "coin": "LAB",
+   "binance_sym": "LABUSDT",
+   "binance": true,
+   "dir": "long",
+   "entry": 17.157,
+   "targets": [
+    60.043
+   ],
+   "sl": 12.735,
+   "kind": "setup",
+   "chart_ex": "binance",
+   "swing": true,
+   "note": "duplicate of 53960 LAB long (flipped back from short)"
+  },
+  {
+   "id": 53984,
+   "coin": "BTC",
+   "binance_sym": "BTCUSDT",
+   "binance": true,
+   "dir": "long",
+   "entry": 62369.4,
+   "targets": [],
+   "sl": null,
+   "kind": "zone",
+   "chart_ex": "binance",
+   "note": "duplicate of 53986 long BTC+ETH"
+  },
+  {
+   "id": 53986,
+   "coin": "BTC",
+   "binance_sym": "BTCUSDT",
+   "binance": true,
+   "dir": "long",
+   "entry": 62369.4,
+   "targets": [],
+   "sl": null,
+   "kind": "zone",
+   "chart_ex": "binance",
+   "note": "'Long BTC+ETH' ticker screenshot (BTC 62,369.4 -2.65%), no hard target/SL"
+  },
+  {
+   "id": 53999,
+   "coin": "BTW",
+   "binance_sym": "BTWUSDT",
+   "binance": true,
+   "dir": "long",
+   "entry": 0.09807,
+   "targets": [],
+   "sl": 0.04151,
+   "kind": "setup",
+   "chart_ex": "binance",
+   "swing": true,
+   "note": "BTW BULLISH 1D, target off-screen high (log axis to ~32), SL -57.7% moonshot (alt)"
+  },
+  {
+   "id": 54012,
+   "coin": "AAVE",
+   "binance_sym": "AAVEUSDT",
+   "binance": true,
+   "dir": "long",
+   "entry": null,
+   "targets": [
+    600.0
+   ],
+   "sl": null,
+   "kind": "commentary",
+   "chart_ex": "binance",
+   "note": "forward PLAN 'Will buy AAVE at early Q4 & Sell at 600$' (cycle-top analog vs ZEC/XRP); not a live entry, AAVE ~86 now (alt)"
+  },
+  {
+   "id": 54013,
+   "coin": "BTC",
+   "binance_sym": "BTCUSDT",
+   "binance": true,
+   "dir": "short",
+   "entry": 59618.6,
+   "targets": [
+    38090.96
+   ],
+   "sl": 66028.5,
+   "kind": "setup",
+   "chart_ex": "coinbase",
+   "note": "BTC SHORT 'Hey baby whales' 1D (Jun26), target 38090 (-36.1%) / SL +10.8%"
   }
  ]
 }
