@@ -9514,6 +9514,22 @@
    "kind": "setup",
    "chart_ex": "coinbase",
    "note": "BTC SHORT 'Hey baby whales' 1D (Jun26), target 38090 (-36.1%) / SL +10.8%"
+  },
+  {
+   "id": 54029,
+   "coin": "LAB",
+   "binance_sym": "LABUSDT",
+   "binance": true,
+   "dir": "short",
+   "entry": 14.703,
+   "targets": [
+    0.081
+   ],
+   "sl": 21.185,
+   "kind": "setup",
+   "chart_ex": "binance",
+   "swing": true,
+   "note": "LAB 'Short 1x lev only' 1D log-scale (Jun27), target 0.081 (full mean-reversion of the 5x pump, ~-99%) / SL +44%; explicit 1x leverage caution (alt)"
   }
  ]
 }
