@@ -8011,6 +8011,541 @@
    "kind": "setup",
    "chart_ex": "coinbase",
    "note": "duplicate of 50823 ETH long"
+  },
+  {
+   "id": 50854,
+   "coin": "ETH",
+   "binance_sym": "ETHUSDT",
+   "binance": true,
+   "dir": "short",
+   "entry": 3066.26,
+   "targets": [
+    2456.84
+   ],
+   "sl": 3272.84,
+   "kind": "setup",
+   "chart_ex": "binance",
+   "note": "ETH Short 1D (Dec14 night, flip from long), target -19.9% / SL +6.7% (largecap)"
+  },
+  {
+   "id": 50856,
+   "coin": "ETH",
+   "binance_sym": "ETHUSDT",
+   "binance": true,
+   "dir": "short",
+   "entry": 3066.26,
+   "targets": [
+    2456.84
+   ],
+   "sl": 3272.84,
+   "kind": "setup",
+   "chart_ex": "binance",
+   "note": "duplicate of 50854 ETH short"
+  },
+  {
+   "id": 50858,
+   "coin": "ETH",
+   "binance_sym": "ETHUSDT",
+   "binance": true,
+   "dir": "long",
+   "entry": 3095.94,
+   "targets": [
+    3643.53
+   ],
+   "sl": 2912.49,
+   "kind": "setup",
+   "chart_ex": "coinbase",
+   "note": "duplicate of 50823 ETH long"
+  },
+  {
+   "id": 50860,
+   "coin": "ETH",
+   "binance_sym": "ETHUSDT",
+   "binance": true,
+   "dir": "long",
+   "entry": 3095.94,
+   "targets": [
+    3643.53
+   ],
+   "sl": 2912.49,
+   "kind": "setup",
+   "chart_ex": "coinbase",
+   "note": "duplicate of 50823 ETH long"
+  },
+  {
+   "id": 50862,
+   "coin": "ETH",
+   "binance_sym": "ETHUSDT",
+   "binance": true,
+   "dir": "short",
+   "entry": 3066.26,
+   "targets": [
+    2456.84
+   ],
+   "sl": 3272.84,
+   "kind": "setup",
+   "chart_ex": "binance",
+   "note": "duplicate of 50854 ETH short"
+  },
+  {
+   "id": 50865,
+   "coin": "ETH",
+   "binance_sym": "ETHUSDT",
+   "binance": true,
+   "dir": "short",
+   "entry": 3066.26,
+   "targets": [
+    2456.84
+   ],
+   "sl": 3272.84,
+   "kind": "setup",
+   "chart_ex": "binance",
+   "note": "duplicate of 50854 ETH short"
+  },
+  {
+   "id": 50930,
+   "coin": "ETH",
+   "binance_sym": "ETHUSDT",
+   "binance": true,
+   "dir": "short",
+   "entry": 2821.81,
+   "targets": [
+    2336.48
+   ],
+   "sl": 3029.27,
+   "kind": "setup",
+   "chart_ex": "binance",
+   "note": "ETH Short 4h (Dec17), target -17.2% / SL +7.4% (largecap)"
+  },
+  {
+   "id": 50932,
+   "coin": "SOL",
+   "binance_sym": "SOLUSDT",
+   "binance": true,
+   "dir": "short",
+   "entry": 122.29,
+   "targets": [
+    100.43
+   ],
+   "sl": 134.85,
+   "kind": "setup",
+   "chart_ex": "binance",
+   "note": "SOL Short 4h (Dec17), target -17.8% / SL +10.3%; intermediate 128.93 (largecap)"
+  },
+  {
+   "id": 50936,
+   "coin": "SOL",
+   "binance_sym": "SOLUSDT",
+   "binance": true,
+   "dir": "short",
+   "entry": 123.23,
+   "targets": [
+    81.85
+   ],
+   "sl": 134.23,
+   "kind": "setup",
+   "chart_ex": "binance",
+   "note": "dual ETH+SOL SHORT (Dec18); SOL leg -33.6%/+8.9%. ETH leg: short 2824.89 -> target 1810.99, SL 3043.10 (-36%/+7.7%)"
+  },
+  {
+   "id": 50953,
+   "coin": "ETH",
+   "binance_sym": "ETHUSDT",
+   "binance": true,
+   "dir": "short",
+   "entry": 2855.12,
+   "targets": [
+    2338.77
+   ],
+   "sl": 3031.86,
+   "kind": "setup",
+   "chart_ex": "binance",
+   "note": "ETH SHORT 4h (Dec18), target -18% / SL +6.2% (largecap)"
+  },
+  {
+   "id": 50956,
+   "coin": "ETH",
+   "binance_sym": "ETHUSDT",
+   "binance": true,
+   "dir": "long",
+   "entry": 2861.5,
+   "targets": [
+    5012.0
+   ],
+   "sl": 2703.0,
+   "kind": "setup",
+   "chart_ex": "cme",
+   "swing": true,
+   "note": "ETH LONG on CME ETHZ2025 futures (Dec18, mega), target 5012 (+75%) / SL -5.5% (largecap)"
+  },
+  {
+   "id": 50958,
+   "coin": "ETH",
+   "binance_sym": "ETHUSDT",
+   "binance": true,
+   "dir": "short",
+   "entry": 2834.34,
+   "targets": [
+    2317.99
+   ],
+   "sl": 3008.24,
+   "kind": "setup",
+   "chart_ex": "binance",
+   "note": "ETH Short 4h 'brothers & sisters' (Dec18 eve, flip from CME long), target -18.2% / SL +6.2% (largecap)"
+  },
+  {
+   "id": 50967,
+   "coin": "BTC",
+   "binance_sym": "BTCUSDT",
+   "binance": true,
+   "dir": "short",
+   "entry": 87970.24,
+   "targets": [
+    80611.51
+   ],
+   "sl": 90476.3,
+   "kind": "setup",
+   "chart_ex": "crypto",
+   "note": "dual BTC+ETH SHORT (Dec19); BTC leg -8.4%/+2.8%. ETH leg: short 2959.87 -> target 2623.53, SL 3040.10 (-11.4%/+2.7%)"
+  },
+  {
+   "id": 50981,
+   "coin": "BTC",
+   "binance_sym": "BTCUSDT",
+   "binance": true,
+   "dir": "long",
+   "entry": 88243.92,
+   "targets": [
+    108024.46
+   ],
+   "sl": 83901.44,
+   "kind": "setup",
+   "chart_ex": "crypto",
+   "swing": true,
+   "note": "BTC LONG 1D (Dec20), target +22.4% / SL -4.9%"
+  },
+  {
+   "id": 51015,
+   "coin": "BEAT",
+   "binance_sym": "BEATUSDT",
+   "binance": true,
+   "dir": "long",
+   "entry": 2.5535,
+   "targets": [],
+   "sl": 1.6803,
+   "kind": "update",
+   "chart_ex": "binance",
+   "note": "BEAT PERFORMANCE UPDATE 'UP 70%': measure +76.45% (entry ~2.55 -> 4.4); BEAT long winning, target off-screen high, SL 1.6803 (alt)"
+  },
+  {
+   "id": 51027,
+   "coin": "JELLYJELLY",
+   "binance_sym": "JELLYJELLYUSDT",
+   "binance": true,
+   "dir": "long",
+   "entry": 0.0856,
+   "targets": [],
+   "sl": 0.05502,
+   "kind": "setup",
+   "chart_ex": "binance",
+   "swing": true,
+   "note": "JELLYJELLY BULLISH 4h breakout, target off-screen high (~0.25+), SL -35.7% moonshot (alt)"
+  },
+  {
+   "id": 51044,
+   "coin": "BEAT",
+   "binance_sym": "BEATUSDT",
+   "binance": true,
+   "dir": "long",
+   "entry": 1.9736,
+   "targets": [],
+   "sl": 1.3744,
+   "kind": "setup",
+   "chart_ex": "binance",
+   "swing": true,
+   "note": "BEAT LONG re-entry 4h (Dec26, after pullback from 4.4), target off-screen high (~12, massive), SL -30.3% moonshot (alt)"
+  },
+  {
+   "id": 51046,
+   "coin": "ZEC",
+   "binance_sym": "ZECUSDT",
+   "binance": true,
+   "dir": "short",
+   "entry": 441.78,
+   "targets": [
+    346.01
+   ],
+   "sl": 477.28,
+   "kind": "setup",
+   "chart_ex": "coinbase",
+   "note": "ZEC SHORT 4h (Dec26) rising-wedge breakdown, target -21.7% / SL +8% (alt)"
+  },
+  {
+   "id": 51059,
+   "coin": "ZEC",
+   "binance_sym": "ZECUSDT",
+   "binance": true,
+   "dir": "short",
+   "entry": 445.7,
+   "targets": [
+    336.91
+   ],
+   "sl": 492.81,
+   "kind": "setup",
+   "chart_ex": "binance",
+   "note": "ZEC SHORT re-chart on ZECUSDC (Dec26), target -24.4% / SL +10.6%; same idea as 51046 (alt)"
+  },
+  {
+   "id": 51066,
+   "coin": "ZEC",
+   "binance_sym": "ZECUSDT",
+   "binance": true,
+   "dir": "long",
+   "entry": 466.58,
+   "targets": [
+    609.77
+   ],
+   "sl": 438.34,
+   "kind": "setup",
+   "chart_ex": "binance",
+   "note": "ZEC LONG 4h (Dec27, flip from short), target +30.7% / SL -6.1% (alt)"
+  },
+  {
+   "id": 51200,
+   "coin": "BROCCOLI714",
+   "binance_sym": "BROCCOLI714USDT",
+   "binance": true,
+   "dir": "long",
+   "entry": 0.02237,
+   "targets": [],
+   "sl": 0.01495,
+   "kind": "update",
+   "chart_ex": "binance",
+   "note": "BROCCOLI714 UPDATE 'x2 from first entry': doubled (~0.022 -> 0.04017); long winning, target off-screen high, SL 0.01495 (alt)"
+  },
+  {
+   "id": 51223,
+   "coin": "BTC",
+   "binance_sym": "BTCUSDT",
+   "binance": true,
+   "dir": "long",
+   "entry": 91207.0,
+   "targets": [
+    109481.23
+   ],
+   "sl": 83593.69,
+   "kind": "setup",
+   "chart_ex": "coinbase",
+   "swing": true,
+   "note": "BTC LONG 1D (Jan9 2026), target +20% / SL -8.3%"
+  },
+  {
+   "id": 51500,
+   "coin": "BTC",
+   "binance_sym": "BTCUSDT",
+   "binance": true,
+   "dir": "long",
+   "entry": 69265.6,
+   "targets": [
+    109568.0
+   ],
+   "sl": 58177.0,
+   "kind": "setup",
+   "chart_ex": "binance",
+   "swing": true,
+   "note": "BTC 'LONG 69420' 1W (Feb5 2026, after crash to ~69k), target 109568 (+58%) / SL -16% weekly mega"
+  },
+  {
+   "id": 51594,
+   "coin": "ENSO",
+   "binance_sym": "ENSOUSDT",
+   "binance": false,
+   "dir": "long",
+   "entry": 2.08,
+   "targets": [],
+   "sl": 1.796,
+   "kind": "setup",
+   "chart_ex": "bybit",
+   "swing": true,
+   "note": "'renew ENSO Setup' 4h (Feb23 2026), target off-screen high (~3.6+), SL -13.7%; charted on Bybit and NOT confirmed on Binance futures/spot -> EXCLUDED per Binance-only rule (alt)"
+  },
+  {
+   "id": 51698,
+   "coin": "BTC",
+   "binance_sym": "BTCUSDT",
+   "binance": true,
+   "dir": "long",
+   "entry": 69420.0,
+   "targets": [
+    90136.7
+   ],
+   "sl": 59311.9,
+   "kind": "setup",
+   "chart_ex": "binance",
+   "swing": true,
+   "note": "'BTC trade of Q1/26 is LONG below 69420' 12h, target +29.8% / SL -14.6%"
+  },
+  {
+   "id": 51763,
+   "coin": "TAO",
+   "binance_sym": "TAOUSDT",
+   "binance": true,
+   "dir": "long",
+   "entry": 275.97,
+   "targets": [],
+   "sl": null,
+   "kind": "commentary",
+   "chart_ex": "mexc",
+   "note": "TAO bullish thesis: 'Solana bullrun 2023: 140 days' analog (SOL/XRP/ZEC accumulation->breakout), TAO about to break out. No hard levels (alt)"
+  },
+  {
+   "id": 51873,
+   "coin": "BTC",
+   "binance_sym": "BTCUSDT",
+   "binance": true,
+   "dir": "long",
+   "entry": 71347.0,
+   "targets": [],
+   "sl": 67288.03,
+   "kind": "setup",
+   "chart_ex": "binance",
+   "swing": true,
+   "note": "BTC 'baby long' 4h, target off-screen high (~90k), SL -5.7%"
+  },
+  {
+   "id": 51904,
+   "coin": "OIL",
+   "binance_sym": "USOIL",
+   "binance": false,
+   "dir": "long",
+   "entry": 101.17,
+   "targets": [
+    200.51
+   ],
+   "sl": 83.63,
+   "kind": "setup",
+   "chart_ex": "tvc",
+   "note": "LONG OIL/BRENTOIL (WTI crude CFD) 4h, target 200.51 (+98%) / SL -17.3%. COMMODITY (crude oil), outside crypto-coin scope -> EXCLUDED"
+  },
+  {
+   "id": 52134,
+   "coin": "OIL",
+   "binance_sym": "BRENTOIL",
+   "binance": false,
+   "dir": "long",
+   "entry": 109.82,
+   "targets": [
+    200.0
+   ],
+   "sl": 85.0,
+   "kind": "setup",
+   "chart_ex": "hyperliquid",
+   "note": "Long OIL #BRENT (BRENTOIL-USDC) 1D on Hyperliquid 20x, target ~200 / SL ~85. COMMODITY, outside crypto-coin scope -> EXCLUDED"
+  },
+  {
+   "id": 52139,
+   "coin": "OIL",
+   "binance_sym": "CLUSDT",
+   "binance": false,
+   "dir": "long",
+   "entry": 115.09,
+   "targets": [
+    200.22
+   ],
+   "sl": 106.0,
+   "kind": "setup",
+   "chart_ex": "binance",
+   "note": "'LONG OIL #CL in Binance' 1h (CL/USDT perp), target 200.22 (+74%) / SL -7.9%. She says tradeable on Binance, but COMMODITY (crude oil) not crypto -> EXCLUDED from crypto backtest"
+  },
+  {
+   "id": 52140,
+   "coin": "OIL",
+   "binance_sym": "CLUSDT",
+   "binance": false,
+   "dir": "long",
+   "entry": 115.09,
+   "targets": [
+    200.22
+   ],
+   "sl": 106.0,
+   "kind": "setup",
+   "chart_ex": "binance",
+   "note": "duplicate of 52139 CL oil long"
+  },
+  {
+   "id": 52155,
+   "coin": "ZEC",
+   "binance_sym": "ZECUSDT",
+   "binance": true,
+   "dir": "long",
+   "entry": 320.0,
+   "targets": [],
+   "sl": null,
+   "kind": "commentary",
+   "chart_ex": "coinbase",
+   "note": "ZEC 'Q2/2026 target' thesis: DOGE Q4/2020 run -> Q2/2021 top analog; ZEC Q4/2025 run -> projected Q2/2026 top. No hard levels (alt)"
+  },
+  {
+   "id": 52201,
+   "coin": "ZEC",
+   "binance_sym": "ZECUSDT",
+   "binance": true,
+   "dir": "long",
+   "entry": 290.0,
+   "targets": [],
+   "sl": 254.03,
+   "kind": "setup",
+   "chart_ex": "bybit",
+   "swing": true,
+   "note": "ZEC 'adjustment' 1D, long hold support band 275-295, SL 254.03; part of Q2/2026 bull thesis, target off-screen high (alt). [msg text reportedly held her SL rules: BTC 5% / bigcap 10% / smallcap 30%]"
+  },
+  {
+   "id": 52437,
+   "coin": "BTC",
+   "binance_sym": "BTCUSDT",
+   "binance": true,
+   "dir": "long",
+   "entry": 75588.0,
+   "targets": [
+    95018.29
+   ],
+   "sl": 70371.41,
+   "kind": "setup",
+   "chart_ex": "coinbase",
+   "swing": true,
+   "note": "BTC 'Add more LONG' 4h, target +25.7% / SL -6.9%"
+  },
+  {
+   "id": 52447,
+   "coin": "BTC",
+   "binance_sym": "BTCUSDT",
+   "binance": true,
+   "dir": "long",
+   "entry": 77777.0,
+   "targets": [
+    144251.9
+   ],
+   "sl": 69635.6,
+   "kind": "setup",
+   "chart_ex": "binance",
+   "swing": true,
+   "note": "BTC 'add more LONG 77777' 1D MEGA, target 144251 (+85.5%) / SL -10.5%"
+  },
+  {
+   "id": 52569,
+   "coin": "BTC",
+   "binance_sym": "BTCUSDT",
+   "binance": true,
+   "dir": "long",
+   "entry": 75159.0,
+   "targets": [
+    99200.4
+   ],
+   "sl": 70306.1,
+   "kind": "setup",
+   "chart_ex": "coinbase",
+   "swing": true,
+   "note": "BTC Long 4h (Apr20), target +32% / SL -6.5%"
   }
  ]
 }
