@@ -3,7 +3,9 @@ __pycache__/
 *.pyc
 data/raw/
 data/tg_images/
+data/price_cache/
 data/*.json
+data/*.log
 .env
 *.session
 *.session-journal
