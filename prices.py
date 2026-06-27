@@ -15,9 +15,11 @@ import json
 import os
 import requests
 
-BINANCE = "https://api.binance.com/api/v3/klines"
+BINANCE = "https://api.binance.com/api/v3/klines"          # spot
+FAPI = "https://fapi.binance.com/fapi/v1/klines"           # USDT-M futures
 _CACHE_DIR = os.path.join(os.path.dirname(__file__), "data", "price_cache")
 _MEM = {}
+_MARKET = {}   # pair -> "spot"/"futures" that returned data (memoized)
 
 
 def _cache_get(key):
@@ -56,19 +58,23 @@ def _to_ms(when) -> int:
     return int(d.timestamp() * 1000)
 
 
-def ohlcv(symbol: str, start, end, interval: str = "1d"):
-    """Return list of [openTime, open, high, low, close, volume, ...] candles."""
+def ohlcv(symbol: str, start, end, interval: str = "1d", market: str = "spot"):
+    """Return list of [openTime, open, high, low, close, volume, ...] candles.
+
+    market="spot" hits api.binance.com; market="futures" hits fapi (USDT-M perp).
+    """
     pair = symbol.upper()
     if not pair.endswith("USDT"):
         pair = pair + "USDT"
+    base = BINANCE if market == "spot" else FAPI
     s_ms, e_ms = _to_ms(start), _to_ms(end)
-    ckey = f"{pair}_{interval}_{s_ms}_{e_ms}"
+    ckey = f"{pair}_{interval}_{s_ms}_{e_ms}" + ("" if market == "spot" else "_fut")
     cached = _cache_get(ckey)
     if cached is not None:
         return cached
     out, cur, end_ms = [], s_ms, e_ms
     while cur < end_ms:
-        r = requests.get(BINANCE, params={
+        r = requests.get(base, params={
             "symbol": pair, "interval": interval,
             "startTime": cur, "endTime": end_ms, "limit": 1000,
         }, timeout=30)
@@ -84,6 +90,26 @@ def ohlcv(symbol: str, start, end, interval: str = "1d"):
     if e_ms < (_to_ms(dt.datetime.now(dt.timezone.utc)) - 2 * 86400_000):
         _cache_put(ckey, out)
     return out
+
+
+def ohlcv_auto(symbol: str, start, end, interval: str = "1d"):
+    """ohlcv that tries SPOT then FUTURES. Returns (candles, market_used|None).
+
+    For perp-only symbols (CLUSDT oil, delisted alts) spot 400s -> fall back to
+    fapi. Remembers which market worked per pair so we don't re-probe spot."""
+    pair = symbol.upper()
+    if not pair.endswith("USDT"):
+        pair = pair + "USDT"
+    order = [_MARKET[pair]] if pair in _MARKET else ["spot", "futures"]
+    for mkt in order:
+        try:
+            data = ohlcv(symbol, start, end, interval, market=mkt)
+        except Exception:
+            data = []
+        if data:
+            _MARKET[pair] = mkt
+            return data, mkt
+    return [], None
 
 
 def price_at(symbol: str, when, interval: str = "1d"):
