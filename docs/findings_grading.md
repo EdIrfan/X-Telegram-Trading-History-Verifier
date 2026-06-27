@@ -53,9 +53,10 @@ Excursion (all trades): median favorable **+13%**, median adverse **−23%**.
 On the trades we can fairly grade (**shorts + major longs, n=243**), mirroring her
 exactly is **~flat (−0.4%/trade, median −0.7%)** after friction — a **thin, basically
 neutral edge**, echoing the @blockchainedbb result. Her alt-moonshot longs as captured
-bleed, but that's confounded by coverage bias and the lottery shape, so it is **not**
-proof she's −EV on alts — her real edge there (if any) lives in the early entries we
-don't have and in a let-it-run exit she doesn't use.
+bleed; we initially flagged coverage bias as a possible exoneration —
+**but the phase-b de-bias below TESTED that and overturned it**: alt longs are −EV
+even from her first entry, and the multibagger brags are largely unrealizable wicks.
+Net: her followable edge is ~flat (shorts + majors); the alt moonshots are −EV.
 
 ## Implications for the $10k backtest
 - Don't deploy the full undifferentiated portfolio (it's ~flat-to-negative).
