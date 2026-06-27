@@ -8546,6 +8546,357 @@
    "chart_ex": "coinbase",
    "swing": true,
    "note": "BTC Long 4h (Apr20), target +32% / SL -6.5%"
+  },
+  {
+   "id": 52673,
+   "coin": "CHIP",
+   "binance_sym": "CHIPUSDT",
+   "binance": true,
+   "dir": "long",
+   "entry": 0.1,
+   "targets": [
+    1.07433
+   ],
+   "sl": 0.06077,
+   "kind": "setup",
+   "chart_ex": "binance",
+   "swing": true,
+   "note": "CHIP 'Add more at 0.1' 4h, blue target 1.07433 (+974%, moonshot) / SL -39.7% (alt)"
+  },
+  {
+   "id": 52740,
+   "coin": "BSB",
+   "binance_sym": "BSBUSDT",
+   "binance": true,
+   "dir": "long",
+   "entry": 0.155,
+   "targets": [],
+   "sl": null,
+   "kind": "update",
+   "chart_ex": "binance",
+   "note": "BSB UPDATE 'x5 from first entry': +448.29% (~0.155 -> 0.854); long moonshot winning (alt)"
+  },
+  {
+   "id": 52753,
+   "coin": "BSB",
+   "binance_sym": "BSBUSDT",
+   "binance": true,
+   "dir": "long",
+   "entry": 0.62745,
+   "targets": [],
+   "sl": 0.41427,
+   "kind": "setup",
+   "chart_ex": "binance",
+   "swing": true,
+   "note": "BSB BULLISH 1D continuation, blue target off-screen high (~5.2), SL -34% moonshot (alt)"
+  },
+  {
+   "id": 52754,
+   "coin": "BTC",
+   "binance_sym": "BTCUSDT",
+   "binance": true,
+   "dir": "long",
+   "entry": 77770.0,
+   "targets": [],
+   "sl": null,
+   "kind": "zone",
+   "chart_ex": "binance",
+   "note": "'Long BTC 77777' re-affirm (mobile ticker/EMA chart, no position tool), refers to the 77777 long (see 52447)"
+  },
+  {
+   "id": 52770,
+   "coin": "BSB",
+   "binance_sym": "BSBUSDT",
+   "binance": true,
+   "dir": "long",
+   "entry": 0.68674,
+   "targets": [],
+   "sl": 0.50322,
+   "kind": "setup",
+   "chart_ex": "binance",
+   "swing": true,
+   "note": "BSB BULLISH 1h (continuation of 52753), target off-screen high (~1.8+), SL -26.7% (alt)"
+  },
+  {
+   "id": 52834,
+   "coin": "ETH",
+   "binance_sym": "ETHUSDT",
+   "binance": true,
+   "dir": "short",
+   "entry": 2290.0,
+   "targets": [
+    1804.47
+   ],
+   "sl": 2352.08,
+   "kind": "setup",
+   "chart_ex": "coinbase",
+   "note": "ETH SHORT 4h (Apr29) lower-highs, target -21.2% / SL +2.7% (largecap)"
+  },
+  {
+   "id": 52838,
+   "coin": "BTC",
+   "binance_sym": "BTCUSDT",
+   "binance": true,
+   "dir": "short",
+   "entry": 77000.0,
+   "targets": [
+    62803.68
+   ],
+   "sl": 78198.43,
+   "kind": "setup",
+   "chart_ex": "coinbase",
+   "note": "BTC SHORT 4h (Apr29) at resistance, target -18.4% / SL +1.6%"
+  },
+  {
+   "id": 52840,
+   "coin": "DOGE",
+   "binance_sym": "DOGEUSDT",
+   "binance": true,
+   "dir": "long",
+   "entry": 0.1038,
+   "targets": [
+    0.15572
+   ],
+   "sl": 0.08839,
+   "kind": "setup",
+   "chart_ex": "binance",
+   "note": "DOGE LONG 4h (Apr29) off support, target +50% / SL -14.8% (alt)"
+  },
+  {
+   "id": 52845,
+   "coin": "ETH",
+   "binance_sym": "ETHUSDT",
+   "binance": true,
+   "dir": "short",
+   "entry": 2270.0,
+   "targets": [
+    1804.47
+   ],
+   "sl": 2352.08,
+   "kind": "setup",
+   "chart_ex": "coinbase",
+   "note": "ETH 'Add more short' 4h (add to 52834), target 1804.47 / SL 2352.08 (largecap)"
+  },
+  {
+   "id": 52849,
+   "coin": "BTC",
+   "binance_sym": "BTCUSDT",
+   "binance": true,
+   "dir": "long",
+   "entry": 75722.0,
+   "targets": [
+    105433.0
+   ],
+   "sl": 69813.09,
+   "kind": "setup",
+   "chart_ex": "coinbase",
+   "swing": true,
+   "note": "BTC LONG 1D (Apr29 eve, flip from short) falling-wedge breakout, target +39.2% / SL -7.8%"
+  },
+  {
+   "id": 52933,
+   "coin": "BTC",
+   "binance_sym": "BTCUSDT",
+   "binance": true,
+   "dir": "long",
+   "entry": 80226.0,
+   "targets": [],
+   "sl": 76094.88,
+   "kind": "setup",
+   "chart_ex": "coinbase",
+   "swing": true,
+   "note": "BTC LONG 1D (May4), target off-screen high (~140k); resistances 96k & 108k en route; SL -5.1%"
+  },
+  {
+   "id": 53042,
+   "coin": "LINEA",
+   "binance_sym": "LINEAUSDT",
+   "binance": true,
+   "dir": "long",
+   "entry": 0.003979,
+   "targets": [
+    0.00658
+   ],
+   "sl": 0.003743,
+   "kind": "setup",
+   "chart_ex": "binance",
+   "swing": true,
+   "note": "LINEA BULLISH 4h breakout, target +65.4% / SL -5.9% (alt)"
+  },
+  {
+   "id": 53084,
+   "coin": "HYPE",
+   "binance_sym": "HYPEUSDT",
+   "binance": true,
+   "dir": "long",
+   "entry": 33.0,
+   "targets": [],
+   "sl": null,
+   "kind": "update",
+   "chart_ex": "bybit",
+   "note": "HYPE thesis/update: 'At Jan we bought Hype at 33$' (now 42.9, +30%), projecting ~200+ long-term moonshot, no hard SL (largecap-alt)"
+  },
+  {
+   "id": 53112,
+   "coin": "TAO",
+   "binance_sym": "TAOUSDT",
+   "binance": true,
+   "dir": "long",
+   "entry": 320.81,
+   "targets": [],
+   "sl": 229.31,
+   "kind": "setup",
+   "chart_ex": "mexc",
+   "swing": true,
+   "note": "TAO BULLISH: target '100B$' marketcap (~10,000 price), MATIC 590d-accumulation analog; entry ~320, SL 229.31 moonshot (alt)"
+  },
+  {
+   "id": 53144,
+   "coin": "ETH",
+   "binance_sym": "ETHUSDT",
+   "binance": true,
+   "dir": "long",
+   "entry": 2287.59,
+   "targets": [
+    3365.84
+   ],
+   "sl": 1931.02,
+   "kind": "setup",
+   "chart_ex": "binance",
+   "swing": true,
+   "note": "ETH LONG 4h (May12) off rising support, target +47.1% / SL -15.6% (largecap)"
+  },
+  {
+   "id": 53158,
+   "coin": "BILL",
+   "binance_sym": "BILLUSDT",
+   "binance": true,
+   "dir": "long",
+   "entry": 0.0875,
+   "targets": [],
+   "sl": null,
+   "kind": "update",
+   "chart_ex": "binance",
+   "note": "BILL UPDATE 'x2 from first entry': +111.62% (~0.0875 -> 0.1837); long moonshot winning (alt)"
+  },
+  {
+   "id": 53401,
+   "coin": "ZEC",
+   "binance_sym": "ZECUSDT",
+   "binance": true,
+   "dir": "long",
+   "entry": 541.24,
+   "targets": [],
+   "sl": 479.01,
+   "kind": "setup",
+   "chart_ex": "coinbase",
+   "swing": true,
+   "note": "dual ZEC+HYPE BULLISH (May28) cup&handle; ZEC entry 541 target off-screen high (~4600), SL 479.01. HYPE leg: long 58.219 target off-screen (~125), SL 53.607 (alt)"
+  },
+  {
+   "id": 53405,
+   "coin": "BTC",
+   "binance_sym": "BTCUSDT",
+   "binance": true,
+   "dir": "short",
+   "entry": 72920.0,
+   "targets": [
+    62503.09
+   ],
+   "sl": 75128.9,
+   "kind": "setup",
+   "chart_ex": "coinbase",
+   "note": "BTC SHORT 4h (May28) falling channel, target -14.3% / SL +3%"
+  },
+  {
+   "id": 53407,
+   "coin": "ZEC",
+   "binance_sym": "ZECUSDT",
+   "binance": true,
+   "dir": "long",
+   "entry": 541.24,
+   "targets": [],
+   "sl": 479.01,
+   "kind": "setup",
+   "chart_ex": "coinbase",
+   "swing": true,
+   "note": "duplicate of 53401 ZEC & HYPE bullish"
+  },
+  {
+   "id": 53412,
+   "coin": "BTC",
+   "binance_sym": "BTCUSDT",
+   "binance": true,
+   "dir": "long",
+   "entry": 72908.0,
+   "targets": [
+    90970.92
+   ],
+   "sl": 67606.84,
+   "kind": "setup",
+   "chart_ex": "crypto",
+   "swing": true,
+   "note": "BTC 'Swing LONG' 1W (May28), target +24.8% / SL -7.3% (runs alongside the 4h short 53405)"
+  },
+  {
+   "id": 53440,
+   "coin": "ZEC",
+   "binance_sym": "ZECUSDT",
+   "binance": true,
+   "dir": "long",
+   "entry": 536.12,
+   "targets": [],
+   "sl": 474.74,
+   "kind": "setup",
+   "chart_ex": "bybit",
+   "swing": true,
+   "note": "'Long ZEC every 29th of the month' 1D DCA (buys Mar29/Apr29/May29), target off-screen high (~1000+), SL 474.74 (alt)"
+  },
+  {
+   "id": 53467,
+   "coin": "HYPE",
+   "binance_sym": "HYPEUSDT",
+   "binance": true,
+   "dir": "long",
+   "entry": 66.63,
+   "targets": [
+    406.11
+   ],
+   "sl": null,
+   "kind": "commentary",
+   "chart_ex": "binance",
+   "note": "HYPE 'target is BNB Marketcap': HYPE at BNB mcap = $406.11 (6.09x from 66.63), no hard SL (largecap-alt)"
+  },
+  {
+   "id": 53512,
+   "coin": "BTC",
+   "binance_sym": "BTCUSDT",
+   "binance": true,
+   "dir": "short",
+   "entry": 72400.0,
+   "targets": [
+    54057.6
+   ],
+   "sl": 74647.5,
+   "kind": "setup",
+   "chart_ex": "binance",
+   "note": "BTC SHORT 'baby whales' 12h (Jun1), target 54057 (-25.3%) / SL +3.1%"
+  },
+  {
+   "id": 53517,
+   "coin": "HYPE",
+   "binance_sym": "HYPEUSDT",
+   "binance": true,
+   "dir": "long",
+   "entry": 71.821,
+   "targets": [
+    250.254
+   ],
+   "sl": 54.879,
+   "kind": "setup",
+   "chart_ex": "binance",
+   "swing": true,
+   "note": "HYPE LONG 1D (Jun1) off support, target 250.254 (+248%) / SL -23.6% moonshot (largecap-alt)"
   }
  ]
 }
