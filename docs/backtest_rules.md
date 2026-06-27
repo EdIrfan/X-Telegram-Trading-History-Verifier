@@ -76,3 +76,17 @@
   against CLUSDT (WTI) carries the small Brent-WTI spread error. WTI/CL ids are exact.
 - General rule going forward: scope = anything on Binance futures OR Binance spot, crypto OR
   commodity. Only exclude instruments with NO Binance listing (e.g. pure CFD/Hyperliquid-only).
+
+## Close/exit signals (text pass) — data/tg_close_signals.json
+- Built by build_close_signals.py from the 14,610 Telegram messages. Her SETUPS are on
+  the chart images; her EXITS are almost always text-only.
+- 383 exit events: action = "stop" (SL hit, 39) | "close" (manual flat, 334) | "tp"
+  (book/take profit, 10). Fields: {id, date, action, dir, coins[], pct, text}.
+- Coins from #hashtags + UPPERCASE plain-text major fallback ("closed BTC at 88k").
+  33 are coin-agnostic general exits ("Close shorts", "Stopped out", "cut loss").
+- GRADER exit-matching (variable hold): for each setup (coin, dir, post-date), the exit =
+  the FIRST close-signal where coin matches (or a coin-agnostic close whose dir matches),
+  dated AFTER the setup. If none found, fall back to mechanical first-touch (TP/SL) and/or
+  a max-hold cap. "stop" exits ~ SL hit; "tp"/"close" exits ~ realized at that bar's price.
+- Caveat: case-sensitive ticker match (avoids op/re/arb false hits) so a few lowercase
+  mentions ("Zec ... stopped out") miss coin attribution; harmless (fall back to mechanical).
