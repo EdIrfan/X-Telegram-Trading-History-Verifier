@@ -8897,6 +8897,369 @@
    "chart_ex": "binance",
    "swing": true,
    "note": "HYPE LONG 1D (Jun1) off support, target 250.254 (+248%) / SL -23.6% moonshot (largecap-alt)"
+  },
+  {
+   "id": 53520,
+   "coin": "BTC",
+   "binance_sym": "BTCUSDT",
+   "binance": true,
+   "dir": "short",
+   "entry": 71352.0,
+   "targets": [
+    54057.6
+   ],
+   "sl": 74647.5,
+   "kind": "setup",
+   "chart_ex": "binance",
+   "note": "BTC SHORT 'baby whales' 4h (same trade as 53512), target 54057 (-24.2%) / SL +4.6%; intermediates 63k/60k"
+  },
+  {
+   "id": 53523,
+   "coin": "HYPE",
+   "binance_sym": "HYPEUSDT",
+   "binance": true,
+   "dir": "long",
+   "entry": 71.821,
+   "targets": [
+    250.254
+   ],
+   "sl": 54.879,
+   "kind": "setup",
+   "chart_ex": "binance",
+   "swing": true,
+   "note": "duplicate of 53517 HYPE long (target 250.254)"
+  },
+  {
+   "id": 53536,
+   "coin": "BTC",
+   "binance_sym": "BTCUSDT",
+   "binance": true,
+   "dir": "short",
+   "entry": 70851.0,
+   "targets": [
+    54057.6
+   ],
+   "sl": 74647.5,
+   "kind": "setup",
+   "chart_ex": "binance",
+   "note": "BTC SHORT 'baby whales' 1D (same trade as 53512), immediate target 63047, final 54057 / SL 74647.5"
+  },
+  {
+   "id": 53545,
+   "coin": "ZEC",
+   "binance_sym": "ZECUSDT",
+   "binance": true,
+   "dir": "long",
+   "entry": 557.68,
+   "targets": [
+    1001.57
+   ],
+   "sl": 498.61,
+   "kind": "setup",
+   "chart_ex": "binance",
+   "swing": true,
+   "note": "ZEC LONG 1D (Jun2), target 1001.57 (+79.6%) / SL -10.6% (alt)"
+  },
+  {
+   "id": 53546,
+   "coin": "HYPE",
+   "binance_sym": "HYPEUSDT",
+   "binance": true,
+   "dir": "long",
+   "entry": 66.0,
+   "targets": [],
+   "sl": null,
+   "kind": "commentary",
+   "chart_ex": "binance",
+   "note": "HYPE bullish-squeeze commentary: whale @loraclexyz closed its giga $HYPE short at -$46M loss (HyperTracker). No levels (largecap-alt)"
+  },
+  {
+   "id": 53552,
+   "coin": "ZEC",
+   "binance_sym": "ZECUSDT",
+   "binance": true,
+   "dir": "long",
+   "entry": 564.5,
+   "targets": [
+    1002.46
+   ],
+   "sl": 499.5,
+   "kind": "setup",
+   "chart_ex": "bybit",
+   "swing": true,
+   "note": "ZEC chart shows LONG structure (blue target 1002/1090 above, stop 499.50 below); CAPTION said 'ZEC SHORT' (conflict) - trusting chart, matches 53563 long (alt)"
+  },
+  {
+   "id": 53556,
+   "coin": "HYPE",
+   "binance_sym": "HYPEUSDT",
+   "binance": true,
+   "dir": "short",
+   "entry": 66.269,
+   "targets": [
+    23.133
+   ],
+   "sl": 76.376,
+   "kind": "setup",
+   "chart_ex": "binance",
+   "note": "HYPE SHORT 1D (caption neutral '#HYPE'); she REVERSED from long to short after -11% drop, target 23.133 (-65%) / SL +15.3%; same as 53613 (largecap-alt)"
+  },
+  {
+   "id": 53563,
+   "coin": "ZEC",
+   "binance_sym": "ZECUSDT",
+   "binance": true,
+   "dir": "long",
+   "entry": 564.67,
+   "targets": [
+    1002.46
+   ],
+   "sl": 499.5,
+   "kind": "setup",
+   "chart_ex": "bybit",
+   "swing": true,
+   "note": "ZEC LONG 1D (Jun2, caption matches chart), target 1002.46 (+77.5%) / SL -11.5% (alt)"
+  },
+  {
+   "id": 53613,
+   "coin": "HYPE",
+   "binance_sym": "HYPEUSDT",
+   "binance": true,
+   "dir": "short",
+   "entry": 66.269,
+   "targets": [
+    23.133
+   ],
+   "sl": 76.376,
+   "kind": "setup",
+   "chart_ex": "binance",
+   "note": "HYPE Short 1D (Jun4), target 23.133 (-65%) / SL +15.3% moonshot short (largecap-alt)"
+  },
+  {
+   "id": 53618,
+   "coin": "HYPE",
+   "binance_sym": "HYPEUSDT",
+   "binance": true,
+   "dir": "short",
+   "entry": 66.269,
+   "targets": [
+    23.133
+   ],
+   "sl": 76.376,
+   "kind": "setup",
+   "chart_ex": "binance",
+   "note": "duplicate of 53613 HYPE short"
+  },
+  {
+   "id": 53623,
+   "coin": "HYPE",
+   "binance_sym": "HYPEUSDT",
+   "binance": true,
+   "dir": "short",
+   "entry": 66.269,
+   "targets": [
+    23.133
+   ],
+   "sl": 76.376,
+   "kind": "setup",
+   "chart_ex": "binance",
+   "note": "duplicate of 53613 HYPE short"
+  },
+  {
+   "id": 53678,
+   "coin": "HYPE",
+   "binance_sym": "HYPEUSDT",
+   "binance": true,
+   "dir": "long",
+   "entry": 58.0,
+   "targets": [],
+   "sl": null,
+   "kind": "commentary",
+   "chart_ex": "bybit",
+   "note": "'HYPE hit local support' 1D (~57-58 band), bounce commentary (price 59.2), no hard levels (largecap-alt)"
+  },
+  {
+   "id": 53688,
+   "coin": "BTC",
+   "binance_sym": "BTCUSDT",
+   "binance": true,
+   "dir": "short",
+   "entry": 60326.0,
+   "targets": [
+    42251.7
+   ],
+   "sl": 67667.4,
+   "kind": "setup",
+   "chart_ex": "binance",
+   "note": "BTC SHORT 'baby whales' 1D continuation (BTC crashed to 60k), target 42251 (-30%) / SL +12%; intermediate 51k"
+  },
+  {
+   "id": 53691,
+   "coin": "HYPE",
+   "binance_sym": "HYPEUSDT",
+   "binance": true,
+   "dir": "long",
+   "entry": 59.546,
+   "targets": [
+    250.602
+   ],
+   "sl": 54.011,
+   "kind": "setup",
+   "chart_ex": "bybit",
+   "swing": true,
+   "note": "HYPE LONG 4h (Jun6, flipped back from short), target 250.602 (+320%) / SL -9.3% moonshot (largecap-alt)"
+  },
+  {
+   "id": 53695,
+   "coin": "ETH",
+   "binance_sym": "ETHUSDT",
+   "binance": true,
+   "dir": "short",
+   "entry": 1557.65,
+   "targets": [
+    1233.91
+   ],
+   "sl": 1641.91,
+   "kind": "setup",
+   "chart_ex": "coinbase",
+   "note": "ETH 'Add more short' 4h (ETH crashed to 1555), target -20.8% / SL +5.4% (largecap)"
+  },
+  {
+   "id": 53699,
+   "coin": "ZEC",
+   "binance_sym": "ZECUSDT",
+   "binance": true,
+   "dir": "short",
+   "entry": 341.31,
+   "targets": [
+    31.42
+   ],
+   "sl": 411.14,
+   "kind": "setup",
+   "chart_ex": "coinbase",
+   "note": "ZEC SHORT 4h (Jun6, flipped from long after 564->340 crash), target 31.42 (-90.8%, extreme) / SL +20.5% (alt)"
+  },
+  {
+   "id": 53706,
+   "coin": "ETH",
+   "binance_sym": "ETHUSDT",
+   "binance": true,
+   "dir": "short",
+   "entry": 1557.65,
+   "targets": [
+    1233.91
+   ],
+   "sl": 1691.17,
+   "kind": "setup",
+   "chart_ex": "coinbase",
+   "note": "ETH SHORT 1h (related to 53695, wider SL 1691.17), target 1233.91 (largecap)"
+  },
+  {
+   "id": 53723,
+   "coin": "BTC",
+   "binance_sym": "BTCUSDT",
+   "binance": true,
+   "dir": "long",
+   "entry": 63065.0,
+   "targets": [
+    79098.5
+   ],
+   "sl": 58705.8,
+   "kind": "setup",
+   "chart_ex": "binance",
+   "swing": true,
+   "note": "BTC LONG 1D (Jun8, flipped to long after crash to 60k), target +25.4% / SL -6.9%"
+  },
+  {
+   "id": 53736,
+   "coin": "BTC",
+   "binance_sym": "BTCUSDT",
+   "binance": true,
+   "dir": "short",
+   "entry": 62743.33,
+   "targets": [
+    44389.72
+   ],
+   "sl": 64230.22,
+   "kind": "setup",
+   "chart_ex": "crypto",
+   "note": "triple BTC+ETH+SOL SHORT (Jun9); BTC -29.2%/+2.4%. ETH leg: short 1619 -> 1082.47, SL 1725.34. SOL leg: short 63.80 -> 31.19, SL 68.47"
+  },
+  {
+   "id": 53744,
+   "coin": "BTC",
+   "binance_sym": "BTCUSDT",
+   "binance": true,
+   "dir": "short",
+   "entry": 61664.31,
+   "targets": [
+    44444.0
+   ],
+   "sl": 64847.78,
+   "kind": "setup",
+   "chart_ex": "crypto",
+   "note": "BTC SHORT 4h (Jun9, related to 53736), target 44444 (-27.9%) / SL +5.2%"
+  },
+  {
+   "id": 53745,
+   "coin": "ETH",
+   "binance_sym": "ETHUSDT",
+   "binance": true,
+   "dir": "short",
+   "entry": 1650.02,
+   "targets": [
+    1016.22
+   ],
+   "sl": 1799.9,
+   "kind": "setup",
+   "chart_ex": "crypto",
+   "note": "ETH SHORT 4h (Jun9), target 1016.22 (-38.4%) / SL +9.1% (largecap)"
+  },
+  {
+   "id": 53748,
+   "coin": "ETH",
+   "binance_sym": "ETHUSDT",
+   "binance": true,
+   "dir": "short",
+   "entry": 1650.02,
+   "targets": [
+    1016.22
+   ],
+   "sl": 1799.9,
+   "kind": "setup",
+   "chart_ex": "crypto",
+   "note": "duplicate of 53745 ETH short"
+  },
+  {
+   "id": 53750,
+   "coin": "BTC",
+   "binance_sym": "BTCUSDT",
+   "binance": true,
+   "dir": "short",
+   "entry": 61664.31,
+   "targets": [
+    44444.0
+   ],
+   "sl": 64847.78,
+   "kind": "setup",
+   "chart_ex": "crypto",
+   "note": "duplicate of 53744 BTC short"
+  },
+  {
+   "id": 53814,
+   "coin": "HYPE",
+   "binance_sym": "HYPEUSDT",
+   "binance": true,
+   "dir": "long",
+   "entry": 59.099,
+   "targets": [
+    100.051
+   ],
+   "sl": 52.409,
+   "kind": "setup",
+   "chart_ex": "binance",
+   "swing": true,
+   "note": "HYPE LONG 4h (Jun12, long again) H&S, target 100.051 (+69.3%) / SL -11.3%; nearer support 58.356 (largecap-alt)"
   }
  ]
 }
