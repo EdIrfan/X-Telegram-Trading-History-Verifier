@@ -64,3 +64,15 @@
   coin is on Binance SPOT. If it's futures-only -> IGNORE that spot call (can't buy spot).
 - Leveraged setups (kind:"setup") trade on futures, so futures-only is fine for them.
 - At grading: for kind=="spot", check coin against binance_symbols.json["spot"]; drop if absent.
+
+## UPDATE (user, 2026-06-27): commodities ARE in scope IF on Binance futures
+- Earlier I excluded oil/commodity calls as "not crypto coins". User corrected this:
+  if the instrument is actually listed on Binance FUTURES, do NOT ignore it.
+- Verified: **CLUSDT (WTI crude oil) perpetual IS live on Binance futures**
+  (`fapi/v1/klines?symbol=CLUSDT` -> HTTP 200, gradeable). BRENT/USOIL/WTI tickers are NOT.
+- So her oil calls (#OIL / #BRENT / #CL) are NOW INCLUDED, graded via the Binance CLUSDT perp:
+  ids 51904, 52134, 52139, 52140 -> binance:true, binance_sym="CLUSDT".
+- Caveat: 52134 was charted on Brent (Hyperliquid); its entry is Brent-priced, so grading it
+  against CLUSDT (WTI) carries the small Brent-WTI spread error. WTI/CL ids are exact.
+- General rule going forward: scope = anything on Binance futures OR Binance spot, crypto OR
+  commodity. Only exclude instruments with NO Binance listing (e.g. pure CFD/Hyperliquid-only).
