@@ -65,3 +65,27 @@ don't have and in a let-it-run exit she doesn't use.
   right) with a **partial-TP + trailing** exit, NOT her fixed TP/SL — that's the only
   configuration where the entry edge (44% reach +20%) has a chance to pay.
 - Her wide SLs ⇒ size down to bound loss (exactly the original premise).
+
+---
+
+## De-bias check (phase b): re-grading alt longs from her FIRST entry
+`debias_alt_firstentry.py` → `data/debias_alt.json`. For the SAME 74 alt coins we
+graded (survivorship-controlled), found each coin's earliest telegram mention = her
+first call, re-priced on Binance, graded let-it-run over a **365-day** window.
+
+**Result — coverage bias is NOT the savior; the alt bleed is real:**
+- Peak reached from first entry: 8/74 ≥5×, 13 ≥3×, 22 ≥2×, 37 ≥1.5× — her entries
+  genuinely have upside hit-rate (~30% touch 2×). She can pick pumpers.
+- **Realized, though, is negative**: let-it-run w/ −50% stop **mean −11% / median −7%**;
+  hold-through-no-stop **mean −17% / median −3%**; win 39–43%. Worse than bailing,
+  because the dead alts bleed to −60%→−100% (TROY −100%, MOVE −97%, SAGA −96%…).
+
+**The brags are mostly unrealizable peak prints (user's call, confirmed):**
+- MYX first entry → **234× peak** on the chart, **realized ≈ +13%** — the spike is an
+  illiquid low-float wick you cannot sell into. LAB 184× peak → −8% realized. The "x5"
+  marketing cites peak screenshots, not takeable PnL. She brags the 1 winner's wick and
+  is silent on the ~20 that round-tripped to zero. Classic subscription-farming barbell.
+
+**Conclusion:** the alt-long negative EV survives the de-bias. Her measurable edge is
+shorts ≈ breakeven + major longs ≈ breakeven; the alt moonshots are −EV as followable
+trades regardless of entry timing. Treat her multiplier brags as marketing, not signal.
