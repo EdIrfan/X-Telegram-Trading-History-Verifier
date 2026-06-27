@@ -7295,6 +7295,722 @@
    "kind": "setup",
    "chart_ex": "binance",
    "note": "ZEC SHORT 4h (caption matches chart this time), target -19% / SL +7%; same levels as 49973 (alt)"
+  },
+  {
+   "id": 50069,
+   "coin": "ZEC",
+   "binance_sym": "ZECUSDT",
+   "binance": true,
+   "dir": "short",
+   "entry": 595.65,
+   "targets": [
+    483.86
+   ],
+   "sl": 637.15,
+   "kind": "setup",
+   "chart_ex": "binance",
+   "note": "duplicate of 50067 ZEC short"
+  },
+  {
+   "id": 50074,
+   "coin": "BTC",
+   "binance_sym": "BTCUSDT",
+   "binance": true,
+   "dir": "long",
+   "entry": 92381.8,
+   "targets": [
+    123289.1
+   ],
+   "sl": 85514.4,
+   "kind": "setup",
+   "chart_ex": "binance",
+   "swing": true,
+   "note": "dual LONG BTC+ETH panel; BTC leg +33.5%/-7.4%. ETH leg: long 3089.34 -> target 4731.93, SL 2735.28 (+53%/-11.5%)"
+  },
+  {
+   "id": 50078,
+   "coin": "BTC",
+   "binance_sym": "BTCUSDT",
+   "binance": true,
+   "dir": "long",
+   "entry": 92381.8,
+   "targets": [
+    123289.1
+   ],
+   "sl": 85514.4,
+   "kind": "setup",
+   "chart_ex": "binance",
+   "swing": true,
+   "note": "duplicate of 50074 LONG BTC+ETH"
+  },
+  {
+   "id": 50081,
+   "coin": "BTC",
+   "binance_sym": "BTCUSDT",
+   "binance": true,
+   "dir": "short",
+   "entry": 91186.7,
+   "targets": [
+    74705.1
+   ],
+   "sl": 97259.6,
+   "kind": "setup",
+   "chart_ex": "binance",
+   "note": "duplicate of 50061 BTC quick short"
+  },
+  {
+   "id": 50085,
+   "coin": "BTC",
+   "binance_sym": "BTCUSDT",
+   "binance": true,
+   "dir": "long",
+   "entry": 92381.8,
+   "targets": [
+    123289.1
+   ],
+   "sl": 85514.4,
+   "kind": "setup",
+   "chart_ex": "binance",
+   "swing": true,
+   "note": "duplicate of 50074 LONG BTC+ETH"
+  },
+  {
+   "id": 50086,
+   "coin": "BTC",
+   "binance_sym": "BTCUSDT",
+   "binance": true,
+   "dir": "short",
+   "entry": 91186.7,
+   "targets": [
+    74705.1
+   ],
+   "sl": 97259.6,
+   "kind": "setup",
+   "chart_ex": "binance",
+   "note": "duplicate of 50061 BTC quick short"
+  },
+  {
+   "id": 50094,
+   "coin": "BTC",
+   "binance_sym": "BTCUSDT",
+   "binance": true,
+   "dir": "long",
+   "entry": 92381.8,
+   "targets": [
+    123289.1
+   ],
+   "sl": 85514.4,
+   "kind": "setup",
+   "chart_ex": "binance",
+   "swing": true,
+   "note": "duplicate of 50074 LONG BTC+ETH"
+  },
+  {
+   "id": 50168,
+   "coin": "ZEC",
+   "binance_sym": "ZECUSDT",
+   "binance": true,
+   "dir": "short",
+   "entry": 632.73,
+   "targets": [
+    250.0
+   ],
+   "sl": 747.68,
+   "kind": "setup",
+   "chart_ex": "bybit",
+   "note": "ZEC 'BIG SHORT' 4h, target ~250 (-60%) / SL +18%; ZEC on Binance, chart on Bybit (alt)"
+  },
+  {
+   "id": 50176,
+   "coin": "ZEC",
+   "binance_sym": "ZECUSDT",
+   "binance": true,
+   "dir": "short",
+   "entry": 632.73,
+   "targets": [
+    250.0
+   ],
+   "sl": 747.68,
+   "kind": "setup",
+   "chart_ex": "bybit",
+   "note": "duplicate of 50168 ZEC big short"
+  },
+  {
+   "id": 50185,
+   "coin": "BTC",
+   "binance_sym": "BTCUSDT",
+   "binance": true,
+   "dir": "long",
+   "entry": 83850.0,
+   "targets": [],
+   "sl": null,
+   "kind": "zone",
+   "chart_ex": "coinbase",
+   "note": "BTC+ETH at major support bands (BTC ~83.85k, ETH ~2.65k), accumulation/support-holding commentary, no hard target/SL"
+  },
+  {
+   "id": 50189,
+   "coin": "ZEC",
+   "binance_sym": "ZECUSDT",
+   "binance": true,
+   "dir": "short",
+   "entry": 632.73,
+   "targets": [
+    250.0
+   ],
+   "sl": 747.68,
+   "kind": "setup",
+   "chart_ex": "bybit",
+   "note": "duplicate of 50168 ZEC big short"
+  },
+  {
+   "id": 50192,
+   "coin": "BTC",
+   "binance_sym": "BTCUSDT",
+   "binance": true,
+   "dir": "long",
+   "entry": 83850.0,
+   "targets": [],
+   "sl": null,
+   "kind": "zone",
+   "chart_ex": "coinbase",
+   "note": "duplicate of 50185 BTC+ETH support"
+  },
+  {
+   "id": 50195,
+   "coin": "ZEC",
+   "binance_sym": "ZECUSDT",
+   "binance": true,
+   "dir": "short",
+   "entry": 632.73,
+   "targets": [
+    250.0
+   ],
+   "sl": 747.68,
+   "kind": "setup",
+   "chart_ex": "bybit",
+   "note": "duplicate of 50168 ZEC big short"
+  },
+  {
+   "id": 50196,
+   "coin": "BTC",
+   "binance_sym": "BTCUSDT",
+   "binance": true,
+   "dir": "long",
+   "entry": 83850.0,
+   "targets": [],
+   "sl": null,
+   "kind": "zone",
+   "chart_ex": "coinbase",
+   "note": "duplicate of 50185 BTC+ETH support"
+  },
+  {
+   "id": 50197,
+   "coin": "BTC",
+   "binance_sym": "BTCUSDT",
+   "binance": true,
+   "dir": "long",
+   "entry": 83850.0,
+   "targets": [],
+   "sl": null,
+   "kind": "zone",
+   "chart_ex": "coinbase",
+   "note": "duplicate of 50185 BTC+ETH support"
+  },
+  {
+   "id": 50204,
+   "coin": "ZEC",
+   "binance_sym": "ZECUSDT",
+   "binance": true,
+   "dir": "short",
+   "entry": 604.36,
+   "targets": [
+    250.81
+   ],
+   "sl": 727.54,
+   "kind": "setup",
+   "chart_ex": "bybit",
+   "note": "ZEC 'MEGA SHORT' 4h, target ~250.81 (-58.5%) / SL +20.4% (alt); refined entry of the big short"
+  },
+  {
+   "id": 50236,
+   "coin": "ZEC",
+   "binance_sym": "ZECUSDT",
+   "binance": true,
+   "dir": "short",
+   "entry": 604.36,
+   "targets": [
+    250.81
+   ],
+   "sl": 727.54,
+   "kind": "update",
+   "chart_ex": "bybit",
+   "note": "ZEC short UPDATE: now -21.97% in profit (604.36 -> 481), measure -132.59; mega short working, target 250.81"
+  },
+  {
+   "id": 50240,
+   "coin": "ZEC",
+   "binance_sym": "ZECUSDT",
+   "binance": true,
+   "dir": "short",
+   "entry": 604.36,
+   "targets": [
+    250.81
+   ],
+   "sl": 727.54,
+   "kind": "update",
+   "chart_ex": "bybit",
+   "note": "duplicate of 50236 ZEC short update"
+  },
+  {
+   "id": 50269,
+   "coin": "ZEC",
+   "binance_sym": "ZECUSDT",
+   "binance": true,
+   "dir": "short",
+   "entry": 516.82,
+   "targets": [
+    351.32
+   ],
+   "sl": 605.33,
+   "kind": "setup",
+   "chart_ex": "bybit",
+   "note": "ZEC 'SHORT Scalp' 4h, hand-drawn path down to 351 then 295; target 351.32 (-32%) / SL +17% (alt)"
+  },
+  {
+   "id": 50276,
+   "coin": "ZEC",
+   "binance_sym": "ZECUSDT",
+   "binance": true,
+   "dir": "short",
+   "entry": 516.82,
+   "targets": [
+    351.32
+   ],
+   "sl": 605.33,
+   "kind": "setup",
+   "chart_ex": "bybit",
+   "note": "duplicate of 50269 ZEC short scalp"
+  },
+  {
+   "id": 50306,
+   "coin": "BTC",
+   "binance_sym": "BTCUSDT",
+   "binance": true,
+   "dir": "long",
+   "entry": 86006.4,
+   "targets": [
+    98465.8
+   ],
+   "sl": 80357.1,
+   "kind": "setup",
+   "chart_ex": "binance",
+   "swing": true,
+   "note": "BTC LONG 12h at support, target +14.5% / SL -6.6%"
+  },
+  {
+   "id": 50307,
+   "coin": "BTC",
+   "binance_sym": "BTCUSDT",
+   "binance": true,
+   "dir": "long",
+   "entry": 86006.4,
+   "targets": [
+    98465.8
+   ],
+   "sl": 80357.1,
+   "kind": "setup",
+   "chart_ex": "binance",
+   "swing": true,
+   "note": "duplicate of 50306 BTC long"
+  },
+  {
+   "id": 50351,
+   "coin": "BTC",
+   "binance_sym": "BTCUSDT",
+   "binance": true,
+   "dir": "long",
+   "entry": 90155.8,
+   "targets": [],
+   "sl": null,
+   "kind": "zone",
+   "chart_ex": "binance",
+   "note": "'Buy more BTC 90k' DCA add (ticker screenshot BTC 90,155.8 +2.96%, ETH 3,014.10 +1.77%), no hard target/SL"
+  },
+  {
+   "id": 50352,
+   "coin": "BTC",
+   "binance_sym": "BTCUSDT",
+   "binance": true,
+   "dir": "long",
+   "entry": 90155.8,
+   "targets": [],
+   "sl": null,
+   "kind": "zone",
+   "chart_ex": "binance",
+   "note": "duplicate of 50351 buy more BTC 90k"
+  },
+  {
+   "id": 50435,
+   "coin": "BID",
+   "binance_sym": "BIDUSDT",
+   "binance": true,
+   "dir": "long",
+   "entry": 0.036,
+   "targets": [
+    0.04815,
+    0.05759
+   ],
+   "sl": 0.03037,
+   "kind": "setup",
+   "chart_ex": "binance",
+   "note": "BID 'Buy Setup' 1D w/ volume profile, buy support ~0.030-0.036, TP1 0.04815 / TP2 0.05759, SL below 0.03037 (alt)"
+  },
+  {
+   "id": 50439,
+   "coin": "BTC",
+   "binance_sym": "BTCUSDT",
+   "binance": true,
+   "dir": "short",
+   "entry": 90520.7,
+   "targets": [],
+   "sl": null,
+   "kind": "zone",
+   "chart_ex": "binance",
+   "note": "'Short BTC+ETH' ticker screenshot (BTC 90,520.7 -0.30%, ETH 2,998.04 +0.32%), no hard target/SL"
+  },
+  {
+   "id": 50440,
+   "coin": "BTC",
+   "binance_sym": "BTCUSDT",
+   "binance": true,
+   "dir": "short",
+   "entry": 90520.7,
+   "targets": [],
+   "sl": null,
+   "kind": "zone",
+   "chart_ex": "binance",
+   "note": "duplicate of 50439 short BTC+ETH"
+  },
+  {
+   "id": 50445,
+   "coin": "ETH",
+   "binance_sym": "ETHUSDT",
+   "binance": true,
+   "dir": "long",
+   "entry": 2836.0,
+   "targets": [],
+   "sl": 2617.5,
+   "kind": "setup",
+   "chart_ex": "crypto",
+   "swing": true,
+   "note": "ETH LONG 4h, blue target zone off-screen high (~3600+), SL -7.7% (largecap)"
+  },
+  {
+   "id": 50450,
+   "coin": "ETH",
+   "binance_sym": "ETHUSDT",
+   "binance": true,
+   "dir": "long",
+   "entry": 2836.0,
+   "targets": [],
+   "sl": 2617.5,
+   "kind": "setup",
+   "chart_ex": "crypto",
+   "swing": true,
+   "note": "duplicate of 50445 ETH long"
+  },
+  {
+   "id": 50484,
+   "coin": "ZEC",
+   "binance_sym": "ZECUSDT",
+   "binance": true,
+   "dir": "short",
+   "entry": 330.09,
+   "targets": [
+    186.04
+   ],
+   "sl": 411.53,
+   "kind": "setup",
+   "chart_ex": "bybit",
+   "note": "ZEC 'Short Low TP lower' 4h, target 186.04 (-43.6%) / SL +24.7%; intermediate band 240 (alt)"
+  },
+  {
+   "id": 50485,
+   "coin": "ZEC",
+   "binance_sym": "ZECUSDT",
+   "binance": true,
+   "dir": "short",
+   "entry": 330.09,
+   "targets": [
+    186.04
+   ],
+   "sl": 411.53,
+   "kind": "setup",
+   "chart_ex": "bybit",
+   "note": "duplicate of 50484 ZEC short low TP"
+  },
+  {
+   "id": 50809,
+   "coin": "BTC",
+   "binance_sym": "BTCUSDT",
+   "binance": true,
+   "dir": "short",
+   "entry": 88813.0,
+   "targets": [
+    74480.0
+   ],
+   "sl": 93006.0,
+   "kind": "setup",
+   "chart_ex": "bitstamp",
+   "note": "dual BTC+ETH SHORT; BTC leg -16.1%/+4.7%. ETH leg: short 3084 -> target 2622.85, SL 3285.69 (-15%/+6.5%)"
+  },
+  {
+   "id": 50810,
+   "coin": "BTC",
+   "binance_sym": "BTCUSDT",
+   "binance": true,
+   "dir": "short",
+   "entry": 88813.0,
+   "targets": [
+    74480.0
+   ],
+   "sl": 93006.0,
+   "kind": "setup",
+   "chart_ex": "bitstamp",
+   "note": "duplicate of 50809 BTC+ETH short"
+  },
+  {
+   "id": 50813,
+   "coin": "BTC",
+   "binance_sym": "BTCUSDT",
+   "binance": true,
+   "dir": "long",
+   "entry": 88907.6,
+   "targets": [
+    94215.1,
+    97241.4
+   ],
+   "sl": 87585.3,
+   "kind": "setup",
+   "chart_ex": "binance",
+   "note": "BTC LONG 4h (flipped from short 30min earlier), TP1 94215 +6% / TP2 97241 +9.4% / SL -1.5%"
+  },
+  {
+   "id": 50815,
+   "coin": "BTC",
+   "binance_sym": "BTCUSDT",
+   "binance": true,
+   "dir": "long",
+   "entry": 88907.6,
+   "targets": [
+    94215.1,
+    97241.4
+   ],
+   "sl": 87585.3,
+   "kind": "setup",
+   "chart_ex": "binance",
+   "note": "duplicate of 50813 BTC long"
+  },
+  {
+   "id": 50822,
+   "coin": "BTC",
+   "binance_sym": "BTCUSDT",
+   "binance": true,
+   "dir": "long",
+   "entry": 88907.6,
+   "targets": [
+    94215.1,
+    97241.4
+   ],
+   "sl": 87585.3,
+   "kind": "setup",
+   "chart_ex": "binance",
+   "note": "duplicate of 50813 BTC long"
+  },
+  {
+   "id": 50823,
+   "coin": "ETH",
+   "binance_sym": "ETHUSDT",
+   "binance": true,
+   "dir": "long",
+   "entry": 3095.94,
+   "targets": [
+    3643.53
+   ],
+   "sl": 2912.49,
+   "kind": "setup",
+   "chart_ex": "coinbase",
+   "note": "ETH LONG 4h (paired w/ BTC long 50813), target +17.7% / SL -5.9% (largecap)"
+  },
+  {
+   "id": 50825,
+   "coin": "ETH",
+   "binance_sym": "ETHUSDT",
+   "binance": true,
+   "dir": "long",
+   "entry": 3095.94,
+   "targets": [
+    3643.53
+   ],
+   "sl": 2912.49,
+   "kind": "setup",
+   "chart_ex": "coinbase",
+   "note": "duplicate of 50823 ETH long"
+  },
+  {
+   "id": 50828,
+   "coin": "BTC",
+   "binance_sym": "BTCUSDT",
+   "binance": true,
+   "dir": "short",
+   "entry": 88813.0,
+   "targets": [
+    74480.0
+   ],
+   "sl": 93006.0,
+   "kind": "setup",
+   "chart_ex": "bitstamp",
+   "note": "duplicate of 50809 BTC+ETH short"
+  },
+  {
+   "id": 50829,
+   "coin": "BTC",
+   "binance_sym": "BTCUSDT",
+   "binance": true,
+   "dir": "short",
+   "entry": 88813.0,
+   "targets": [
+    74480.0
+   ],
+   "sl": 93006.0,
+   "kind": "setup",
+   "chart_ex": "bitstamp",
+   "note": "duplicate of 50809 BTC+ETH short"
+  },
+  {
+   "id": 50831,
+   "coin": "ETH",
+   "binance_sym": "ETHUSDT",
+   "binance": true,
+   "dir": "long",
+   "entry": 3095.94,
+   "targets": [
+    3643.53
+   ],
+   "sl": 2912.49,
+   "kind": "setup",
+   "chart_ex": "coinbase",
+   "note": "duplicate of 50823 ETH long"
+  },
+  {
+   "id": 50833,
+   "coin": "BTC",
+   "binance_sym": "BTCUSDT",
+   "binance": true,
+   "dir": "long",
+   "entry": 88907.6,
+   "targets": [
+    94215.1,
+    97241.4
+   ],
+   "sl": 87585.3,
+   "kind": "setup",
+   "chart_ex": "binance",
+   "note": "duplicate of 50813 BTC long"
+  },
+  {
+   "id": 50836,
+   "coin": "ETH",
+   "binance_sym": "ETHUSDT",
+   "binance": true,
+   "dir": "long",
+   "entry": 3095.94,
+   "targets": [
+    3643.53
+   ],
+   "sl": 2912.49,
+   "kind": "setup",
+   "chart_ex": "coinbase",
+   "note": "duplicate of 50823 ETH long"
+  },
+  {
+   "id": 50837,
+   "coin": "BTC",
+   "binance_sym": "BTCUSDT",
+   "binance": true,
+   "dir": "long",
+   "entry": 88907.6,
+   "targets": [
+    94215.1,
+    97241.4
+   ],
+   "sl": 87585.3,
+   "kind": "setup",
+   "chart_ex": "binance",
+   "note": "duplicate of 50813 BTC long"
+  },
+  {
+   "id": 50841,
+   "coin": "ETH",
+   "binance_sym": "ETHUSDT",
+   "binance": true,
+   "dir": "long",
+   "entry": 3095.94,
+   "targets": [
+    3643.53
+   ],
+   "sl": 2912.49,
+   "kind": "setup",
+   "chart_ex": "coinbase",
+   "note": "duplicate of 50823 ETH long"
+  },
+  {
+   "id": 50843,
+   "coin": "BTC",
+   "binance_sym": "BTCUSDT",
+   "binance": true,
+   "dir": "long",
+   "entry": 88907.6,
+   "targets": [
+    94215.1,
+    97241.4
+   ],
+   "sl": 87585.3,
+   "kind": "setup",
+   "chart_ex": "binance",
+   "note": "duplicate of 50813 BTC long"
+  },
+  {
+   "id": 50846,
+   "coin": "BTC",
+   "binance_sym": "BTCUSDT",
+   "binance": true,
+   "dir": "long",
+   "entry": 88907.6,
+   "targets": [
+    94215.1,
+    97241.4
+   ],
+   "sl": 87585.3,
+   "kind": "setup",
+   "chart_ex": "binance",
+   "note": "duplicate of 50813 BTC long"
+  },
+  {
+   "id": 50847,
+   "coin": "ETH",
+   "binance_sym": "ETHUSDT",
+   "binance": true,
+   "dir": "long",
+   "entry": 3095.94,
+   "targets": [
+    3643.53
+   ],
+   "sl": 2912.49,
+   "kind": "setup",
+   "chart_ex": "coinbase",
+   "note": "duplicate of 50823 ETH long"
   }
  ]
 }
