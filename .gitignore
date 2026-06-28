@@ -1,11 +1,34 @@
-.venv/
-__pycache__/
-*.pyc
-data/raw/
-data/tg_images/
-data/price_cache/
-data/*.json
-data/*.log
+# ── Runtime data — NEVER commit (per-account scrapes, caches, AI outputs) ──
+# Anyone who clones gets the tools, not a specific caller's data.
+/data/
+**/data/
+*.json.gz
+
+# ── Secrets, sessions, logins ──
 .env
 *.session
 *.session-journal
+**/secrets/
+storage_state*.json
+*-profile/
+.x-profile/
+
+# ── Browser / display runtime junk ──
+*.log
+/tmp/
+
+# ── Python ──
+__pycache__/
+*.pyc
+.venv/
+venv/
+.mypy_cache/
+.pytest_cache/
+
+# ── Node / Claude Code ──
+node_modules/
+
+# ── OS / editor ──
+.DS_Store
+*.swp
+.idea/

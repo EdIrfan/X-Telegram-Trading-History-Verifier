@@ -1,99 +1,105 @@
-# Crypto-signal reverse-engineering — Rose Margin (and @blockchainedbb, shelved)
+# Caller Reverse-Engineer 🔬
 
-This repo reverse-engineers paid crypto "signal" callers: extract every call, grade it
-against real Binance prices, backtest a realistic $10k account, and decide whether the
-edge is real. Two subjects:
+Point it at **any X (Twitter) account or any Telegram channel** that posts crypto
+"signals", and an AI (Claude Code, running *inside* the container) will scrape every
+call, grade it against **real Binance prices**, backtest a realistic account, and tell
+you — honestly — whether the edge is real. Then, if you want, it builds you an
+**alert-only** bot.
 
-- **Rose Margin** (`Rose_Margin🔐CryptoVipTools`, paid Telegram) — the **current focus**.
-- **@blockchainedbb** (X/Twitter) — **shelved/deprioritized** after a disappointing
-  +4.4% result (its files/scripts remain: `backtest_ladder.py`, `docs/REPORT.md`,
-  `docs/STRATEGY_REPORT.md`, `docs/WEEKLY_PNL.md`, `data/graded_*.json`). Don't spend
-  time here unless asked.
+It's a self-contained dev container: a real browser you log into once (viewable in
+your laptop browser via noVNC), the Telegram + price tooling, **and Claude Code +
+the VS Code extension preinstalled**, so the whole "scrape → read charts → grade →
+backtest → report" loop happens in one box. The scrapers are fixed; the AI writes the
+per-account analysis (every caller formats calls differently — see `CLAUDE.md`).
 
-## TL;DR verdict (Rose Margin)
-**No harvestable mechanical edge.** Mirroring her calls with realistic risk-parity
-sizing loses 34–98% of a $10k account depending on config. Decomposition:
-- **Shorts ≈ breakeven** (her better side; fast scalps).
-- **BTC/ETH longs ≈ breakeven** (she scratches majors).
-- **Alt-moonshot longs are −EV** — confirmed even from her *first* entry over a full
-  year. Her "x5/x10" brags are mostly **unrealizable illiquid wicks** (MYX "234×" peak
-  → ~+13% realizable) and she stays silent on the ~20 alts that round-trip to zero.
-  Treat the multiplier brags as **subscription marketing, not signal**.
+> **Why "free-ish":** there are **no paid data APIs** — prices are free Binance
+> klines and chart-reading is just the model looking at the image. The only cost is
+> running Claude Code, which you can do on a **$20/mo Claude Pro subscription**
+> (mounted into the container at no per-token cost) instead of a metered API key.
 
-Because her edge (if any) is **discretionary**, the deliverable is an **alert-only bot**
-(`alert_bot.py`) that surfaces her calls in real time, tagged with these verdicts, so a
-human applies judgment. **It does not auto-trade — and the data says it shouldn't.**
+---
 
-Full reasoning: `docs/findings_grading.md`, `docs/backtest_results.md`.
+## What you need
+- **Docker** (Desktop or Engine).
+- **VS Code** with the *Dev Containers* extension — *recommended path*. (Or use plain
+  Docker; see [below](#plain-docker-no-vs-code).)
+- **Claude Code auth**, either:
+  - a **Claude Pro/Max subscription** — run `claude` once on your host so `~/.claude`
+    exists; the container mounts it (cheapest, $0/token), **or**
+  - an **`ANTHROPIC_API_KEY`** (pay-per-token) — put it in `.env` or your shell.
+- For **Telegram**: a free `api_id`/`api_hash` from <https://my.telegram.org>.
+- For **X/Twitter**: just an X account you can log into once.
 
-## Pipeline (data flow)
-```
-Telegram (rose.session)
-  ├─ scrape_telegram_update.py ─→ data/telegram_rose.json      (14.6k messages)
-  ├─ download_tg_images.py     ─→ data/tg_images/              (628 call-chart imgs)
-  │
-  ├─ [LLM reads each chart] ───→ data/tg_calls_extracted.json  (628 calls: entry/TP/SL/dir)
-  │     via extract_helper.py (next/add) + merge_batch.py
-  ├─ build_close_signals.py ───→ data/tg_close_signals.json    (383 exit events)
-  │
-  ├─ grade_rose.py ────────────→ data/graded_rose.json         (3-way graded, per trade)
-  │     prices.py = Binance klines (spot + futures fallback for CLUSDT/perp-only)
-  ├─ backtest_rose.py ─────────→ data/backtest_rose.json       ($10k, 2 plans, segmented)
-  ├─ debias_alt_firstentry.py ─→ data/debias_alt.json          (alt longs from 1st entry)
-  └─ alert_bot.py              (live 15-min poller, alert-only)
-```
-
-## How to run (always use the venv; Telegram scripts need `.env` + `rose.session`)
+## Quick start (VS Code Dev Container)
 ```bash
-.venv/bin/python scrape_telegram_update.py     # pull new Telegram messages (incremental)
-.venv/bin/python download_tg_images.py         # pull new call-chart images
-.venv/bin/python extract_helper.py stat        # extraction progress (628/628 done)
-.venv/bin/python build_close_signals.py        # rebuild exit-signal set from messages
-.venv/bin/python grade_rose.py                 # grade all calls 3 ways (writes graded_rose.json)
-.venv/bin/python backtest_rose.py              # $10k backtest, both plans + baselines
-.venv/bin/python debias_alt_firstentry.py      # re-grade alt longs from her first entry
-.venv/bin/python alert_bot.py --once           # one poll (test);  --loop = every 15 min
+git clone <your-fork-url> caller-reverse-engineer
+cd caller-reverse-engineer
+cp .env.example .env          # fill in Telegram creds &/or API key (see comments)
+code .                        # VS Code → "Reopen in Container" when prompted
 ```
-Re-reading 628 charts is the only manual/LLM step: `extract_helper.py next 12` →
-read each image → write `batchN.json` → `merge_batch.py batchN.json`.
+The container builds (browser + Claude Code + tools). Once inside, open the terminal:
 
-## Key methodology decisions (see docs/ for full rationale)
-- **Entry** = her drawn level as a **limit order** (fill on first touch after she posts;
-  never touched → "untriggered"). Look-ahead-safe.
-- **Graded 3 ways**: A = mirror her posts (close/stop signals), B = mechanical TP1-vs-SL
-  first-touch, C = let-it-run (wide stop then 25% trail). 0.5% round-trip friction.
-- **Sizing = risk-parity**: notional = risk_budget / her_SL_distance, so her wide SLs
-  shrink the position and bound the $ loss (her premise). PnL = notional × return;
-  leverage (2–3× / 1× moonshot) only affects margin & liquidation, not PnL.
-- **Two plans**: A "$100" (R=$100/$200 swing, −$300/wk stop); B "$200c5" (R=$200/$400,
-  −$500/wk stop). The old "$500 plan" is **dropped** — even $200 over-deploys given her
-  trade frequency (Plan B hits 174 unfunded skips on a $10k account).
-- **2× swing risk** only for BTC + large-caps; alts always 1×. Scope = anything on
-  Binance futures or spot, crypto **or** commodity (oil via `CLUSDT`); pure CFD/
-  Hyperliquid-only instruments excluded.
+```bash
+# --- Telegram channel ---
+python scripts/scrape_telegram.py "@some_signals" --since 2025-01-01
+python scripts/download_tg_media.py "@some_signals"
 
-## Docs index
-| File | What |
-|---|---|
-| `docs/grading_spec.md` | Grading methodology, as built (entry/exit/3 methods/edge cases) |
-| `docs/findings_grading.md` | Her real ups/downs + the phase-b de-bias (the verdict) |
-| `docs/backtest_rules.md` | Final $10k backtest rules (sizing, the two plans, scope, exits) |
-| `docs/backtest_results.md` | $10k results, both plans, caveats |
-| `docs/REPORT.md`, `STRATEGY_REPORT.md`, `WEEKLY_PNL.md` | @blockchainedbb (shelved) |
+# --- X / Twitter account ---  (one-time login, viewable via noVNC)
+bash scripts/start-display.sh           # then open http://localhost:6080/vnc.html
+python scripts/x_login.py               # log into X in that noVNC browser tab, once
+python scripts/scrape_twitter.py some_handle --since 2025-01-01
+```
+Then just **open Claude Code** (the sidebar, or `claude` in the terminal) and say:
 
-## Constraints / security
-- **No paid APIs** — all chart-reading is by the LLM at $0; all prices are free Binance
-  klines.
-- `.env` and `*.session` are git-ignored; **Telegram credentials are never shared** —
-  the user logs in themselves; `api_hash` is treated like a password.
-- `data/*.json` and `data/tg_images/` are git-ignored; the derived JSON
-  (`tg_calls_extracted.json`, `graded_rose.json`, etc.) are force-added so results
-  are versioned.
-- The alert bot is **alert-only**; it never places trades.
+> *"Analyze @some_handle"* — or — *"Analyze the @some_signals telegram channel I scraped."*
 
-## Status (2026-06-27)
-628/628 charts extracted · 383 exit signals · graded 3 ways · $10k backtest done ·
-alt longs de-biased · alert bot built & live-tested. Conclusion: **alert-only, apply
-human judgment; do not auto-trade.** Misc one-off/exploratory scripts (`probe.py`,
-`classify_all.py`, `score_graded.py`, `backtest_small.py`, etc.) are scratch and not
-part of the pipeline above.
+It follows `CLAUDE.md`: extracts the calls, grades them three ways, backtests a
+realistic account, applies the bias checks, and writes a report into
+`data/<account>/analysis/` — then offers to build an alert-only bot.
+
+## Plain Docker (no VS Code)
+```bash
+cp .env.example .env
+docker compose up -d --build
+open http://localhost:6080/vnc.html     # for the X login
+docker compose exec app python scripts/scrape_telegram.py "@some_signals"
+docker compose exec app claude          # the AI, inside the container
+```
+
+---
+
+## The honest part (please read)
+This tool exists because **most paid callers are flat-to-negative under scrutiny**,
+and the marketing ("x5! x10!") is usually **unrealizable illiquid wicks**. The AI is
+instructed (in `CLAUDE.md`) to *assume no edge* and make the data prove otherwise:
+forward-calls-only, survivorship/coverage de-bias, realized-not-peak returns. The
+default deliverable is **alert-only** — surface the calls, tag them with the verdict,
+let a human decide. **It does not auto-trade, and you shouldn't wire it to.**
+
+## Limitations
+- **X rate-limits hard.** The scraper paces + backs off and **resumes** on re-run;
+  expect to run it a few times to fill a long history. Patience > one big run.
+- **Telegram** needs you to actually be a member of the channel you scrape.
+- **1-hour price granularity** can miss sub-hour wicks (rare; minor).
+- Chart-reading quality depends on the model; ambiguous charts get flagged.
+
+## Layout
+```
+scripts/         fixed, generic tools (scrapers + Binance price oracle)
+  scrape_twitter.py / x_login.py / scrape_telegram.py / download_tg_media.py
+  prices.py / common.py / start-display.sh
+.devcontainer/   the container (Dockerfile + devcontainer.json)
+docker-compose.yml   plain-Docker alternative
+CLAUDE.md        the AI's playbook — the analysis workflow + honesty rules
+examples/        two full worked cases (data git-ignored):
+  rose-margin/      Telegram — extraction, 3-way grader, de-bias, alert bot
+  blockchainedbb/   X/Twitter — scraping, grading, laddered backtest
+data/            everything runtime (per-account scrapes, caches, outputs) — git-ignored
+```
+
+## Security
+- `.env`, `*.session`, and `*storage_state*` are git-ignored; **your credentials
+  never leave your machine** — you log into Telegram/X yourself, in your container.
+- All scraped data and AI outputs under `data/` are git-ignored — a clone ships the
+  **tools**, never a specific caller's data.
+- The optional alert bot is **alert-only** by construction.

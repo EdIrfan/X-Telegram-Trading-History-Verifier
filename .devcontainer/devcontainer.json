@@ -1,0 +1,35 @@
+{
+  "name": "caller-reverse-engineer",
+  "build": { "dockerfile": "Dockerfile", "context": ".." },
+  "workspaceFolder": "/workspace",
+  "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=cached",
+
+  // noVNC: open http://localhost:6080/vnc.html to do the one-time X login.
+  "forwardPorts": [6080],
+  "portsAttributes": {
+    "6080": { "label": "noVNC (browser login)", "onAutoForward": "notify" }
+  },
+
+  // --- AUTH for Claude Code (the AI runs inside the container) ---
+  // Subscription ($20/$100 Pro/Max): your host login is mounted, so `claude`
+  //   just works with no per-token cost. REQUIRES ~/.claude to exist on your host
+  //   (run `claude` once on your machine first). If you authenticate by API key
+  //   ONLY and have no host ~/.claude, delete the "mounts" line below.
+  "mounts": [
+    "source=${localEnv:HOME}/.claude,target=/root/.claude,type=bind,consistency=cached"
+  ],
+  // API key path: set ANTHROPIC_API_KEY in your shell (or .env) and it's passed in.
+  "containerEnv": {
+    "ANTHROPIC_API_KEY": "${localEnv:ANTHROPIC_API_KEY}",
+    "DISPLAY": ":99"
+  },
+
+  "customizations": {
+    "vscode": {
+      "extensions": ["anthropic.claude-code", "ms-python.python"]
+    }
+  },
+
+  "postStartCommand": "bash scripts/start-display.sh || true",
+  "remoteUser": "root"
+}

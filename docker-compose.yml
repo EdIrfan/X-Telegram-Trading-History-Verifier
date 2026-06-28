@@ -1,0 +1,26 @@
+# Plain-Docker path (no VS Code needed). Build once, then exec in and run `claude`:
+#
+#   docker compose up -d --build
+#   open http://localhost:6080/vnc.html        # for the one-time X login
+#   docker compose exec app claude             # the AI, inside the box
+#   docker compose exec app python scripts/scrape_telegram.py "@some_signals"
+#
+# (VS Code users should instead "Reopen in Container" — see .devcontainer/.)
+services:
+  app:
+    build:
+      context: .
+      dockerfile: .devcontainer/Dockerfile
+    image: caller-reverse-engineer
+    container_name: caller-re
+    working_dir: /workspace
+    volumes:
+      - .:/workspace
+      # Subscription auth — comment this out if you use ANTHROPIC_API_KEY only:
+      - ${HOME}/.claude:/root/.claude
+    environment:
+      - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY:-}
+      - DISPLAY=:99
+    ports:
+      - "6080:6080"   # noVNC
+    command: bash -lc "bash scripts/start-display.sh; sleep infinity"
