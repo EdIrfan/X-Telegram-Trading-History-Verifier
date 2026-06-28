@@ -1,0 +1,382 @@
+<!doctype html><html lang='en'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width, initial-scale=1'><title>REPORT</title><style>
+  :root { color-scheme: light dark; }
+  body { margin: 0; background: #f6f8fa; }
+  @media (prefers-color-scheme: dark) { body { background: #0d1117; } }
+  .md { max-width: 880px; margin: 2.5rem auto; padding: 2.5rem 3rem;
+        background: #fff; border-radius: 10px; box-shadow: 0 1px 4px rgba(0,0,0,.08);
+        font: 16px/1.6 -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+        color: #1f2328; }
+  @media (prefers-color-scheme: dark) { .md { background: #161b22; color: #e6edf3;
+        box-shadow: none; border: 1px solid #30363d; } }
+  .md h1, .md h2 { border-bottom: 1px solid #d0d7de; padding-bottom: .3em; }
+  .md h1 { font-size: 1.9em; } .md h2 { font-size: 1.4em; margin-top: 1.8em; }
+  .md code { background: rgba(127,127,127,.18); padding: .15em .4em; border-radius: 5px;
+        font: .88em ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
+  .md pre { background: rgba(127,127,127,.12); padding: 1em; border-radius: 8px;
+        overflow-x: auto; } .md pre code { background: none; padding: 0; }
+  .md table { border-collapse: collapse; width: 100%; margin: 1em 0; }
+  .md th, .md td { border: 1px solid #d0d7de; padding: 6px 13px; text-align: left; }
+  .md th { background: rgba(127,127,127,.12); }
+  .md blockquote { margin: 1em 0; padding: .2em 1em; color: #57606a;
+        border-left: 4px solid #d0d7de; }
+  .md a { color: #0969da; }
+</style></head><body><article class='md'><h1 id="crypto-aman-cryptoaman_free-crypto-amancryptoviptools-verdict">Crypto Aman (<code>@CryptoAman_Free</code> · <code>Crypto Aman🔐CryptoVipTools</code>) — verdict</h1>
+<p><strong>Analyzed:</strong> 2026-06-28 · 15,050 Telegram messages (2025-01-01 → 2026-06-28) ·<br />
+prices = free Binance 1h klines (spot, futures fallback). Same "CryptoVipTools"<br />
+network as the <code>Rose_Margin</code> worked example.</p>
+<hr />
+<h2 id="tldr-no-harvestable-mechanical-edge-alert-only-do-not-auto-trade">TL;DR — <strong>No harvestable mechanical edge. Alert-only; do NOT auto-trade.</strong></h2>
+<p>Crypto Aman posts <strong>structured scalp calls</strong> with the levels written in the caption<br />
+text (entry zone, a ladder of targets, and a "2H candle close beyond SL" stop). I<br />
+extracted <strong>531 unique calls</strong> (Oct 2025 → Jun 2026), graded <strong>509</strong> look-ahead-safe<br />
+against real Binance prices, and backtested a realistic $10k account.</p>
+<p>The signal is, at best, a <strong>gross coin-flip</strong>:</p>
+<ul>
+<li>Trading her <strong>stated plan</strong> (laddered partial take-profits, close-based stop) returns<br />
+<strong>+25% summed gross → −77% summed after a modest 0.2% round-trip cost → −229% at<br />
+  0.5%.</strong> Per trade: <strong>−0.15%</strong> net (55% win rate). The result lives or dies entirely<br />
+  on trading costs, i.e. there is no margin above fees.</li>
+<li>A realistic $10k account trading <strong>everything</strong> ends at <strong>−8% to −16%</strong> over the ~9<br />
+  months (risk-parity sizing makes it <em>worse</em>, a classic sign the underlying edge is<br />
+  negative).</li>
+<li>The losses concentrate in <strong>alt-coin scalps</strong> and in one of the two posters<br />
+  ("<strong>Orange</strong>"). <strong>Majors</strong> (BTC/ETH/SOL/BNB/XRP) and the "<strong>Apple</strong>" poster are<br />
+  roughly <strong>breakeven-to-marginally-positive</strong> — but thin, method-dependent, and from a<br />
+  single 9-month sample, so <strong>not</strong> something to bank real money on.</li>
+</ul>
+<p>Context: this window was a <strong>bear market</strong> — BTC <strong>−51%</strong>, ETH <strong>−65%</strong> buy-and-hold.<br />
+A scalper staying ~breakeven-gross through that isn't a disaster, but it isn't alpha<br />
+either, and after costs it bleeds.</p>
+<hr />
+<h2 id="what-she-posts-and-whats-gradeable">What she posts (and what's gradeable)</h2>
+<table>
+<thead>
+<tr>
+<th>Bucket</th>
+<th style="text-align: right;">Count</th>
+<th>Used?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Total messages scraped</td>
+<td style="text-align: right;">15,050</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Promo / BingX-referral spam</td>
+<td style="text-align: right;">~2,650</td>
+<td>excluded</td>
+</tr>
+<tr>
+<td>Update posts ("TARGET 1 ✅ / move SL to entry")</td>
+<td style="text-align: right;">~4,210</td>
+<td>not entries (her exit signals)</td>
+</tr>
+<tr>
+<td><strong>Structured entry calls (numeric Entry+SL+Type)</strong></td>
+<td style="text-align: right;"><strong>531 unique</strong></td>
+<td><strong>graded</strong></td>
+</tr>
+<tr>
+<td>→ graded</td>
+<td style="text-align: right;">509</td>
+<td>12 untriggered, 10 no-Binance-price</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Format (the dominant template, Oct-2025 onward):</strong></p>
+<pre><code>🔊 ETH SCALP TRADE:
+Current price - $2975
+Entry price - $2970 - $2960          ← entry zone
+Type - LONG
+Target - $2990, $3000 &amp; $3010+       ← laddered targets (3–5 typical)
+Stop Loss (SL) - If 2H candle closes below $2940
+</code></pre>
+<p>These are <strong>tight scalps</strong>: median stop distance <strong>2.5%</strong>, median hold <strong>~13h</strong>, two<br />
+named posters (<strong>Apple</strong> 364, <strong>Orange</strong> 130). Because the call fully specifies the<br />
+exit plan, <em>grading her stated plan = mirroring her</em> — no discretionary close-signal<br />
+mining was needed (unlike Rose).</p>
+<p><strong>Coverage limit:</strong> Jan–Sep 2025 calls were posted as <strong>chart images with prose<br />
+captions</strong> (levels on the picture), not the structured text template, so they are<br />
+<strong>not text-gradeable</strong> and are excluded. The graded universe is the <strong>structured-scalp<br />
+era, 2025-10-09 → 2026-06-28</strong> (~9 months, ~2 calls/day). This is forward-graded with<br />
+no winner cherry-picking, so there's no survivorship bias <em>within</em> the window.</p>
+<hr />
+<h2 id="how-it-was-graded-look-ahead-safe">How it was graded (look-ahead-safe)</h2>
+<ul>
+<li><strong>Entry</strong> = limit fill at her entry <strong>zone</strong>, on the first 1h candle after the post<br />
+  that reaches it; never reached within max-hold → <strong>untriggered</strong> (12, dropped).</li>
+<li><strong>Max-hold</strong> 120h (5d, generous vs her 2H–24H scalp horizon); clipped to now.</li>
+<li>Three exits per filled trade:</li>
+<li><strong>LADDER (her plan)</strong> — exit 1/N of size at each target (wick-touch); remainder<br />
+    stops when a <strong>1h candle <em>closes</em></strong> beyond SL (faithful to her "2H candle close"<br />
+    rule); leftover at max-hold close.</li>
+<li><strong>MECH</strong> — single first-touch of <strong>TP1 vs SL</strong> (both intrabar; SL wins ties). A<br />
+    hard-stop, pessimistic version.</li>
+<li><strong>RUN</strong> — let-it-run: close-based initial stop, then 25% trail after +20% in favor.</li>
+<li><code>return = (exit/entry − 1) × dir</code>. Friction reported at <strong>0% / 0.2% / 0.5%</strong><br />
+  round-trip (0.2% is the headline — realistic for liquid perps).</li>
+</ul>
+<hr />
+<h2 id="results">Results</h2>
+<h3 id="per-trade-509-trades-net-of-02">Per-trade (509 trades, net of 0.2%)</h3>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th style="text-align: right;">Win%</th>
+<th style="text-align: right;">Avg/trade</th>
+<th style="text-align: right;">Avg win</th>
+<th style="text-align: right;">Avg loss</th>
+<th style="text-align: right;">Sum</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>LADDER</strong> (her plan)</td>
+<td style="text-align: right;">55.4%</td>
+<td style="text-align: right;"><strong>−0.15%</strong></td>
+<td style="text-align: right;">+1.54%</td>
+<td style="text-align: right;">−2.25%</td>
+<td style="text-align: right;"><strong>−76.6%</strong></td>
+</tr>
+<tr>
+<td>MECH (TP1 vs hard SL)</td>
+<td style="text-align: right;">79.1%</td>
+<td style="text-align: right;">−0.18%</td>
+<td style="text-align: right;">+0.57%</td>
+<td style="text-align: right;">−3.04%</td>
+<td style="text-align: right;">−91.5%</td>
+</tr>
+<tr>
+<td>RUN (let-it-run)</td>
+<td style="text-align: right;">25.3%</td>
+<td style="text-align: right;">−0.79%</td>
+<td style="text-align: right;">+5.44%</td>
+<td style="text-align: right;">−2.91%</td>
+<td style="text-align: right;">−404.7%</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>MECH wins 79% of the time and still loses</strong> — the textbook scalper trap: TP1 (the<br />
+  first, nearest target) fills <strong>83%</strong> of the time for a tiny gain, but the <strong>20%</strong> that<br />
+  hit the stop lose ~5× as much. Small wins, fat tails.</li>
+<li><strong>RUN is catastrophic</strong> — her <em>entries</em> have no trend-continuation edge; giving the<br />
+  trade room just donates it back.</li>
+</ul>
+<h3 id="friction-sensitivity-ladder-summed">Friction sensitivity (LADDER, summed)</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">0% (gross)</th>
+<th style="text-align: right;">0.2% (net)</th>
+<th style="text-align: right;">0.5% (net)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;"><strong>+25.2%</strong></td>
+<td style="text-align: right;"><strong>−76.6%</strong></td>
+<td style="text-align: right;"><strong>−229.3%</strong></td>
+</tr>
+</tbody>
+</table>
+<p>The whole edge is <strong>inside the spread</strong>. Gross breakeven, net bleed.</p>
+<h3 id="segments-ladder-net-02-summed">Segments (LADDER, net 0.2%, summed)</h3>
+<table>
+<thead>
+<tr>
+<th>Segment</th>
+<th style="text-align: right;">n</th>
+<th style="text-align: right;">Win%</th>
+<th style="text-align: right;">Sum</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Majors (BTC/ETH/SOL/BNB/XRP)</td>
+<td style="text-align: right;">322</td>
+<td style="text-align: right;">58.1%</td>
+<td style="text-align: right;"><strong>+1.6%</strong></td>
+</tr>
+<tr>
+<td>Alts</td>
+<td style="text-align: right;">187</td>
+<td style="text-align: right;">50.8%</td>
+<td style="text-align: right;"><strong>−78.2%</strong></td>
+</tr>
+<tr>
+<td>Major longs</td>
+<td style="text-align: right;">225</td>
+<td style="text-align: right;">56.4%</td>
+<td style="text-align: right;">−10.9%</td>
+</tr>
+<tr>
+<td>Alt longs</td>
+<td style="text-align: right;">146</td>
+<td style="text-align: right;">52.7%</td>
+<td style="text-align: right;">−40.8%</td>
+</tr>
+<tr>
+<td>Longs</td>
+<td style="text-align: right;">371</td>
+<td style="text-align: right;">55.0%</td>
+<td style="text-align: right;">−51.7%</td>
+</tr>
+<tr>
+<td>Shorts</td>
+<td style="text-align: right;">138</td>
+<td style="text-align: right;">56.5%</td>
+<td style="text-align: right;">−24.8%</td>
+</tr>
+<tr>
+<td><strong>Apple</strong> poster</td>
+<td style="text-align: right;">364</td>
+<td style="text-align: right;">60.2%</td>
+<td style="text-align: right;"><strong>+9.2%</strong></td>
+</tr>
+<tr>
+<td><strong>Orange</strong> poster</td>
+<td style="text-align: right;">130</td>
+<td style="text-align: right;">40.8%</td>
+<td style="text-align: right;"><strong>−94.8%</strong></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>Note: by the pessimistic <strong>MECH</strong> method, <em>every</em> segment — including Apple<br />
+(−56.6%) — is negative. The only non-negative cuts (Apple, majors, shorts) appear<br />
+<strong>only</strong> under the laddered exit. Edge that exists in one exit rule and vanishes in<br />
+another is not robust.</p>
+</blockquote>
+<h3 id="realized-vs-the-brag">Realized vs. the brag</h3>
+<ul>
+<li>Average <strong>favorable excursion (MFE) = +6.2%</strong> per trade, but average <strong>realized<br />
+  LADDER = −0.15%</strong>. The price often moves her way; her tight targets/stops (and the<br />
+  reversals) mean almost none of that 6.2% is harvestable.</li>
+<li><strong>168 of 509</strong> trades moved <strong>≥1% in her favor yet still finished ≤0</strong> on the ladder.</li>
+<li>"Exit-at-peak" (+6.2% avg) is the kind of number a screenshot would brag — it is<br />
+<strong>unrealizable</strong>.</li>
+</ul>
+<hr />
+<h2 id="realistic-10k-account-event-driven-risk-parity-5-margin-cap-02-cost">Realistic $10k account (event-driven, risk-parity, 5× margin cap, 0.2% cost)</h2>
+<table>
+<thead>
+<tr>
+<th>Config</th>
+<th style="text-align: right;">Final</th>
+<th style="text-align: right;">Return</th>
+<th style="text-align: right;">maxDD</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ALL · risk-parity 1.5%/trade</td>
+<td style="text-align: right;">$8,394</td>
+<td style="text-align: right;"><strong>−16.1%</strong></td>
+<td style="text-align: right;">36%</td>
+</tr>
+<tr>
+<td>ALL · risk-parity 1.0%/trade</td>
+<td style="text-align: right;">$9,187</td>
+<td style="text-align: right;">−8.1%</td>
+<td style="text-align: right;">25%</td>
+</tr>
+<tr>
+<td>ALL · flat $1,000 notional (baseline)</td>
+<td style="text-align: right;">$9,234</td>
+<td style="text-align: right;">−7.7%</td>
+<td style="text-align: right;">13%</td>
+</tr>
+<tr>
+<td>MAJORS only</td>
+<td style="text-align: right;">$9,886</td>
+<td style="text-align: right;">−1.1%</td>
+<td style="text-align: right;">27%</td>
+</tr>
+<tr>
+<td>ALTS only</td>
+<td style="text-align: right;">$8,582</td>
+<td style="text-align: right;">−14.2%</td>
+<td style="text-align: right;">23%</td>
+</tr>
+<tr>
+<td><strong>APPLE poster only</strong></td>
+<td style="text-align: right;">$11,830</td>
+<td style="text-align: right;"><strong>+18.3%</strong></td>
+<td style="text-align: right;">27%</td>
+</tr>
+<tr>
+<td>LONGS only</td>
+<td style="text-align: right;">$8,195</td>
+<td style="text-align: right;">−18.0%</td>
+<td style="text-align: right;">30%</td>
+</tr>
+<tr>
+<td>SHORTS only</td>
+<td style="text-align: right;">$10,286</td>
+<td style="text-align: right;">+2.9%</td>
+<td style="text-align: right;">17%</td>
+</tr>
+</tbody>
+</table>
+<p>Risk-parity (bigger size on tighter stops) <strong>deepens</strong> the loss vs the flat baseline —<br />
+when the underlying expectancy is ≤0, "smart" sizing just levers the bleed.</p>
+<hr />
+<h2 id="honesty-caveats-read-these">Honesty caveats (read these)</h2>
+<ol>
+<li><strong>Costs decide everything.</strong> Gross ≈ breakeven; the verdict flips entirely on the<br />
+   assumed round-trip cost. On thin alts, real cost (spread + slippage on a leveraged<br />
+   scalp) is likely <strong>worse</strong> than 0.2%, so the live result is at the pessimistic end.</li>
+<li><strong>Execution realism is generous to her.</strong> I assume you get her exact entry zone via<br />
+   limit and that TP fills on a wick touch. Her posts have human latency (identical<br />
+   reposts 3 min apart), and a follower's fills will be worse than modeled.</li>
+<li><strong>The "Apple +18%" is a hypothesis, not a green light.</strong> One poster, one 9-month<br />
+   window, ~breakeven per-trade (+0.025% net), positive only with compounding under one<br />
+   exit rule, and negative under MECH. No out-of-sample. Treat as <em>worth watching</em>.</li>
+<li><strong>Coverage.</strong> Only the structured-text era (Oct 2025→) is graded; the 2025<br />
+   chart-image calls aren't text-gradeable. 10 calls on <code>CRO</code>/<code>MNT</code> are dropped — those<br />
+   coins have <strong>no Binance listing at all</strong> (free-oracle limitation), not cherry-picked.</li>
+<li><strong>Bear-market regime.</strong> BTC −51% / ETH −65% over the window; a different regime could<br />
+   look different — but "needs a bull market to work" is itself not an edge.</li>
+</ol>
+<hr />
+<h2 id="recommendation">Recommendation</h2>
+<p><strong>Alert-only. Do not auto-trade this channel.</strong> As a whole it is <strong>net-negative</strong> after<br />
+realistic costs, dragged down by alt scalps and the "Orange" poster. If you want to<br />
+keep watching anything, restrict alerts to <strong>Apple's major-coin scalps</strong> and treat them<br />
+as <strong>breakeven-until-proven-otherwise</strong>, applying your own judgment on entry/cost — not<br />
+as a signal to size into. The marketing multipliers are unrealizable peak excursions,<br />
+not takeable returns.</p>
+<hr />
+<h2 id="reproducibility-all-scripts-in-this-folder">Reproducibility (all scripts in this folder)</h2>
+<table>
+<thead>
+<tr>
+<th>Script</th>
+<th>Output</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>explore.py</code>, <code>samples.py</code>, <code>classify_explore.py</code></td>
+<td>data profiling / format discovery</td>
+</tr>
+<tr>
+<td><code>extract.py</code></td>
+<td><code>calls_extracted.json</code> — 531 structured calls</td>
+</tr>
+<tr>
+<td><code>grade.py</code></td>
+<td><code>graded.json</code> — 509 graded, 3 ways + segments</td>
+</tr>
+<tr>
+<td><code>backtest.py</code></td>
+<td><code>backtest.json</code> — $10k account, 8 configs</td>
+</tr>
+</tbody>
+</table>
+<p>Raw scrape: <code>../telegram_posts.json</code> (15,050 msgs). Prices cached in <code>../price_cache/</code>.<br />
+Re-run: <code>docker exec x-telegram-verifier python data/cryptoaman_free/analysis/&lt;script&gt;.py</code>.</p></article></body></html>
