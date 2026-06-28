@@ -15,7 +15,7 @@ per-account analysis (every caller formats calls differently — see `CLAUDE.md`
 > **Why "free-ish":** there are **no paid data APIs** — prices are free Binance
 > klines and chart-reading is just the model looking at the image. The only cost is
 > running Claude Code, which you can do on a **$20/mo Claude Pro subscription**
-> (mounted into the container at no per-token cost) instead of a metered API key.
+> (log in once inside the container — no per-token cost) instead of a metered API key.
 
 ---
 
@@ -105,9 +105,9 @@ folder *on your computer* — so you're never stuck reading raw Markdown in a co
 
 ## Layout
 ```
-scripts/         fixed, generic tools (scrapers + Binance price oracle)
+scripts/         fixed, generic tools (scrapers + Binance price oracle + helpers)
   scrape_twitter.py / x_login.py / scrape_telegram.py / download_tg_media.py
-  prices.py / common.py / start-display.sh
+  prices.py / common.py / start-display.sh / md2html.py / smoke-test.sh
 .devcontainer/   the container (Dockerfile + devcontainer.json)
 docker-compose.yml   plain-Docker alternative
 CLAUDE.md        the AI's playbook — the analysis workflow + honesty rules
