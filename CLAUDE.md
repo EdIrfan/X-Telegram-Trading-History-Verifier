@@ -1,5 +1,9 @@
 # CLAUDE.md — playbook for the AI (you) running inside this container
 
+> **First time on this machine? Read [`TODO.md`](TODO.md) first** — it has the current status,
+> the open task (the Windows acceptance test), and repo-specific gotchas (e.g. **MERGE, never
+> rebase**). This file is the *how-to-analyze* playbook; `TODO.md` is *where we are right now*.
+
 You are Claude Code, running **inside the dev container** of a tool that
 reverse-engineers paid crypto "signal" callers. A human points you at **one X
 account or one Telegram channel** and asks something like *"analyze @somecaller"*.
