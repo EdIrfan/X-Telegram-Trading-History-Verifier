@@ -11,8 +11,8 @@ services:
     build:
       context: .
       dockerfile: .devcontainer/Dockerfile
-    image: caller-reverse-engineer
-    container_name: caller-re
+    image: x-telegram-verifier
+    container_name: x-telegram-verifier
     working_dir: /workspace
     volumes:
       - .:/workspace

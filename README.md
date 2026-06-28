@@ -1,4 +1,4 @@
-# Caller Reverse-Engineer 🔬
+# X-Telegram-Verifier 🔬
 
 Point it at **any X (Twitter) account or any Telegram channel** that posts crypto
 "signals", and an AI (Claude Code, running *inside* the container) will scrape every
@@ -33,8 +33,8 @@ per-account analysis (every caller formats calls differently — see `CLAUDE.md`
 
 ## Quick start (VS Code Dev Container)
 ```bash
-git clone <your-fork-url> caller-reverse-engineer
-cd caller-reverse-engineer
+git clone <your-fork-url> X-Telegram-Verifier
+cd X-Telegram-Verifier
 cp .env.example .env          # fill in Telegram creds &/or API key (see comments)
 code .                        # VS Code → "Reopen in Container" when prompted
 ```

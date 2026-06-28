@@ -1,4 +1,4 @@
-# Caller-reverse-engineer dev container.
+# X-Telegram-Verifier dev container.
 # One image with everything: Python scrapers + a real browser (Playwright/Chromium)
 # viewable over noVNC + Node + Claude Code, so the AI drives the whole analysis here.
 FROM python:3.12-slim
