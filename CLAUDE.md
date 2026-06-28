@@ -122,6 +122,10 @@ Write into `data/<slug>/analysis/`:
    that surfaces new calls in real time, each tagged with the verdict for its segment.
    **Alert-only. It must never place trades.**
 
+When you hand off `REPORT.md`, remind the user how to read it: it's on their host via the
+`data/` mount, so VS Code Markdown preview, or `python scripts/md2html.py <REPORT.md>` →
+open the `.html` in a browser, or `python -m rich.markdown <REPORT.md>` in the terminal.
+
 ## 7. Worked references — read these before you start
 - `examples/rose-margin/` — full Telegram case: extraction harness, 3-way grader,
   risk-parity backtest, the **first-entry de-bias** that overturned the alt brags,

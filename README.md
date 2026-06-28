@@ -84,6 +84,18 @@ forward-calls-only, survivorship/coverage de-bias, realized-not-peak returns. Th
 default deliverable is **alert-only** — surface the calls, tag them with the verdict,
 let a human decide. **It does not auto-trade, and you shouldn't wire it to.**
 
+## Reading the reports
+The AI writes its findings as Markdown into `data/<account>/analysis/` (e.g. `REPORT.md`).
+Because `data/` is **bind-mounted to your host**, those files also appear in the repo
+folder *on your computer* — so you're never stuck reading raw Markdown in a container:
+- **VS Code** — open the `.md` and hit Markdown preview (`Ctrl`/`Cmd`+`Shift`+`V`).
+- **Any browser** (no VS Code) — convert to a self-contained HTML and open it on your host:
+  ```bash
+  python scripts/md2html.py data/<account>/analysis/REPORT.md   # writes REPORT.html
+  ```
+- **In the terminal** (headless) — `python -m rich.markdown data/<account>/analysis/REPORT.md`.
+- Or just open the `.md` in any host app (Obsidian, Typora, …) — it's a normal file.
+
 ## Limitations
 - **X rate-limits hard.** The scraper paces + backs off and **resumes** on re-run;
   expect to run it a few times to fill a long history. Patience > one big run.
