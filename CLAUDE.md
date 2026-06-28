@@ -68,6 +68,13 @@ Conventions that matter:
   what she draws. Read them off the picture.
 - **Map tickers to Binance.** Use spot if listed, else USDT-M futures. Commodities
   count **iff** on Binance futures (e.g. WTI oil = `CLUSDT`); otherwise exclude.
+  - **Delisted / never-listed coins are ungradeable here.** Binance klines returns
+    `-1121 Invalid symbol` (no history at all) for pairs it doesn't currently list —
+    e.g. `CRO`, `MNT`. The free Binance oracle is the only price source (no paid
+    APIs), so you **cannot** recover a delisted coin's history; **drop those calls and
+    report the count** as a coverage limitation rather than reaching for another feed.
+  - When caching price fetches, **never cache an empty result** — a transient network
+    failure must retry, not poison the cache with `[]`.
 - **Dedupe reposts** ("same chart 3 min later") but keep **changed-level** reposts
   as new trades.
 - Tag `kind`: actionable setups vs. `update` (PnL brags), `commentary`, `close`

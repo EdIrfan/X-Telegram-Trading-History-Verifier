@@ -51,6 +51,13 @@ def load_env() -> dict:
             line = line.strip()
             if line and not line.startswith("#") and "=" in line:
                 k, v = line.split("=", 1)
+                v = v.strip()
+                # Strip a whitespace-separated inline comment (` # ...`) so the
+                # commented .env.example lines work when filled in. A '#' with no
+                # leading space is kept (it may be part of a key/secret).
+                m = re.search(r"\s#", v)
+                if m:
+                    v = v[:m.start()].rstrip()
                 env[k.strip()] = v.strip().strip('"').strip("'")
     for k in ("TG_API_ID", "TG_API_HASH", "TG_PHONE", "ANTHROPIC_API_KEY"):
         env.setdefault(k, os.environ.get(k, ""))
