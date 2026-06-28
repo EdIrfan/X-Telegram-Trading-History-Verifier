@@ -32,8 +32,9 @@ because every caller posts differently.
 - **X/Twitter:** a session exists at `data/secrets/x_storage_state.json` — either
   from `python scripts/x_login.py` (noVNC login at http://localhost:6080/vnc.html)
   or a host-exported file dropped there.
-- **You (Claude Code):** authenticated via the mounted `~/.claude` (subscription) or
-  `ANTHROPIC_API_KEY`. If a scrape needs a browser, run `bash scripts/start-display.sh`.
+- **You (Claude Code):** logged in once inside the container (`claude` → `/login` for a
+  subscription, persisted in a named volume) or via `ANTHROPIC_API_KEY`. If a scrape needs
+  a browser, run `bash scripts/start-display.sh`.
 
 ## 2. Scrape (fixed tools — parametrized, never edit for a new account)
 ```bash

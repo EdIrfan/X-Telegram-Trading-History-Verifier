@@ -23,10 +23,11 @@ per-account analysis (every caller formats calls differently — see `CLAUDE.md`
 - **Docker** (Desktop or Engine).
 - **VS Code** with the *Dev Containers* extension — *recommended path*. (Or use plain
   Docker; see [below](#plain-docker-no-vs-code).)
-- **Claude Code auth**, either:
-  - a **Claude Pro/Max subscription** — run `claude` once on your host so `~/.claude`
-    exists; the container mounts it (cheapest, $0/token), **or**
-  - an **`ANTHROPIC_API_KEY`** (pay-per-token) — put it in `.env` or your shell.
+- **Claude Code auth** — you log in **once inside the container** (it persists in a named
+  volume across rebuilds). Either:
+  - a **Claude Pro/Max subscription** ($0/token): run `claude`, then `/login`, **or**
+  - an **`ANTHROPIC_API_KEY`** (pay-per-token) — set it in your host shell (passed through)
+    or `export` it inside the container.
 - For **Telegram**: a free `api_id`/`api_hash` from <https://my.telegram.org>.
 - For **X/Twitter**: just an X account you can log into once.
 
@@ -56,6 +57,13 @@ Then just **open Claude Code** (the sidebar, or `claude` in the terminal) and sa
 It follows `CLAUDE.md`: extracts the calls, grades them three ways, backtests a
 realistic account, applies the bias checks, and writes a report into
 `data/<account>/analysis/` — then offers to build an alert-only bot.
+
+### Windows
+Works via **Docker Desktop** (with the **WSL2** backend) + VS Code Dev Containers — the
+same `code .` → *Reopen in Container* flow. Two tips: clone into your **WSL2** filesystem
+(e.g. `\\wsl$`) for speed, and don't worry about line endings — `.gitattributes` forces LF
+so the in-container shell scripts run. Auth is the same `claude` → `/login` inside the box
+(no host `~/.claude` mounting needed, so Windows' lack of `$HOME` is a non-issue).
 
 ## Plain Docker (no VS Code)
 ```bash

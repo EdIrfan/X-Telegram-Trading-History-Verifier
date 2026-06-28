@@ -11,14 +11,16 @@
   },
 
   // --- AUTH for Claude Code (the AI runs inside the container) ---
-  // Subscription ($20/$100 Pro/Max): your host login is mounted, so `claude`
-  //   just works with no per-token cost. REQUIRES ~/.claude to exist on your host
-  //   (run `claude` once on your machine first). If you authenticate by API key
-  //   ONLY and have no host ~/.claude, delete the "mounts" line below.
+  // Your Claude login persists in this named volume — fully cross-platform
+  // (Windows/Mac/Linux), survives rebuilds. Log in ONCE inside the container:
+  //   `claude`  then  /login   (Pro/Max subscription, $0/token)   — or —
+  //   set ANTHROPIC_API_KEY (below) for pay-per-token.
+  // (Linux/Mac power users who'd rather inherit their HOST login can instead use:
+  //   "source=${localEnv:HOME}/.claude,target=/root/.claude,type=bind")
   "mounts": [
-    "source=${localEnv:HOME}/.claude,target=/root/.claude,type=bind,consistency=cached"
+    "source=claude-config,target=/root/.claude,type=volume"
   ],
-  // API key path: set ANTHROPIC_API_KEY in your shell (or .env) and it's passed in.
+  // If you set ANTHROPIC_API_KEY in your host shell, it's passed straight through.
   "containerEnv": {
     "ANTHROPIC_API_KEY": "${localEnv:ANTHROPIC_API_KEY}",
     "DISPLAY": ":99"

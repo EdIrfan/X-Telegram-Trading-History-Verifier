@@ -16,11 +16,13 @@ services:
     working_dir: /workspace
     volumes:
       - .:/workspace
-      # Subscription auth — comment this out if you use ANTHROPIC_API_KEY only:
-      - ${HOME}/.claude:/root/.claude
+      - claude-config:/root/.claude   # Claude login persists here — log in once inside
     environment:
       - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY:-}
       - DISPLAY=:99
     ports:
       - "6080:6080"   # noVNC
     command: bash -lc "bash scripts/start-display.sh; sleep infinity"
+
+volumes:
+  claude-config:
