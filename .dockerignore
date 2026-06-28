@@ -1,0 +1,23 @@
+# Keep the Docker build context tiny and secret-free.
+# The image only needs requirements.txt at build time; everything else is bind-mounted.
+.git
+.venv
+venv
+__pycache__
+**/__pycache__
+*.pyc
+
+# runtime data + secrets must never enter an image layer
+data
+**/data
+.env
+*.session
+*.session-journal
+**/secrets
+storage_state*.json
+*-profile
+
+# editor / OS noise
+.idea
+.DS_Store
+*.log
