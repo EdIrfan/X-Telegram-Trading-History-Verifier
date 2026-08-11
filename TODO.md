@@ -19,7 +19,19 @@ Done so far:
 - Two worked examples in `examples/` (Rose Margin = Telegram; blockchainedbb = X). Both
   reached the same verdict: **no harvestable mechanical edge → alert-only**.
 
-## ▶ THE OPEN TASK: Windows clean-room acceptance test
+## ✅ DONE (2026-06-28): Windows clean-room acceptance test — PASSED
+
+Run on Windows 11 + Docker Desktop. `docker compose up -d --build` → **smoke-test 14/14,
+FAIL=0**, then a full real run end-to-end: scraped `@CryptoAman_Free` (15,050 msgs) and
+wrote `data/cryptoaman_free/analysis/REPORT.md` (verdict: no harvestable edge → alert-only).
+Two clean-room bugs found + fixed: (1) `.env` parser kept inline `#` comments → broke
+`TG_PHONE` login (`scripts/common.py`); (2) playbook now documents delisted/never-listed
+coins (CRO/MNT) as ungradeable on the Binance-only oracle, and "never cache empty prices".
+Note: Telegram 2FA-password login must be finished interactively in a terminal (the AI
+can drive the request/code 2-phase, but not a cloud password). Procedure below, for reference.
+
+### (original task, kept for reference)
+
 Prove that a fresh `git clone` on Windows yields a working tool (the Linux box where it was
 built doesn't prove cross-platform).
 

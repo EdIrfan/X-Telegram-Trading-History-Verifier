@@ -96,6 +96,11 @@ folder *on your computer* — so you're never stuck reading raw Markdown in a co
 - **In the terminal** (headless) — `python -m rich.markdown data/<account>/analysis/REPORT.md`.
 - Or just open the `.md` in any host app (Obsidian, Typora, …) — it's a normal file.
 
+The finished verdict reports are also **published (committed) under `Reports/`**, one folder
+per account — `Reports/<Platform>-<handle>/REPORT.md` (+ `.html`), e.g.
+`Reports/Telegram-CryptoAman_Free/`. That's the only thing checked into git from a run: the
+**raw scrapes, caches and credentials under `data/` stay local and git-ignored**.
+
 ## Limitations
 - **X rate-limits hard.** The scraper paces + backs off and **resumes** on re-run;
   expect to run it a few times to fill a long history. Patience > one big run.
@@ -114,12 +119,16 @@ CLAUDE.md        the AI's playbook — the analysis workflow + honesty rules
 examples/        two full worked cases (data git-ignored):
   rose-margin/      Telegram — extraction, 3-way grader, de-bias, alert bot
   blockchainedbb/   X/Twitter — scraping, grading, laddered backtest
+Reports/         published verdict reports — COMMITTED (Reports/<Platform>-<handle>/REPORT.md)
 data/            everything runtime (per-account scrapes, caches, outputs) — git-ignored
 ```
 
 ## Security
 - `.env`, `*.session`, and `*storage_state*` are git-ignored; **your credentials
   never leave your machine** — you log into Telegram/X yourself, in your container.
-- All scraped data and AI outputs under `data/` are git-ignored — a clone ships the
-  **tools**, never a specific caller's data.
+- All raw scrapes, caches and intermediate outputs under `data/` are git-ignored — a
+  clone ships the **tools**, never a caller's raw data or your credentials.
+- The exception is the **published verdict reports** under `Reports/`, which *are*
+  committed on purpose — they hold the analysis + recommendation only (no credentials,
+  no raw scrape), so the conclusions can be versioned and shared.
 - The optional alert bot is **alert-only** by construction.

@@ -68,6 +68,13 @@ Conventions that matter:
   what she draws. Read them off the picture.
 - **Map tickers to Binance.** Use spot if listed, else USDT-M futures. Commodities
   count **iff** on Binance futures (e.g. WTI oil = `CLUSDT`); otherwise exclude.
+  - **Delisted / never-listed coins are ungradeable here.** Binance klines returns
+    `-1121 Invalid symbol` (no history at all) for pairs it doesn't currently list —
+    e.g. `CRO`, `MNT`. The free Binance oracle is the only price source (no paid
+    APIs), so you **cannot** recover a delisted coin's history; **drop those calls and
+    report the count** as a coverage limitation rather than reaching for another feed.
+  - When caching price fetches, **never cache an empty result** — a transient network
+    failure must retry, not poison the cache with `[]`.
 - **Dedupe reposts** ("same chart 3 min later") but keep **changed-level** reposts
   as new trades.
 - Tag `kind`: actionable setups vs. `update` (PnL brags), `commentary`, `close`
@@ -118,7 +125,7 @@ the same scrutiny every time:
   hedging / re-timing. State this as a caveat; it cuts both ways.
 
 ## 6. Deliverables
-Write into `data/<slug>/analysis/`:
+Write into `data/<slug>/analysis/` (this whole dir is git-ignored — your working area):
 1. `REPORT.md` — TL;DR verdict, per-segment numbers, the bias caveats, and a clear
    recommendation (almost always: alert-only + which segments, if any, to consider).
 2. The graded/backtest JSON + the scripts you wrote (so it's reproducible).
@@ -126,9 +133,22 @@ Write into `data/<slug>/analysis/`:
    that surfaces new calls in real time, each tagged with the verdict for its segment.
    **Alert-only. It must never place trades.**
 
+**Then publish the report.** Copy the finished `REPORT.md` (+ `REPORT.html`) — and **only**
+those, never the raw scrapes/JSON/credentials — into a top-level, **committed** folder:
+
+```text
+Reports/<Platform>-<handle>/REPORT.md   (+ REPORT.html)
+```
+
+`<Platform>` is `Telegram` or `X`; `<handle>` is the channel/account
+(e.g. `Reports/Telegram-CryptoAman_Free/`). `Reports/` is **not** git-ignored — it's how
+verdicts get versioned and pushed; `data/` stays local. (Generate the HTML with
+`python scripts/md2html.py <REPORT.md>`.) Commit `Reports/` by explicit path; **never**
+`git add` anything under `data/`.
+
 When you hand off `REPORT.md`, remind the user how to read it: it's on their host via the
-`data/` mount, so VS Code Markdown preview, or `python scripts/md2html.py <REPORT.md>` →
-open the `.html` in a browser, or `python -m rich.markdown <REPORT.md>` in the terminal.
+`data/` mount (VS Code Markdown preview, the `.html` in a browser, or
+`python -m rich.markdown <REPORT.md>`), and the committed copy lives in `Reports/`.
 
 ## 7. Worked references — read these before you start
 - `examples/rose-margin/` — full Telegram case: extraction harness, 3-way grader,
